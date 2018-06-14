@@ -1,0 +1,41 @@
+{% extends 'base/base_gestor.html' %}
+{% block base_content %}
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><h3>Cadastro de Usuário</h3></div>
+            <div class="panel-body">
+                <form action="{% url 'gestor:cadastro_usuario' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="Primeiro nome">Primeiro nome:</label>
+                    {{ form.first_name }}
+                    {{ form.first_name.error }}
+                    
+                    <label for="Ultimo nome">Ultimo nome:</label>
+                    {{ form.last_name }}
+                    {{ form.last_name.error }}
+
+                    <label for="email">E-mail:</label>
+                    {{ form.email }}
+                    {{ form.email.error }}
+
+                    <label for="Usuario">Usuario:</label>
+                    {{ form.username }}
+                    {{ form.username.error }}
+
+                    <label for="senha">Usuario:</label>
+                    {{ form.password }}
+                    {{ form.password.error }}
+                    <br>
+                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

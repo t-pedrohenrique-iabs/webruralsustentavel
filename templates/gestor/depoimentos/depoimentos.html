@@ -1,0 +1,35 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Lista de depoimentos</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		{% for x in all_depoimentos %}
+			<div class="col-md-3">
+				<a href="/gestor/depoimento/update/{{ x.id }}">
+					<img src="{{ x.link_img }}" alt="" class="img-responsive">
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+
+</div>
+
+<script>
+	$(document).ready(function(){
+
+
+		// $('.container').on('mousedown', '.btn-save', function() {
+
+		// });
+
+	});
+</script>
+
+{% endblock %}

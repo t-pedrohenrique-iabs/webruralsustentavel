@@ -1,0 +1,372 @@
+{% extends "base/base_janela.html" %}
+{% load static %}
+
+{% block base_content %}
+
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="infografico">
+            <h2 class="mb-5">Infográficos</h2>
+            <br><br><br><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="/infografico/info_car">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/car.png" %}"    width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_ilpf">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/ilpf.png" %}"   width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_florestasnativas">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/manejo.png" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_saf">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/saf.png" %}"    width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_ud">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/ud.png" %}"     width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="/infografico/info_um">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/um.png" %}"     width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_rad_f">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/rad_f.jpg" %}"  width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_pfc">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/pfc.jpg" %}"    width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_gestao">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/gestao.jpg" %}"     width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/infografico/info_rad_p">
+                        <img class="hover-infografico" src="{% static "image/infografico/capa/rad_p.jpg" %}"     width="100%">
+                    </a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </section>
+
+        <style>
+            .hover-pub, .informe_tec {
+                padding: 40px;
+            }    
+        </style>
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="publicacao">
+            <h2 class="mb-5">Documentos Técnicos</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="hover-pub">
+                        <a href="/flipbook_doctec_gestao/">
+                            <img src="http://www.youblisher.com/files/publications/312/1867888/200x300.jpg" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center">Gestão da Propriedade Rural</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="hover-pub">
+                        <a href="/flipbook_doctec_ilpf">
+                            <img src="http://www.youblisher.com/files/publications/312/1867897/200x300.jpg" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center">Integração Lavoura-Pecuária-Floresta (iLPF)</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="hover-pub">
+                        <a href="/flipbook_doctec_rad">
+                            <img src="http://www.youblisher.com/files/publications/313/1877484//200x300.jpg" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center">Recuperação de Áreas Degradadas com Pastagem e/ou Florestas</div>
+                </div>     
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="hover-pub">
+                        <a href="/flipbook_doctec_pfc">
+                            <img src="http://www.youblisher.com/files/publications/313/1877486//200x300.jpg" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center">Plantio de Florestas Comerciais</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="hover-pub">
+                        <a href="/flipbook_doctec_msfn" >
+                            <img src="http://www.youblisher.com/files/publications/319/1909648//200x300.jpg" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center">Manejo Sustentável de Florestas Nativas</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="informes">
+            <h2 class="mb-5">Informes Técnicos</small></h2>
+            <div class="row">
+                <div class="col-md-3 informe_tec">
+                    <a href="/informativo/gestao_propriedade">
+                        <img style="border:1px solid" src="{% static "image/informativo/informativo_01.jpg" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="/informativo/ilpf">
+                        <img style="border:1px solid" src="{% static "image/informativo/informativo_02.jpg" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="/informativo/rad">
+                        <img style="border:1px solid" src="{% static "image/informativo/informativo_03.jpg" %}" width="100%">
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3 informe_tec">
+                    <a href="/informativo/florestas_comerciais">
+                        <img style="border:1px solid" src="{% static "image/informativo/informativo_04.jpg" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="/informativo/florestas_nativas">
+                        <img style="border:1px solid" src="{% static "image/informativo/informativo_05.jpg" %}" width="100%">
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4"></div>
+            </div>
+        </section>
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="cartilhas">
+            <h2 class="mb-5">Cartilhas</small></h2>
+            <div class="row">
+                <div class="col-md-3 informe_tec">
+                    <a href="http://editora.iabs.org.br/site/index.php/portfolio-items/ajudando-a-melhorar-o-clima-vantagens-da-agricultura-de-baixo-carbono/#dflip-df_14443/1/" target="_blank">
+                        <img style="border:1px solid" src="{% static "image/cartilhas/capa_Cartilha_Ajudando_Melhorar_Clima_baixa.png" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="http://editora.iabs.org.br/site/index.php/portfolio-items/planejar-e-ganhar-e-so-comecar-cartilha-gestao-da-propriedade-rural-e-preservacao-da-natureza/#dflip-df_14745/1/" target="_blank">
+                        <img style="border:1px solid" src="{% static "image/cartilhas/capa_Cartilha_Planejar_ganhar_e_so_comecar_baixa.png" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="http://editora.iabs.org.br/site/index.php/portfolio-items/e-cuidando-que-se-recebe-servicos-ecossistemicos-e-melhoria-no-sistema-produtivo/#dflip-df_14761/1/" target="_blank">
+                        <img style="border:1px solid" src="{% static "image/cartilhas/capa_cuidando.jpg" %}" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 informe_tec">
+                    <a href="http://editora.iabs.org.br/site/index.php/portfolio-items/semeando-boas-acoes-criterio-de-selecao-de-especies-para-sistemas-florestais/#dflip-df_14854/1/" target="_blank">
+                        <img style="border:1px solid" src="{% static "image/cartilhas/capa_sistemas_florestais.png" %}" width="100%">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="videos">
+            <h2 class="mb-5">Vídeos <small>(depoimentos)</small></h2>
+            
+            <div class="row">
+                {% for x in all_depoimentos %}
+                    <div class="col-md-4" style="margin-top: 10px;">
+                        <a href="/depoimento/{{ x.id }}/video">
+                            <img style="border:1px solid" src="{{ x.link_img }}" width="100%">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="janela">
+            <h2 class="mb-5">Outros Materiais</small></h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Material de Apoio</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>
+                                    <a target="_blank" onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/Manual_Operacional_-BR-X1028_-_Junho_2016.pdf">
+                                    Manual Operacional
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>
+                                    <a target="_blank" onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/Modelo_Instrumento_de_Alteracao_Contratual_ao_Acordo_de_CT_ATEC_Produtor_Instituicao.pdf">
+                                    Modelo de Aditivo contratual ao Acordo de Cooperação Técnica entre o Produtor, o ATEC e a Instituição
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/dropbox_redirect.html">
+                                    Modelos de arranjo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/Tutorial_Como_se_inscrever_no_Moodle.ppt">
+                                    Tutorial - Como se inscrever nos cursos a distância
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="{% static "image/documentos/Tutorial_Cadastro_de_ATER_e_ATEC.pdf" %}">Tutorial de Cadastro de ATER e ATEC</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="{% static "image/documentos/Tutorial_PTEC_no_Portal_UD.pdf" %}">Tutorial de PTEC de UD</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="{% static "image/documentos/Tutorial_Cadastro_UM.pdf" %}">Tutorial de PTEC de UM</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Tutorial Geoprocessamento</h3>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <a data-toggle="collapse" data-target="#video1">Vídeo 1 - Adicionar Arquivos e Tabela de Atributos</a>
+                        <div id="video1" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZZMPE1WT7ZQ" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video2">Vídeo 2 - ArcGis - Legenda e Transparência</a>
+                        <div id="video2" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/61QcYakZ4Rw" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video3">Vídeo 3 - ArcGis Coordenada Central do Imovel</a>
+                        <div id="video3" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/cPhi9lC5MZk" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video4">Vídeo 4 - Área de Conservação Manejo</a>
+                        <div id="video4" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/FdYpjXnNEdw" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video5">Vídeo 5 - ArcGis Correção do Deslocamento</a>
+                        <div id="video5" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/CBp_9GzVrGo" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video6">Vídeo 6 - ArcGis Área Manejo 2 e Sobreposição</a>
+                        <div id="video6" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/JVyO7t47i_4" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <a data-toggle="collapse" data-target="#video8">Vídeo 7 - ArcGis Cadastro KML</a>
+                        <div id="video8" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/V1VhHHFTGDI" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video9">Vídeo 8 - ArcGis APP</a>
+                        <div id="video9" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/T6zLtWW1nZ4" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video10">Vídeo 9 - ArcGis Calculando Área de Conservação</a>
+                        <div id="video10" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/OG6YQYeWXvE" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video11">Vídeo 10 - ArcGis Área Produtiva</a>
+                        <div id="video11" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/tfEoTXXSN4g" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video12">Vídeo 11 - Google Earth Base de Dados</a>
+                        <div id="video12" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/7c8BQKeByNI" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div>
+                        <a data-toggle="collapse" data-target="#video13">Vídeo 12 - Google Earth editando Polígno</a>
+                        <div id="video13" class="collapse"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZEzLy1UbkGE" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Material de Apoio</h3>
+                    <div>
+                        <ul>
+                          <li>
+                             <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/miv-PRS-1.4.pdf">
+                                MIV - Manual de identidade Visual
+                             </a>
+                          </li>
+                          <li>
+                             <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/Papel-Seriado-web.pdf">
+                                Papel seriado (Apresentação do projeto)
+                             </a>
+                          </li>
+                          <li>
+                             <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/FolderA3_web.pdf">
+                                Folder institucional do projeto
+                             </a>
+                          </li>
+                          <li>
+                             <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/CartazA2-PRS.pdf">
+                                Cartaz de divulgação do projeto - A2
+                             </a>
+                          </li>
+                          <li>
+                             <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/release_chamadaUM-PRS.pdf">
+                                Release da chamada de propostas para UM
+                             </a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104762470-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "janelaconhecimento/vendor/jquery/jquery.min.js"%}"></script>
+    <script src="{% static "janelaconhecimento/vendor/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "janelaconhecimento/vendor/jquery-easing/jquery.easing.min.js"%}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static "janelaconhecimento/js/resume.js"%}"></script>
+
+<!--   </body>
+
+</html>
+ -->
+
+ {% endblock %}

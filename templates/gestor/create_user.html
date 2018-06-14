@@ -1,0 +1,42 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    // $(document).ready(function(){
+    //     status_login = localStorage.getItem("is_logged");
+    //     if ( status_login == null ) {
+    //         window.location.href = "/gestor";
+    //     }
+    // });
+</script>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">SALVAR</button>
+    </form>
+
+
+    <br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%;text-align: center;border:1px solid #000;padding: 10px;">ID</th>
+                <th style="width: 50%;border:1px solid #000;padding: 10px;">Usuario</th>
+                <th style="width: 30%;border:1px solid #000;padding: 10px;">E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in usuarios %}
+            <tr>
+                <td style="width: 150px;text-align: center;border:1px solid #000;padding: 10px;">{{x.id}}</td>
+                <td style="width: 50%;border:1px solid #000;padding: 10px;">{{x.nome}}</td>
+                <td style="width: 30%;border:1px solid #000;padding: 10px;">{{x.email}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+

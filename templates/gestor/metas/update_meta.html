@@ -1,0 +1,34 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h2>Atualização das metas gerais do PRS</h2>
+			</div>
+		</div>
+	</div>
+
+	<br><br><br>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-offset-4 col-md-4">
+    			<form method="POST">
+    				{% csrf_token %}
+	    			{{form_meta}}
+	    			<br>
+	    			<button type="submit" class="btn btn-success btn-block">Salvar</button>
+	    		</form>
+    		</div>
+    	</div>
+    </div>
+
+<script>
+$(document).ready(function(){
+
+});
+</script>
+
+{% endblock %}

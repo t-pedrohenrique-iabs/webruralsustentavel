@@ -1,0 +1,41 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    $(document).ready(function(){
+        status_login = localStorage.getItem("is_logged");
+        if ( status_login == null ) {
+            window.location.href = "/gestor";
+        }
+    });
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table table-hover" style="width: 100%;">
+                <caption>Lista de e-mails cadastrado na newsletter</caption>
+                <thead>
+                    <tr>
+                        <th><h2>Nome</h2></th>
+                        <th><h2>Email</h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in list_email %}
+                    <tr>
+                        <td><h4>{{x.nome}}</h4></td>
+                        <td><h4>{{x.email}}</h4></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

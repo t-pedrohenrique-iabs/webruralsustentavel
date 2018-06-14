@@ -1,0 +1,38 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Novo depoimentos</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<form method="POST">
+			{% csrf_token %}
+
+			<div class="col-md-12">{{formDepoimento}}</div>
+
+			<div class="col-md-12" style="margin-top: 50px;">
+				<button type="submit" class="btn btn-primary btn-block btn-save">SALVAR DEPOIMENTO</button>
+			</div>
+
+		</form>
+	</div>
+			
+</div>
+
+<script>
+	$(document).ready(function(){
+
+
+		// $('.container').on('mousedown', '.btn-save', function() {
+
+		// });
+
+	});
+</script>
+
+{% endblock %}

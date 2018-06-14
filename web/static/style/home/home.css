@@ -1,0 +1,98 @@
+header {
+    text-align: center;
+    background-image: url('../../image/home/bg/imagem_3.jpg');
+    background-position-y: center;
+    background-position-x: center;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header .container {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+header img {
+    display: block;
+    margin: 0 auto 20px;
+}
+header .intro-text .name {
+    display: block;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2em;
+}
+header .intro-text .skills {
+    font-size: 1.25em;
+    font-weight: 300;
+}
+@media (min-width: 768px) {
+    header .container {
+    padding-top: 200px;
+    padding-bottom: 100px;
+    }
+    header .intro-text .name {
+        font-size: 4.75em;
+    }
+    header .intro-text .skills {
+        font-size: 1.75em;
+    }
+}
+div#maincontent {
+    outline: none;
+}
+
+#Mato_Grosso_2_:hover{
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}s
+#Pará_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+#Rondônia_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+#Bahia_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+#Minas_Gerais_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+#Paraná_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+#Rio_Grande_do_Sul_2_:hover {
+    fill: rgba(0, 0, 0, 0.69);
+    cursor: pointer;
+}
+header .container {
+    padding-top: 20px !important;
+}
+.container-miolo-news {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.container-newsleter {
+    background-color: #70AA2E;
+    padding: 30px;
+    margin-bottom: 70px;
+    color: #FFF;
+}
+.container-contacts {
+    margin-bottom: 70px;
+}
+.glyphicon.contato {
+    font-size: 25px;
+}
+.text-contato {
+        font-size: 20px;
+}
+.tilulo_destaque h4{
+    color: #70AA55;
+    font-weight: bold;
+}

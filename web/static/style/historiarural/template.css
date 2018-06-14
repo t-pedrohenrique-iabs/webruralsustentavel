@@ -1,0 +1,89 @@
+{% load static %}
+
+h1 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align:center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#FFF;
+    margin-top: 0px;
+    padding-top: 40px;
+    text-shadow: 3px 3px 5px #000;
+}
+
+body{width: 100%; height: 100%; overflow-x: hidden;}
+html{width: 100%; height: 100%;}
+
+.flutuante {
+    display: block;
+    padding: 1px;
+    margin: 20px 0 0 0;
+    position: fixed;
+    background-color: #ffffff;
+}
+
+#topo{
+    height:100%;
+    background-color:#004c82;
+    /* background: url({% static 'image/historiarural/capa_historias.jpg' %}); */
+    background: url(../../image/historiarural/capa_historias.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.seta-home {
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-size: 68px;
+}
+.container-branco{min-height: 70%;}
+
+#contracapa{
+    background-image: url(../../image/historiarural/contracapa_historias.jpg);
+    background-size:100%;
+    color: #ffffff;
+    text-align: right;
+    padding: 80px 0;
+    background-repeat: no-repeat;
+}
+#secao3{
+    background-image: url(../../image/historiarural/foto3_historias.jpg);
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.textoesquerda{
+    margin-left: 130px;
+    background: -moz-linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 100%);
+    background: linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 100%);
+    padding: 40px 50px 10px 50px; color: #ffffff;
+    height: 100%;
+}
+.textoesquerda h4{line-height: 1.5;}
+#video{ background-color: #}
+
+@media screen and (width:600px){
+    .container-branco{min-height: 40%;}
+    html{height: 70%;}
+    #secao3{height: 50%;}
+    .flutuante{display: none;}
+}
+@media screen and (width:768px){
+    .container-branco{min-height: 40%;}
+    html{height: 70%;}
+    #secao3{height: 50%;}
+    .flutuante{display: none;}
+}
+@media screen and (max-width:480px){
+    .container-branco{min-height: 40%;}
+    #secao3{height: 50%;}
+    .flutuante{display: none;}
+    #contracapa{
+    background-size: auto 100%;}
+    .textoesquerda{margin-left: 0px; padding:20px; height: 100%; background: -moz-linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 10%);
+    background: -webkit-linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 10%);
+    background: linear-gradient(bottom, rgba(0,0,10,0) 10%, rgba(0,0,10,0.7) 10%);}
+    .textoesquerda h4{font-size: 14px;}
+}
+}

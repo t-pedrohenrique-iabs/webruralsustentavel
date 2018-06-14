@@ -1,0 +1,255 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    $(document).ready(function(){
+        status_login = localStorage.getItem("is_logged");
+        if ( status_login == null ) {
+            window.location.href = "/gestor";
+        }
+    });
+</script>
+
+    <style>
+        .card_qtd {
+            border:  1px solid #000;
+            height: 90px;
+            padding: 0;
+            border-radius: 10px;
+        }
+        .line_card {
+            height: 60%;
+            width: 100%;
+            display: inline-flex;
+            border-radius: 5px 5px 0 0;
+            padding: 5px;
+        }
+        .nome_card {
+            width: 70%;
+            font-size: 14px;
+            color: #FFF;
+        }
+        .valor_card {
+            width: 30%;
+            font-size: 18px;
+            color: #FFF;
+            padding: 10px;
+            text-align: center;
+        }
+        .line_input{
+            padding: 0px 2px;
+            height: 39%;
+            border-radius: 0 0 5px 5px;
+        }
+        .line_input input{
+            width: 100%;
+            border-radius: 0 0 5px 5px;
+            /* height: 28px; */
+            text-align: center;
+            color: #848D95;
+            /* font-weight: bold; */
+            font-size: 10px
+        }
+    </style>
+
+    <h1>Metas gerais do projeto</h1>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="card_qtd" style="border: 2px solid #5cb85c;">
+                <div class="line_card" style="background-color: #5cb85c;">
+                    <div class="nome_card">Unidade Demonstrativa</div>
+                    <div class="valor_card">{{ meta_atual.total_ud }}</div>
+                </div>
+                <div class="line_input" style="background-color: #5cb85c;">
+                    <input class="" id="id_total_ud" maxlength="500" name="total_ud" type="text" placeholder="Informe aqui a quantidade">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card_qtd" style="border: 2px solid #337ab7;">
+                <div class="line_card" style="background-color: #337ab7;">
+                    <div class="nome_card">Unidade Multiplicadora</div>
+                    <div class="valor_card">{{ meta_atual.total_um }}</div>
+                </div>
+                <div class="line_input" style="background-color: #337ab7;">
+                    <input class="" id="id_total_um" maxlength="500" name="total_um" type="text" placeholder="Informe aqui a quantidade">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card_qtd" style="border: 2px solid rgb(122, 146, 163);;">
+                <div class="line_card" style="background-color: rgb(122, 146, 163);;">
+                    <div class="nome_card">Dia de Campo</div>
+                    <div class="valor_card">{{ meta_atual.total_dc }}</div>
+                </div>
+                <div class="line_input" style="background-color: rgb(122, 146, 163);;">
+                    <input class="" id="id_total_dc" maxlength="500" name="total_dc" type="text" placeholder="Informe aqui a quantidade">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card_qtd" style="border: 2px solid #f0ad4e;">
+                <div class="line_card" style="background-color: #f0ad4e;">
+                    <div class="nome_card">Produtores</div>
+                    <div class="valor_card">{{ meta_atual.total_prod }}</div>
+                </div>
+                <div class="line_input" style="background-color: #f0ad4e;">
+                    <input class="" id="id_total_prod" maxlength="500" name="total_prod" type="text" placeholder="Informe aqui a quantidade">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card_qtd" style="border: 2px solid #5cb85c;">
+                <div class="line_card" style="background-color: #5cb85c;">
+                    <div class="nome_card">ATECs</div>
+                    <div class="valor_card">{{ meta_atual.total_atec }}</div>
+                </div>
+                <div class="line_input" style="background-color: #5cb85c;">
+                    <input class="" id="id_total_atec" maxlength="500" name="total_atec" type="text" placeholder="Informe aqui a quantidade">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <button type="button" class="btn btn-success btn-block" id="salvar_ajax-js">Salvar</button>
+        </div>
+    </div>
+
+    <div style="height: 150px;"></div>
+
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <h4>{{ meta_atual.total_ud }} Unidade Demonstrativa cadastradas</h4>
+        </div>
+        <div class="col-md-1"><h4 class="text-right">Meta 350</h4></div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-success"
+                     role="progressbar" aria-valuenow="72"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="porcentagem_ud">100%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <h4>0 Unidade Multiplicadoras cadastradas</h4>
+        </div>
+        <div class="col-md-1"><h4 class="text-right">Meta 3360</h4></div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-primary"
+                     role="progressbar" aria-valuenow="0"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="porcentagem_um">100%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <h4>19 Dias de Campo realizados</h4>
+        </div>
+        <div class="col-md-1"><h4 class="text-right">Meta 2260</h4></div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-info"
+                     role="progressbar" aria-valuenow="40"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="porcentagem_dc">100%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <h4>0 Produtores capacitados</h4>
+        </div>
+        <div class="col-md-1"><h4 class="text-right">Meta 11000</h4></div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-warning"
+                     role="progressbar" aria-valuenow="0"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="porcentagem_prod">100%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            <h4>243 Agente de Assistência Técnica cadastrados</h4>
+        </div>
+        <div class="col-md-1"><h4 class="text-right">Meta 2260</h4></div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-primary"
+                     role="progressbar" aria-valuenow="11"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%" id="porcentagem_atec">100%
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+
+
+
+            total_ud = ({{ meta_atual.total_ud }} * 100) / 350
+            total_um = ({{ meta_atual.total_um }} * 100) / 3360
+            total_dc = ({{ meta_atual.total_dc }} * 100) / 2260
+            total_prod = ({{ meta_atual.total_prod }} * 100) / 11000
+            total_atec = ({{ meta_atual.total_atec }} * 100) / 2260
+
+            setTimeout(function(){
+                $('#porcentagem_ud').css('width', ''+total_ud.toFixed(1)+'%')
+                $('#porcentagem_ud')[0].textContent = ''+total_ud.toFixed(1)+'%'
+                $('#porcentagem_um').css('width', ''+total_um.toFixed(1)+'%')
+                $('#porcentagem_um')[0].textContent = ''+total_um.toFixed(1)+'%'
+                $('#porcentagem_dc').css('width', ''+total_dc.toFixed(1)+'%')
+                $('#porcentagem_dc')[0].textContent = ''+total_dc.toFixed(1)+'%'
+                $('#porcentagem_prod').css('width', ''+total_prod.toFixed(1)+'%')
+                $('#porcentagem_prod')[0].textContent = ''+total_prod.toFixed(1)+'%'
+                $('#porcentagem_atec').css('width', ''+total_atec.toFixed(1)+'%')
+                $('#porcentagem_atec')[0].textContent = ''+total_atec.toFixed(1)+'%'
+            }, 200);
+
+
+            $('.row').on('click', '#salvar_ajax-js', function() {
+                obj_ajax_meta = {}
+
+                obj_ajax_meta['total_ud'] = $('#id_total_ud').val()
+                obj_ajax_meta['total_um'] = $('#id_total_um').val()
+                obj_ajax_meta['total_dc'] = $('#id_total_dc').val()
+                obj_ajax_meta['total_prod'] = $('#id_total_prod').val()
+                obj_ajax_meta['total_atec'] = $('#id_total_atec').val()
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/gestor/ajax_metas/',
+                    dataType: "json",
+                    data: obj_ajax_meta,
+                    success: function(data){
+                        location.href="/gestor/metas_geral/";
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+{% endblock %}
+

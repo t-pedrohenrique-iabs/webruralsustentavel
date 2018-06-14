@@ -1,0 +1,111 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+<script type="text/javascript">
+	//<![CDATA[
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+	//]]>
+</script>
+
+<style>
+
+	.card-header {
+		padding: 5px 0px 1px 0px;
+		background-color: #FFEFD5;
+		border-radius: 5px 5px 0px 0px;
+	}
+	.card-title {
+		height: 70px;
+		padding: 5px;
+	}
+	.card-main {
+	    border: 2px solid #FFDAB9;
+	    border-radius: 5px 5px 0px 0px;
+    	padding: 0px 1px 5px 1px;
+	}
+	.card-img {
+		height: 220px;
+	}
+
+	.icon-item {
+		font-size: 18px;
+		text-align: center;
+	}
+	.card-info {
+	    height: 30px;
+	}
+
+</style>
+
+
+	<div class="container">
+		<div class="row">
+			{% for x in objs_noticias %}
+			<div class="col-md-3" style="margin-bottom: 10px;">
+
+				<div class="card-main">
+					<div class="card-header">
+						<div class="row">					
+							<a href="/gestor/{{ x.id }}/home_noticia">
+								{% if x.show_home %}
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-home" style="color:#FFFF00;"></span></div>
+								{% endif %}
+								{% if x.show_home == False%}
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-home" style="color:#00BFFF;"></span></div>
+								{% endif %}
+							</a>
+							<div class="col-md-3 text-center icon-item"></div>
+							<a href="/gestor/{{ x.id }}/atualizar_noticia">
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-refresh" style="color:#6A5ACD;"></span></div>
+							</a>
+							<a href="/gestor/{{ x.id }}/excluir_noticia">
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-remove-sign" style="color:#FF0000;"></span></div>
+							</a>
+						</div>
+					</div>
+					<div class="card-title">
+						<div class="row">
+							<div class="col-md-12">
+								<small>{{ x.titulo }}</small>
+							</div>
+						</div>
+					</div>
+					<div class="card-img">
+						<div class="row">
+							<div class="col-md-12">
+								<img src="{{ x.img_noticia }}" alt="" class="img-responsive">
+							</div>
+						</div>
+					</div>
+					<div class="card-info">
+						<div class="row">
+							{% if x.video %}
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-film"></span></div>
+								<div class="col-md-3"><small>YouTube</small></div>
+							{% endif %}
+							{% if x.album_one or x.album_two or x.album_three or x.album_four or x.album_five or x.album_six %}
+								<div class="col-md-3 text-center icon-item"><span class="glyphicon glyphicon-book"></span></div>
+								<div class="col-md-3">Fotos</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+<script>
+	$(document).ready(function(){
+
+
+		// $('.container').on('mousedown', '.btn-save', function() {
+
+		// });
+
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block base_content %}
+
+
+<div class="container">
+     
+     <br><br>
+     <div class="row">
+          <div class="col-md-12 text-center">
+              <h1>Resultado Final da chamada direcionada de</h1>
+              <h1>Unidades Demonstrativas</h1>               
+          </div>
+     </div>
+     <br><br><br>
+
+
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                         <th>BIOMA</th>
+                         <th>UF</th>
+                         <th>CHAVE</th>
+                         <th>PRODUTORES</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                         <th>BIOMA</th>
+                         <th>UF</th>
+                         <th>CHAVE</th>
+                         <th>PRODUTORES</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr><td>Mata Atlântica</td><td>  BA  </td><td style="width: 30%">    A-BA-35703-PTEC-0642    </td><td>   ELI COSTA DE SOUSA - SÍTIO BEIRA RIO    </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  BA  </td><td style="width: 30%">    A-BA-35703-PTEC-0626    </td><td>   ESEQUIAS NARCISO COSTA - SÍTIO CANTINHO FELIZ   </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  BA  </td><td style="width: 30%">    A-BA-35678-PTEC-0698    </td><td>   MANOEL ARIOSMAR DOS SANTOS SILVA - FAZENDA NOVA ESPERANÇA   </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  BA  </td><td style="width: 30%">    A-BA-35668-PTEC-0631    </td><td>   RENILDO SOUZA DOS SANTOS - SITIO TERRA BOA  </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  MG  </td><td style="width: 30%">    A-MG-35785-PTEC-0611    </td><td>   JOAQUIM RODRIGUES DOS SANTOS - SÍTIO RICARDINHO </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  MG  </td><td style="width: 30%">    A-MG-35285-PTEC-0643    </td><td>   MARIA ROSIMERE BENTO VIEIRA - FAZENDA AGUA CLARA    </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  MG  </td><td style="width: 30%">    A-MG-35389-PTEC-0719    </td><td>   OTAVIANO RODRIGUES DOS SANTOS - FAZENDA DUAS PONTES </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  MG  </td><td style="width: 30%">    A-MG-35725-PTEC-0689    </td><td>   RENATO DE ARAUJO COLLARES - FAZENDA BOM JESUS   </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  MG  </td><td style="width: 30%">    A-MG-35389-PTEC-0710    </td><td>   SIDNEY FERNANDES BATISTA - FAZENDA MATO ESCURO  </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  PR  </td><td style="width: 30%">    A-PR-35819-PTEC-0652    </td><td>   CLAUDIA APARECIDA CARA - SITIO CARA </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  PR  </td><td style="width: 30%">    A-PR-35542-PTEC-0686    </td><td>   LEDA CARTERI BATTISTELLA - SITIO CATA GALO  </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  PR  </td><td style="width: 30%">    A-PR-35887-PTEC-0646    </td><td>   WALDIR LUIZ RECK - SITIO RECK - ECOSUSTENTANDO  </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  RS  </td><td style="width: 30%">    A-RS-35720-PTEC-0638    </td><td>   ARLITO STRAHL - SITIO STRAHL    </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  RS  </td><td style="width: 30%">    A-RS-35720-PTEC-0645    </td><td>   CONRADO PFULLER KUNERT - SITIO KUNERT   </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  RS  </td><td style="width: 30%">    A-RS-35125-PTEC-0619    </td><td>   DORALDINO NUNES DE OLIVEIRA - DORALDINO NUNES DE OLIVEIRA   </td></tr>
+                    <tr><td>Mata Atlântica</td><td>  RS  </td><td style="width: 30%">    A-RS-35240-PTEC-0648    </td><td>   EDSON JOSÉ KLEIN - PROPRIEDADE KLEIN    </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35269-PTEC-0641    </td><td>   ISAQUEU DA SILVA - ESTÂNCIA PARAÍSO </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35987-PTEC-0718    </td><td>   ITAMAR BARBOSA LOPES - SITIO SANTO AMARO    </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35269-PTEC-0691    </td><td>   JOAO MANOEL GONCALVES - FAZENDA PEDREIRA    </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35269-PTEC-0657    </td><td>   JOSÉ LUIZ MAROLI DE VARGAS - ESTÂNCIA ESTRELA DA MANHÃ  </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35987-PTEC-0688    </td><td>   KEZIA DIAS DE SOUZA - RECANTO DO SABIÁ  </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35810-PTEC-0683    </td><td>   LINO ZANIBONI - SITIO ZANIBONI III  </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35860-PTEC-0636    </td><td>   LUIZ CARLOS CAVICHIA - SÍTIO SANTA LUZIA    </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35269-PTEC-0676    </td><td>   OSVALDO YAKABE - SITIO SANTA MARIA  </td></tr>
+                    <tr><td>Amazônia</td><td>    MT  </td><td style="width: 30%">    A-MT-35694-PTEC-0649    </td><td>   VALDIR LUIZ DE OLIVEIRA - PORTA DO CÉU  </td></tr>
+                    <tr><td>Amazônia</td><td>    PA  </td><td style="width: 30%">    A-PA-35994-PTEC-0700    </td><td>   DARCIRIO VRONSKI - SITIO PIAVE  </td></tr>
+                    <tr><td>Amazônia</td><td>    PA  </td><td style="width: 30%">    A-PA-35911-PTEC-0678    </td><td>   TOSHIHIKO TAKAMATSU - SÍTIO TAKAMATSU   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35890-PTEC-0729    </td><td>   ANA GENTINI DA SILVA - SITIO TRÊS SERRAS    </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35824-PTEC-0630    </td><td>   ANTONIO DOS SANTOS BEZERRA - SITIO NOSSA SENHORA DE APARECIDA   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35511-PTEC-0629    </td><td>   ANTONIO MIGUEL MATEDE - SITIO NOSSA SENHORA APARECIDA   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35890-PTEC-0705    </td><td>   CARIOZAN SOARES DA SILVA - SÍTIO BOA VISTA  </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0627    </td><td>   CECILIA SANT ANNA NUNES - BOA ESPERANÇA </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0628    </td><td>   CÉLIO SIMINHUK - SITIO SIMINHUK </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0733    </td><td>   DALVA MARTINS FERREIRA SILVA - LOTE 86  </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0644    </td><td>   DILZA MARIA DA SILVA - SITIO FERREIRA   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35665-PTEC-0730    </td><td>   IDEILTON NUNES ROCHA - SITIO BOA VISTA  </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35326-PTEC-0664    </td><td>   JAIR DE OLIVEIRA FERRO - SITIO GH - LOTE 19-R1, GLEBA 20, PICPAR    </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0697    </td><td>   JOSE FERNANDO OLIVEIRA ROCHA - SITIO ROCHÃO </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35670-PTEC-0675    </td><td>   LEONCIO SOARES DAMASCENO - SITIO PLANALTO   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35890-PTEC-0650    </td><td>   NATALINO BATISTA ADÃO VASCONCELOS - SÍTIO ÁGUA BOA  </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35823-PTEC-0633    </td><td>   NILTON RODRIGUES DE SOUZA - SÍTIO BOA SORTE </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35890-PTEC-0684    </td><td>   SEBASTIÃO BRAZ ALEXANDRINO - SÍTIO BOM FUTURO   </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35824-PTEC-0716    </td><td>   SEBASTIÃO DE SOUZA PAULA - SITIO TRICLORINO </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35890-PTEC-0727    </td><td>   TERCÍLIA LAUDELINA DOS SANTOS - SÍTIO ÁGUA CORRENTE </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35665-PTEC-0623    </td><td>   VALDICEIA SOUZA PRATES - SITIO SOUZA PRATES </td></tr>
+                    <tr><td>Amazônia</td><td>    RO  </td><td style="width: 30%">    A-RO-35823-PTEC-0680    </td><td>   WANDERSON CLEITON SCHMIDT CAVALHEIRO    </td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<br><br><br>
+<br><br><br>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+          $('#example').DataTable({
+               "bPaginate": false,
+
+
+               "oLanguage": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                         "sNext": "Próximo",
+                         "sPrevious": "Anterior",
+                         "sFirst": "Primeiro",
+                         "sLast": "Último"
+                    },
+                    "oAria": {
+                         "sSortAscending": ": Ordenar colunas de forma ascendente",
+                         "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+               }
+
+          });
+    });
+
+</script>
+
+
+{% endblock %}

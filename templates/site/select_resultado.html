@@ -1,0 +1,83 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block base_content %}
+
+
+<div class="container">
+     
+     <br><br>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Parabéns aos novos beneficiários do Projeto Rural Sustentável.</h1>
+      </div>
+      <div class="col-md-12">
+        <p>Confira o resultado das chamadas de UMs e UDs. Acesse as listas e veja os mais novos beneficiários. Foram aprovadas 1.892 Unidades Multiplicadoras e 46 novas Unidades Demonstrativas, distribuídas nos 7 estados participantes do Projeto.</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-5">
+        <a href="\resultado">
+        <img src="{% static "image/home/UM_Resultados.jpg" %}" alt="" class="img-responsive">
+        </a>
+      </div>
+      <div class="col-md-5">
+        <a href="\resultado_ud">
+        <img src="{% static "image/home/UD_Resultados.jpg" %}" alt="" class="img-responsive">
+        </a>
+      </div>
+    </div>
+
+
+
+</div>
+
+<br><br><br>
+<br><br><br>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+          $('#example').DataTable({
+               "bPaginate": false,
+
+
+               "oLanguage": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                         "sNext": "Próximo",
+                         "sPrevious": "Anterior",
+                         "sFirst": "Primeiro",
+                         "sLast": "Último"
+                    },
+                    "oAria": {
+                         "sSortAscending": ": Ordenar colunas de forma ascendente",
+                         "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+               }
+
+          });
+    });
+
+</script>
+
+
+{% endblock %}

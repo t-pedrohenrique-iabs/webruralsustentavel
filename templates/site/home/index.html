@@ -1,0 +1,248 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="{% static "style/home/home.css" %}">
+{% endblock %}
+
+{% block base_content %}
+
+    <!-- Header mapa SVG -->
+    <header>
+        <div class="container" id="maincontent" tabindex="-1">
+            <div class="row">
+
+                {% include 'site/home/mapa_svg.html' %}
+                {% include 'site/home/new_meta_svg.html' %}
+
+            </div>
+        </div>
+    </header>
+
+    <br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{% static "image/banners/home/banner_cte.png" %}" class="img-responsive">
+            </div>
+        </div>
+    </div>
+
+    <!-- AREA DAS AGENDAS DE DIA DE CAMPO -->
+    <div class="container">
+        <div class="row" style="margin: 30px 0 0 0;">
+            <div class="col-md-4">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/Agenda_icon.png" >
+            </div>
+            <div class="col-md-7">
+                <div style="display: inline-flex;">
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_BA.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/BA.png">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_MG.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/MG.png">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_MT.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/MT.png">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_PA.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/PA.jpg">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_PR.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/PR.png">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_RO.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/RO.png">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/agenda/Agenda_Campo_RS.pdf" target="_blank">
+                            <img style="width: 70%" src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/RS.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3">
+                <a href="/noticia/176/prs">
+                    <img src="{% static "image/banners/home/banner0011.png" %}" class="img-responsive">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/noticia/179/prs">
+                    <img src="{% static "image/banners/home/banner022.png" %}" class="img-responsive">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="http://portal.ruralsustentavel.org">
+                    <img src="{% static "image/banners/home/banner003.png" %}" alt="" class="img-responsive">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="http://portal.ruralsustentavel.org">
+                    <img src="{% static "image/banners/home/banner004.png" %}" alt="" class="img-responsive">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- BANER DE DESTAQUES -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="" class="img-responsive">
+            </div>
+            <div class="col-md-4">
+                <img src="" class="img-responsive">
+            </div>
+            <div class="col-md-4">
+                <img src="" class="img-responsive">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- CONTAINER DAS NOTICIAS DO PROJETO -->
+    <div class="container">
+        {% include 'site/home/noticias.html' %}
+    </div>
+
+    <br><br>
+
+    <div class="container">
+        <div class="container-newsleter">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12"><h4>Cadastre seu e-mail para receber notícias do projeto:</h4></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            {{fromNewsletter.nome_user}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Email</label>
+                            {{fromNewsletter.email_user}}
+                        </div>
+                    </div>
+                    <div class="col-md-offset-10 col-md-2">
+                        <button type="submit" class="btn btn-default btn-block">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="container-contacts">
+            <div class="row">
+                <div class="col-md-6" style="border-right: 2px solid #4B4E19;height: 250px;">
+                    <div class="row"><div class="col-md-12"><h3>Contato</h3></div></div>
+                    <div class="row"><br>
+                        <div class="col-md-2 text-right"><span class="glyphicon glyphicon-envelope contato"></span></div><div class="col-md-10 text-contato">ruralsustentavel@iabs.org.br</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row"><div class="col-md-12"><h3>Área de imprensa</h3></div></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div class="row"><br>
+                                <div class="col-md-2 text-center"><span class="glyphicon glyphicon-paste contato"></span></div><div class="col-md-10 text-contato">Newsletter</div>
+                            </div> -->
+                            <div class="row"><br>
+                                <div class="col-md-2 text-right"><span class="glyphicon glyphicon-paperclip contato"></span></div>
+                                <a href="/destaque/"><div class="col-md-10 text-contato">Em destaque</div></a>
+                            </div>
+                            <div class="row"><br>
+                                <div class="col-md-2 text-right"><span class="glyphicon glyphicon-download-alt contato"></span></div>
+                                <div class="col-md-10 text-contato"><a href="/downloads/">Downloads</a></div>
+                            </div>
+                            <!-- <div class="row"><br>
+                                <div class="col-md-2 text-center"><span class="glyphicon glyphicon-picture contato"></span></div><div class="col-md-10 text-contato">Banco de imagens</div>
+                            </div> -->
+                            <div class="row"><br>
+                                <div class="col-md-12 text-contato"><small>Contato para imprensa</small></div>
+                                <div class="col-md-2 text-right"><span class="glyphicon glyphicon-envelope contato"></span></div><div class="col-md-10 text-contato">comunicacao.prs@iabs.org.br</div>
+                                <div class="col-md-2 text-right"><span class="glyphicon glyphicon-phone-alt contato"></span></div><div class="col-md-10 text-contato">+55 61 3364-0065</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+
+    $(document).ready(function(){
+
+
+
+        $('.container').on('lo', '#lista_emails', function() {
+            $('#clickModal').click()
+        });
+
+        $('.container').on('click', '#lista_emails', function() {
+            email_newsletter = {}
+            email_newsletter[$('#newsleter_nome')[0].name] = $('#newsleter_nome').val()
+            email_newsletter[$('#newsleter_email')[0].name] = $('#newsleter_email').val()
+
+            $.ajax({
+                type: 'GET',
+                url: '/gestor/ajax_newsletter/',
+                dataType: "json",
+                data: email_newsletter,
+                success: function(data){
+                    $('#nomenew-js').html(data[0])
+                    $('#emailnew-js').html(data[1])
+
+                    $('#clickModal').click()
+
+                    $('#newsleter_nome')[0].value = ''
+                    $('#newsleter_email')[0].value = ''
+                }
+            });
+        });
+
+
+    });
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-104762470-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,644 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    $(document).ready(function(){
+        status_login = localStorage.getItem("is_logged");
+        if ( status_login == null ) {
+            window.location.href = "/gestor";
+        }
+    });
+</script>
+
+<style>
+.tab_estado {
+    display: none;
+}
+
+.estado_icon {
+    margin-bottom: 25px;
+}
+
+.estado_icon .col-md-10 {
+    cursor: pointer;
+}
+
+.panel-body.amazonia {
+    background-color: #23B4B7;
+    /* background-image: url(https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/paralax_destaque.jpg); */
+    background-image: url(data:image/jpeg;base64,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);
+    background-size: cover;
+    height: 500px;
+}
+
+.panel-body.mata_atlantica {
+    background-color: #D6B917;
+    /* background-image: url(https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/Drone.jpg); */
+    background-image: url(http://www.wallpaperup.com/uploads/wallpapers/2012/08/30/12087/3574f899daef41d2f145eba13ff7840f.jpg);
+    background-size:100% 100%;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    height: 500px;
+}
+
+.form_qtd {
+    /* border: 1px solid #23B4B7; */
+    /* border-radius: 10px; */
+    /* height: 100%; */
+    /* background-color: rgba(35, 180, 183, 0.7); */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px; */
+    background-color: #fff;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 40px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background 1s ease-in-out;
+    -moz-transition: background 1s ease-in-out;
+    -ms-transition: background 1s ease-in-out;
+    -o-transition: background 1s ease-in-out;
+    transition: background 1s ease-in-out;
+    padding: 5px;
+}
+
+.label_input {
+    margin-bottom: 10px;
+}
+
+
+</style>
+
+<div class="row" id="page_estados">
+    <div class="col-md-1">
+        <div class="row estado_icon" id="show_tab" data-tabestado="BA">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/BA.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="MG">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/MG.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="MT">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/MT.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="PA">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/PA.jpg" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="PR">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/PR.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="RO">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/RO.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="row estado_icon" id="show_tab" data-tabestado="RS">
+            <div class="col-md-offset-1 col-md-10">
+                <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/RS.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-8">
+
+        <div class="row tab_estado" id="para">
+            <div class="panel panel-default">
+                <div class="panel-body amazonia">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_para">
+                                <br><h2 class="text-center">Informações do Pará</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_para">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="mato_grosso">
+            <div class="panel panel-default">
+                <div class="panel-body amazonia">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_matoGrosso">
+                                <br><h2 class="text-center">Informações do Mato Grosso</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_matoGrosso">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="rondonia">
+            <div class="panel panel-default">
+                <div class="panel-body amazonia">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_rondonia">
+                                <br><h2 class="text-center">Informações do Rondônia</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_rondonia">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="bahia">
+            <div class="panel panel-default">
+                <div class="panel-body mata_atlantica">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_bahia">
+                                <br><h2 class="text-center">Informações do Bahia</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_bahia">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="minas_gerais">
+            <div class="panel panel-default">
+                <div class="panel-body mata_atlantica">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_minasGerais">
+                                <br><h2 class="text-center">Informações do Minas Gerais</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_minasGerais">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="parana">
+            <div class="panel panel-default">
+                <div class="panel-body mata_atlantica">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_parana">
+                                <br><h2 class="text-center">Informações do Paraná</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_parana">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tab_estado" id="rio_grando_sul">
+            <div class="panel panel-default">
+                <div class="panel-body mata_atlantica">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-offset-2 col-md-8" style="height: 100%;">
+                            <div class="form_qtd uf_rioGrandeSul">
+                                <br><h2 class="text-center">Informações do Rio Grande do Sul</h2><br>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Demonstrativa</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_ud" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Unidade Multiplicadora</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_um" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd de Dia de Campo</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_dc" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd Produtores capacitados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_prod" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row label_input">
+                                    <div class="col-md-7">
+                                        <div style="padding-left: 20px;"><strong>Qtd ATEC's treinados</strong></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="qtd_atec" style="width: 90%;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-11 text-right" style="margin: 25px 0;">
+                                        <button type="button" class="btn btn-primary js_save" data-save="uf_rioGrandeSul">Atualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        $('#page_estados').on('click', '#show_tab', function() {
+            $('#mato_grosso').slideUp()
+            $('#rondonia').slideUp()
+            $('#bahia').slideUp()
+            $('#minas_gerais').slideUp()
+            $('#parana').slideUp()
+            $('#rio_grando_sul').slideUp()
+            $('#para').slideUp()
+            switch (this.getAttribute('data-tabestado')) {
+                case 'BA':
+                    $('#bahia').slideDown()
+                    break;
+                case 'MG':
+                    $('#minas_gerais').slideDown()
+                    break;
+                case 'MT':
+                    $('#mato_grosso').slideDown()
+                    break;
+                case 'PA':
+                    $('#para').slideDown()
+                    break;
+                case 'PR':
+                    $('#parana').slideDown()
+                    break;
+                case 'RO':
+                    $('#rondonia').slideDown()
+                    break;
+                case 'RS':
+                    $('#rio_grando_sul').slideDown()
+                    break;
+            }
+        });
+
+        $('#page_estados').on('click', '.js_save', function() {
+
+            qtd_list = {}
+
+            switch (this.getAttribute('data-save')) {
+                case 'uf_para':
+                    inputs = $('.uf_para').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_para'
+                    break;
+                case 'uf_matoGrosso':
+                    inputs = $('.uf_matoGrosso').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_matoGrosso'
+                    break;
+                case 'uf_rondonia':
+                    inputs = $('.uf_rondonia').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_rondonia'
+                    break;
+                case 'uf_bahia':
+                    inputs = $('.uf_bahia').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_bahia'
+                    break;
+                case 'uf_minasGerais':
+                    inputs = $('.uf_minasGerais').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_minasGerais'
+                    break;
+                case 'uf_parana':
+                    inputs = $('.uf_parana').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_parana'
+                    break;
+                case 'uf_rioGrandeSul':
+                    inputs = $('.uf_rioGrandeSul').find('input')
+                    for ( i = 0 ; i < inputs.length ; i++ ) {
+                        qtd_list[inputs[i].name] = inputs[i].value
+                    }
+                    qtd_list['att_estado'] = 'uf_rioGrandeSul'
+                    break;
+            }
+
+            $.ajax({
+                type: 'GET',
+                url: '/gestor/ajax_qtd_estados/',
+                dataType: "json",
+                data: qtd_list,
+                success: function(data){
+                    alert('Dados atualizados com sucesso')
+                }
+            });
+
+        });
+
+
+    });
+</script>
+
+{% endblock %}
+

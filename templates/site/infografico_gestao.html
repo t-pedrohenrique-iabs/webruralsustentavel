@@ -1,0 +1,319 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+body {
+    margin-top:60px;
+    font-family: 'Montserrat',sans-serif;
+}
+/* this is just for the demo */
+.panel-heading:hover {
+    cursor:pointer;
+}
+.panel-heading {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.side-tab:hover {
+        cursor: pointer;
+    }
+    .panel.panel-default {
+        border: none;
+        box-shadow: none !important;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    .panel-heading {
+        border: none;
+        background-color: #eee;
+
+    }
+    .panel-body {
+        background-color: #f5f5f5;
+    }
+    .panel-title {
+        font-weight: 400;
+        color: $white;
+    }
+
+/*----------------------------------
+    Macbook pro mockup from:
+    http://jaredhardy.com/minimal-devices/
+----------------------------------*/
+
+.md-macbook-pro {
+    display: block;
+    width: 55.3125em;
+    height: 31.875em;
+    font-size: 13px;
+    margin: 0 auto;
+
+    @media (max-width:1199px){
+        font-size: 11px;
+    }
+    @media (max-width:1024px){
+        font-size: 10px;
+    }
+
+    @media (max-width:767px){
+        font-size: 7px;
+    }
+
+    @media (max-width:320px){
+        font-size: 5px;
+    }
+
+}
+.md-macbook-pro .md-lid {
+    width: 45em;
+    height: 30.625em;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 1.875em;
+    border: solid 0.1875em #cdced1;
+    background: #131313;
+}
+.md-macbook-pro .md-camera {
+    width: 0.375em;
+    height: 0.375em;
+    margin: 0 auto;
+    position: relative;
+    top: 1.0625em;
+    background: #000;
+    border-radius: 100%;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+.md-macbook-pro .md-camera:after {
+    content: "";
+    display: block;
+    width: 0.125em;
+    height: 0.125em;
+    position: absolute;
+    left: 0.125em;
+    top: 0.0625em;
+    background: #353542;
+    border-radius: 100%;
+}
+.md-macbook-pro .md-screen {
+    width: 42.25em;
+    height: 26.375em;
+    margin: 0 auto;
+    position: relative;
+    top: 2.0625em;
+    // background: #1d1d1d;
+    background: #fff;
+    overflow: hidden;
+    }
+.md-macbook-pro .md-screen img {
+    width: 100%;
+}
+.md-macbook-pro .md-base {
+    width: 100%;
+    height: 0.9375em;
+    position: relative;
+    top: -0.75em;
+    background: #c6c7ca;
+}
+.md-macbook-pro .md-base:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.5em;
+    margin: 0 auto;
+    position: relative;
+    bottom: -0.1875em;
+    background: #b9babe;
+    border-radius: 0 0 1.25em 1.25em;
+}
+.md-macbook-pro .md-base:before {
+    content: "";
+    display: block;
+    width: 7.6875em;
+    height: 0.625em;
+    margin: 0 auto;
+    position: relative;
+    background: #a6a8ad;
+    border-radius: 0 0 0.625em 0.625em;
+}
+.md-macbook-pro.md-glare .md-lid:after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 1.25em 0 0;
+    background: -webkit-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: -moz-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: -o-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: linear-gradient(53deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+}
+
+    .full_img {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+        top: 0;
+        bottom: -150px;
+        padding: 50px;
+        background-color: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+        display: none;
+    }
+
+    img.img_fullpage {
+        width: 70%;
+        margin: 0 15%;
+        display: none;
+    }
+
+    span.out_fullpage {
+        position: absolute;
+        font-size: 42px;
+        right: 5%;
+        top: 2%;
+        color: #fff;
+        cursor: pointer;
+    }
+    .img_openfull{
+        cursor: pointer
+    }
+</style>
+
+
+
+<div class="full_img" id="full_image">
+    <span class="glyphicon glyphicon-remove out_fullpage"></span>
+    <img src="{% static "image/infografico/original/info-gestao_1.png" %}" class="img_fullpage img_one">
+    <img src="{% static "image/infografico/original/info-gestao_2.png" %}" class="img_fullpage img_two">
+</div>
+
+
+<br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-8 col-md-4">
+                <a href="{% static "image/infografico/pdf/info_gestao.pdf" %}" download><h4>Baixe o arquivo em pdf&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-save" style="font-size: 22px;color: #237B5C; "></span></h4></a>
+            </div>
+        </div>
+    </div>
+<br><br>
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
+                        <div class="panel-heading" role="tab" id="headingOne"data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h4 class="panel-title">Página Frente</h4>
+                        </div>
+                    </span>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <a href="{% static "image/infografico/original/info-gestao_1.png" %}" download> Download da imagem </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <span class="side-tab" data-target="#tab2" data-toggle="tab" role="tab" aria-expanded="false">
+                        <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <h4 class="panel-title collapsed">Página Verso</h4>
+                        </div>
+                    </span>
+
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <a href="{% static "image/infografico/original/info-gestao_2.png" %}" download> Download da imagem </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 container_info">
+            <div class="md-macbook-pro md-glare">
+                <div class="md-lid">
+                    <div class="md-camera"></div>
+                    <div class="md-screen">
+                    <!-- content goes here -->
+                        <div class="tab-featured-image">
+                            <div class="tab-content">
+                                <div class="img_openfull tab-pane  in active" id="tab1">
+                                    <img src="{% static "image/infografico/original/info-gestao_1.png" %}" class="img-responsive">
+                                </div>
+                                <div class="img_openfull tab-pane " id="tab2">
+                                    <img src="{% static "image/infografico/original/info-gestao_2.png" %}" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-base"></div>
+            </div> <!-- end macbook pro mockup -->
+
+
+
+        </div> <!-- / .col-md-8 -->
+    </div> <!--/ .row -->
+</div> <!-- end sidetab container -->
+
+
+
+<br><br><br><br><br><br>
+
+
+
+    <script>
+
+
+        $('.container_info').on('click', '#tab1', function() {
+            $('.full_img').slideDown()
+            $('.img_one').slideDown()
+        });
+
+        $('.container_info').on('click', '#tab2', function() {
+            $('.full_img').slideDown()
+            $('.img_two').slideDown()
+        });
+
+        $('.full_img').on('click', '.out_fullpage', function() {
+            $('.full_img').slideUp()
+            $('.img_two').slideUp()
+            $('.img_one').slideUp()
+        });
+
+        $(document.body).on('click', '#full_image', function() {
+            $('.full_img').slideUp()
+            $('.img_two').slideUp()
+            $('.img_one').slideUp()
+        });
+
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104762470-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+
+{% endblock %}

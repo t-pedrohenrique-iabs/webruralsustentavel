@@ -1,0 +1,149 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+<script type="text/javascript">
+	//<![CDATA[
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+	//]]>
+</script>
+
+
+	<div class="container">
+
+		<form method="POST">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Cadastro de notícias</h1>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<h4>Data da notícia</h4>
+						{{cadastroNoticiasForm.data_publicacao}}
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<h4>Estado da notícia</h4>
+						{{cadastroNoticiasForm.estado}}
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<h4>Titulo da notícia</h4>
+						{{cadastroNoticiasForm.titulo}}
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<h4>Chamada da notícia</h4>
+						{{cadastroNoticiasForm.chamada}}
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-9">
+					<div class="form-group">
+						<h4>Imagem da notícia</h4>
+						{{cadastroNoticiasForm.img_noticia}}
+					</div>
+					<div class="form-group">
+						<small>Credito da imagem</small>
+						{{cadastroNoticiasForm.img_credito}}
+					</div>
+				</div>
+				<div class="col-md-3">
+					<img src="https://picsum.photos/800/600/?random" class="img-responsive">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<h4>Conteudo da notícia</h4>
+						{{cadastroNoticiasForm.conteudo}}
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<h4>Link do video do YouTube</h4>
+						{{cadastroNoticiasForm.video}}
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<h4>Descrição do video</h4>
+						{{cadastroNoticiasForm.video_descricao}}
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_one}}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_two}}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_three}}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_four}}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_five}}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<smass>Álbum imagem</small>
+						{{cadastroNoticiasForm.album_six}}
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-primary btn-block btn-save">SALVAR NOTÍCIA</button>
+				</div>
+			</div>
+		</form>
+
+
+		<br><br><br><br><br><br><br>
+
+	</div>
+
+<script>
+	$(document).ready(function(){
+
+		$('.container').on('mousedown', '.btn-save', function() {
+			conteudo = $('.nicEdit-main')[0].innerHTML
+			// $('#conteudo-noticia').css('display', 'block')
+			$('#conteudo-noticia')[0].innerHTML = conteudo
+		});
+
+	});
+</script>
+
+{% endblock %}

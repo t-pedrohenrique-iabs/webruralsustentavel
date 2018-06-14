@@ -1,0 +1,102 @@
+{% extends "base/base.html" %}
+
+{% block base_content_css %}
+{% endblock %}
+
+{% block base_content %}
+
+<style type="text/css">
+    .titulo-materia h1{
+        text-align: center;
+        color: #363636;
+        font-size: 4.25rem;
+        font-weight: bold;
+    }
+    .chamada-materia h4{
+        text-align: center;
+        font-size: 2.25rem;
+    }
+    .video-descricao-materia {
+        text-align: center;
+    }
+</style>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="text-align: right;">
+                {{noticia.data_publicacao}}
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <div class="titulo-materia">
+                    <h1>{{noticia.titulo}}</h1>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <div class="chamada-materia">
+                    <h4>{{noticia.chamada}}</h4>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <div class="">
+                    <img src="{{noticia.img_noticia}}" class="img-responsive" width="100%">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="area-conteudo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="video-materia"></div>
+                <div class="video-descricao-materia">{{noticia.video_descricao}}</div>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-4"><img src="{{noticia.album_one}}" alt="" class="img-responsive"></div>
+            <div class="col-md-4"><img src="{{noticia.album_two}}" alt="" class="img-responsive"></div>
+            <div class="col-md-4"><img src="{{noticia.album_three}}" alt="" class="img-responsive"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4"><img src="{{noticia.album_four}}" alt="" class="img-responsive"></div>
+            <div class="col-md-4"><img src="{{noticia.album_five}}" alt="" class="img-responsive"></div>
+            <div class="col-md-4"><img src="{{noticia.album_six}}" alt="" class="img-responsive"></div>
+        </div>
+        <br><br><br>
+
+    </div>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104762470-1', 'auto');
+        ga('send', 'pageview');
+
+        conteudoTEXT = '{{noticia.conteudo}}'
+        if (conteudoTEXT != ''){
+            contentHTML = $.parseHTML(conteudoTEXT)
+            $('.area-conteudo').append(contentHTML[0].data)
+        }
+
+
+        videoTEXT = '{{noticia.video}}'
+        if (videoTEXT != ''){
+            videoHTML = $.parseHTML(videoTEXT)
+            $('.video-materia').append(videoHTML[0].data)
+        }
+
+        
+    </script>
+
+{% endblock %}
+globo

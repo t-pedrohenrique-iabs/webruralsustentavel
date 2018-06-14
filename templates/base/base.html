@@ -1,0 +1,128 @@
+{% load static %}
+<html>
+<head>
+   <title>Rural Sustentável</title>
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/navbar_and_footer.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% block base_content_css %}{% endblock %}
+
+    <style>
+        .navbar-drop {
+            color: #000 !important;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/favicon.png" type="image/x-icon" />
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="/"><img src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/logo_prs.png"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <!-- <li class="page-scroll" style="background-color: #D6B917;">
+                        <a href="http://portal.ruralsustentavel.org/instituicao/cadastro/" style="color:#FFF;">Cadastre sua Instituição</a>
+                    </li> -->
+                    <li class="page-scroll" style="margin-right: 10px;">
+                        <a href="/es" style="color:#FFF;">
+                            <img src="{% static "site_en/img/bandeira_espanhol.png"%}" style="width: 40px;top: 5px;position: absolute;left: -40px;">
+                        </a>
+                    </li>
+                    <li class="page-scroll" style="margin-right: 10px">
+                        <a href="/en" style="color:#FFF;">
+                            <img src="{% static "site_en/img/bandeira_ingles.png"%}" style="width: 40px;top: 5px;position: absolute;left: -30px;">
+                        </a>
+                    </li>
+                    <li class="page-scroll" style="background-color: #006B31; margin-right: 10px;">
+                    <!-- <li class="page-scroll" style="background-color: #D6B917; margin-right: 10px;"> -->
+                        <a href="/resultados_alcancados" style="color: #FFF;">Resultados alcançados <span class="glyphicon glyphicon-tree-deciduous"></span></a>
+                    </li>
+                    <li class="page-scroll" style="background-color: #D6B917;">
+                        <a href="http://portal.ruralsustentavel.org/login/" style="color: #FFF;">Login <span class="glyphicon glyphicon-log-in"></span></a>
+                    </li>
+                </ul><br><br><br>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll dropdown" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">O projeto<span class="caret"></span></a>
+                        <ul class="dropdown-menu header">
+                          <li><a href="/sobre/" class="navbar-drop">Informações Gerais</a></li>
+                          <li><a href="/projetoAcoes/" class="navbar-drop">Ações do Projeto</a></li>
+                          <li><a href="/beneficiario/" class="navbar-drop">Produtores e Produtoras Rurais</a></li>
+                          <li><a href="/instituicao_aprovada/" class="navbar-drop">Instituição de ATER e ATECs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/tecnologias">Tecnologias</a>
+                    </li>
+<!--                     <li class="page-scroll">
+                        <a href="#">Historia rural</a>
+                    </li> -->
+                    <li class="page-scroll">
+                        <a href="/participe/">Participe</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/destaques/">Notícias</a>
+                    </li>
+                    <li class="page-scroll">
+                        <!-- <a href="/downloads/">Janela do conhecimento</a> -->
+                        <a href="/janela_conhecimento/">Janela do conhecimento</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 150px;"></div>
+    {% block base_content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <img class="img-responsive" src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/Logos-parceiros.png" style="margin-bottom: 50px;"> -->
+                        <img class="img-responsive" src="{% static "image/home/roda_pe.png"%}" style="margin-bottom: 50px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Rural Sustentavel 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html

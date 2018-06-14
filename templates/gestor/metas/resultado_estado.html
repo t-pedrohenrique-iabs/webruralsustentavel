@@ -1,0 +1,131 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+	<style>
+	.box-estados {
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+	.box-estados-metas {
+		border: 1px solid #000;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	</style>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h2>Resultados por Estados</h2>
+			</div>
+		</div>
+	</div>
+
+	<br><br><br>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do PA</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="PAformulario">
+						{{PAform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do MT</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="MTformulario">
+						{{MTform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do RO</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="ROformulario">
+						{{ROform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do BA</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="BAformulario">
+						{{BAform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do MG</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="MGformulario">
+						{{MGform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do PR</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="PRformulario">
+						{{PRform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3 box-estados">
+				<div class="box-estados-metas">
+					<div class="text-center"><h4>Resultados do RS</h4></div>
+					<form method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="form_estados" value="RSformulario">
+						{{RSform}}
+						<br>
+						<button type="submit" class="btn btn-success btn-block">Salvar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+
+
+		</div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+});
+</script>
+
+{% endblock %}

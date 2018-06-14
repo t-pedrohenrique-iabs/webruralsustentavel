@@ -1,0 +1,194 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    $(document).ready(function(){
+        status_login = localStorage.getItem("is_logged");
+        if ( status_login == null ) {
+            window.location.href = "/gestor";
+        }
+    });
+</script>
+
+<style>
+    span.glyphicon.tools {
+        padding: 2px;
+        font-size: 22px;
+        color: #FFF;
+        cursor: pointer;
+        margin-right: 10px;
+        border-radius: 20px;
+    }
+    span.glyphicon.tools:hover {
+        color: #000;
+    }
+    .box_new {
+        width: 100%;
+        height: 200px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    /* .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    } */
+    .box_tools {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.5);
+        border-radius: 10px 10px 0 0;
+        padding: 2px 10px;
+    }
+    .box_tools_destaque {
+        width: 100%;
+        background-color: green;
+        border-radius: 10px 10px 0 0;
+        padding: 2px 10px;
+    }
+    .titulo_new {
+        /* bottom: 0; */
+        position: absolute;
+        color: #FFF;
+        text-align: center;
+        /* margin-top: 10%; */
+        /* border: 0; */
+        /* top: 177px; */
+        bottom: 10px;
+        width: 90%;
+        margin: 5px;
+        background-color: rgba(0, 0, 0, 0.6);
+        font-weight: bold;
+    }
+    .date_new {
+        color: #FFF;
+        float: right;
+        margin-top: 5px
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="row" id="lista_materias">
+<!--         <div class="col-md-3">
+            <div class="box_new"></div>
+        </div> -->
+    </div>
+
+</div>
+
+
+
+<!--
+<div class="col-md-3"><div class="box_new"></div></div>
+-->
+
+<script>
+
+    $(document).ready(function(){
+        $.ajax({
+            type: 'GET',
+            url: '/gestor/ajax_ista_noticias/',
+            dataType: "json",
+            success: function(data){
+                for (i = 0 ; i < data.length ; i++) {
+                    if (data[i].destaque == 'true') {
+                        $('#lista_materias').prepend('<div class="col-md-4" style="margin-top: 10px;">'+
+                                                        '<div class="box_tools_destaque">'+
+                                                            '<span class="glyphicon glyphicon-upload remove-capa-js tools" data-chave="'+data[i].key_new+'"></span>'+
+                                                            '<span class="glyphicon glyphicon-remove-circle exclur-js tools" data-chave="'+data[i].key_new+'"></span>'+
+                                                            '<span class="date_new">'+data[i].data_create+'</span>'+
+                                                        '</div>'+
+                                                        '<a href="http://www.ruralsustentavel.org/destaque/'+data[i].key_new+'" target="_blank">'+
+                                                        '<div class="box_new" style="background-image: url('+data[i].image_link+');">'+
+                                                            '<div class="overlay">'+
+                                                                '<div class="titulo_new"><small>'+data[i].titulo+'</small></div>'+
+                                                            '</div>'+
+                                                        '</div></a>'+
+                                                    '</div>')
+                    }
+                    else {
+                        $('#lista_materias').prepend('<div class="col-md-4" style="margin-top: 10px;">'+
+                                                        '<div class="box_tools">'+
+                                                            '<span class="glyphicon glyphicon-upload capa-js tools" data-chave="'+data[i].key_new+'"></span>'+
+                                                            '<span class="glyphicon glyphicon-remove-circle exclur-js tools" data-chave="'+data[i].key_new+'"></span>'+
+                                                            '<span class="date_new">'+data[i].data_create+'</span>'+
+                                                        '</div>'+
+                                                        '<a href="http://www.ruralsustentavel.org/destaque/'+data[i].key_new+'" target="_blank">'+
+                                                        '<div class="box_new" style="background-image: url('+data[i].image_link+');">'+
+                                                            '<div class="overlay">'+
+                                                                '<div class="titulo_new"><small>'+data[i].titulo+'</small></div>'+
+                                                            '</div>'+
+                                                        '</div></a>'+
+                                                    '</div>')
+                    }
+                }
+            }
+        });
+
+        $('#lista_materias').on('mouseup', '.exclur-js', function() {
+            obj_ajax = {}
+            obj_ajax['key_new'] = this.getAttribute('data-chave')
+            $.ajax({
+                type: 'GET',
+                url: '/gestor/ajax_del_noticias/',
+                dataType: "json",
+                data: obj_ajax,
+                success: function(data){
+                    location.href="/gestor/lista_noticias/";
+                }
+            });
+        });
+
+        $('#lista_materias').on('mouseup', '.capa-js', function() {
+
+            size_destaque = $('#lista_materias').find('.remove-capa-js').length
+            if ( size_destaque >= 2 ) {
+                alert('Existe uma matéria que ainda é destaque, desmarque ela para selecionar a nova matéria.')
+                $('html, body').animate({
+                    scrollTop: $('.box_tools_destaque').offset().top
+                }, 1500);
+            }else {
+                obj_ajax_capa = {}
+                obj_ajax_capa['key'] = this.getAttribute('data-chave')
+                obj_ajax_capa['action_make'] = 'add-capa'
+                console.log('teste')
+                $.ajax({
+                    type: 'GET',
+                    url: '/gestor/ajax_capa_noticias/',
+                    dataType: "json",
+                    data: obj_ajax_capa,
+                    success: function(data){
+                        location.href="/gestor/lista_noticias/";
+                    }
+                });
+            }
+        });
+
+        $('#lista_materias').on('mouseup', '.remove-capa-js', function() {
+            obj_ajax_capa = {}
+            obj_ajax_capa['key'] = this.getAttribute('data-chave')
+            obj_ajax_capa['action_make'] = 'remove-capa'
+            $.ajax({
+                type: 'GET',
+                url: '/gestor/ajax_capa_noticias/',
+                dataType: "json",
+                data: obj_ajax_capa,
+                success: function(data){
+                    location.href="/gestor/lista_noticias/";
+                }
+            });
+        });
+
+    });
+</script>
+
+
+
+</div>
+
+
+
+{% endblock %}

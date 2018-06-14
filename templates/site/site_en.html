@@ -1,0 +1,768 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sustainable Rural</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="{% static "site_en/vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="{% static "site_en/vendor/font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/freelancer.css" rel="stylesheet"> -->
+    <link href="{% static "site_en/css/freelancer.css"%}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <img src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/logo_prs.png">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="color: #006B31;">About</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#project_main" style="color: #006B31;">PROJECT MAIN OUTPUTS</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rural_producers" style="color: #006B31;">Rural Producers</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#technologies" style="color: #006B31;">TECHNOLOGIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/"><img src="{% static "site_en/img/icon_br.png"%}" ></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <img class="img-fluid mb-5 d-block mx-auto" src="{% static "site_en/img/rural_profile.png"%}" width="300" height="400">
+            <h1 class="text-uppercase mb-0" style="color: #006A30;">Sustainable Rural</h1>
+            <br><br><br>
+            <!-- SVG DAS METAS DO PROJETO -->
+            <div class="col-md-12">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="721px" height="238px" viewBox="0 0 721 238" enable-background="new 0 0 721 238" xml:space="preserve">
+                    <g>
+                        <path fill="#978510" d="M386.766,121.995c-21.529,0-38.984-17.455-38.984-38.986h-21.699c0,33.515,27.17,60.685,60.684,60.685c33.516,0,60.686-27.17,60.686-60.685h-21.699C425.752,104.54,408.297,121.995,386.766,121.995z"/>
+                        <path fill="#70AA2E" d="M287.096,44.017c-21.529,0-38.984,17.454-38.984,38.985h-21.699c0-33.515,27.17-60.685,60.684-60.685c33.516,0,60.686,27.17,60.686,60.685h-21.699C326.082,61.471,308.629,44.017,287.096,44.017z"/>
+                        <path fill="#CD7D00" d="M485.764,44.017c-21.529,0-38.984,17.454-38.984,38.985H425.08c0-33.515,27.17-60.685,60.684-60.685c33.516,0,60.686,27.17,60.686,60.685H524.75C524.75,61.471,507.295,44.017,485.764,44.017z"/>
+                        <path fill="#1A6F6F" d="M187.428,121.995c-21.533,0-38.986-17.455-38.986-38.986h-21.699c0,33.515,27.17,60.685,60.686,60.685c33.514,0,60.684-27.17,60.684-60.685h-21.699C226.412,104.54,208.959,121.995,187.428,121.995z"/>
+                        <path fill="#08622E" d="M87.757,44.017c-21.531,0-38.986,17.454-38.986,38.985H27.072c0-33.515,27.169-60.685,60.686-60.685c33.515,0,60.684,27.17,60.684,60.685h-21.699C126.742,61.471,109.288,44.017,87.757,44.017z"/>
+                        <path fill="#925B00" d="M535.564,67.395l-15.613,15.614h4.799c0,21.531-17.455,38.986-38.986,38.986c-21.529,0-38.984-17.455-38.984-38.986H425.08c0,33.515,27.17,60.685,60.684,60.685c33.516,0,60.686-27.17,60.686-60.685h4.727L535.564,67.395z"/>
+                        <circle fill="#F39200" cx="635.25" cy="83.009" r="62.116"/>
+                        <a href="/participe/" style="cursor: pointer;">
+                            <text transform="matrix(1 0 0 1 590.0234 90.0225)" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="20" >Participade</text>
+                        </a>
+                        <path fill="#D6B917" d="M436.566,98.615l-15.613-15.613h4.799c0-21.531-17.455-38.985-38.986-38.985c-21.529,0-38.984,17.454-38.984,38.985h-21.699c0-33.515,27.17-60.685,60.684-60.685c33.516,0,60.686,27.17,60.686,60.685h4.729L436.566,98.615z"/>
+                        <path fill="#4D791F" d="M336.896,67.395l-15.613,15.614h4.799c0,21.531-17.453,38.986-38.986,38.986c-21.529,0-38.984-17.455-38.984-38.986h-21.699c0,33.515,27.17,60.685,60.684,60.685c33.516,0,60.686-27.17,60.686-60.685h4.729L336.896,67.395z"/>
+                        <path fill="#23B4B7" d="M237.225,98.615l-15.611-15.613h4.799c0-21.531-17.453-38.985-38.984-38.985c-21.533,0-38.986,17.454-38.986,38.985h-21.699c0-33.515,27.17-60.685,60.686-60.685c33.514,0,60.684,27.17,60.684,60.685h4.729L237.225,98.615z"/>
+                        <path fill="#034F24" d="M137.557,67.395l-15.613,15.614h4.798c0,21.531-17.455,38.986-38.985,38.986c-21.531,0-38.986-17.455-38.986-38.986H27.072c0,33.515,27.169,60.685,60.686,60.685c33.515,0,60.684-27.17,60.684-60.685h4.729L137.557,67.395z"/>
+                    </g>
+
+                    <text transform="matrix(1 0 0 1 69.9458 167.0078)">
+                        <tspan x="0" y="0" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="23.4272">350</tspan>
+                        <tspan x="-1.893" y="28.113" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">UDs</tspan>
+                    </text>
+                    <!-- CONTADOR DE UDs DO PROJETO -->
+                    <text transform="matrix(1 0 0 1 65.709 90.6147)"   fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24" id="counter_unidade_demonstativa"></text>
+                    <!-- CONTADOR DE UDs DO PROJETO -->
+                    <text transform="matrix(1 0 0 1 352.7197 90.6147)" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24" id="counter_produtores"></text>
+                    <!-- CONTADOR DE UDs DO PROJETO -->
+                    <text transform="matrix(1 0 0 1 268.7329 90.6147)" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24" id="counter_dia_campo"></text>
+                    <!-- CONTADOR DE UDs DO PROJETO -->
+                    <text transform="matrix(1 0 0 1 461.0664 90.6147)" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24" id="counter_atec"></text>
+                    <!-- CONTADOR DE UDs DO PROJETO -->
+                    <text transform="matrix(1 0 0 1 163.0781 90.6147)" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24" id="counter_unidade_multiplicadora"></text>
+                    
+                    <text transform="matrix(1 0 0 1 160.5513 167.0078)">
+                        <tspan x="0"      y="0"      fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">3.360</tspan>
+                        <tspan x="4.318"  y="28.113" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">UMs</tspan>
+                    </text>
+                    <text transform="matrix(1 0 0 1 258.4048 167.0078)">
+                        <tspan x="0"      y="0"      fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">2.260</tspan>
+                        <tspan x="11.29"  y="29"     fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">DCs</tspan></text>
+                    <text transform="matrix(1 0 0 1 458.8887 167.0078)">
+                        <tspan x="0"      y="0"      fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">1.120</tspan>
+                        <tspan x="10"     y="18"     fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="14">ATECs</tspan>
+                        <tspan x="3"      y="33"     fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="14">Trained</tspan>
+                    </text>
+                    <text transform="matrix(1 0 0 1 359.6108 167.0078)">
+                        <tspan x="-10"    y="0"      fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="24">11.220</tspan>
+                        <tspan x="-5.328" y="16.801" fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="14">Producers</tspan>
+                        <tspan x="-8.059" y="33.6"   fill="#FFFFFF" font-family="Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;" font-size="14">Trained</tspan>
+                    </text>
+                </svg>
+            </div>
+            <!-- FIM SVG DAS METAS DO PROJETO -->
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="text-white mb-0" style="background-color: #18BC9C;" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Objective</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">
+              The project objective is to help farmers within the Amazonia and Atlantic Forest Biomes improve the management of their land and forests, thus encouraging sustainable rural development, poverty reduction, biodiversity conservation and climate protection.
+            </p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">
+              The program aims to promote the implementation of a large-scale project to enhance the development of the Low-Carbon Agriculture (ABC) Programme and encourage the implementation of agriculture technologies within rural properties under the Project.
+            </p>
+          </div>
+        </div>
+        <br><br>
+        <h2 class="text-center text-uppercase text-white">Institutional Partners</h2>
+        <br>
+        <div class="row">
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-8">
+            <p class="lead">
+              This Technical Cooperation Programme is executed by the Inter-American Development Bank (IDB). It has been funded by the International Climate Fund (ICF) of the Department for Environmental, Food and Rural Affairs (DEFRA). The Ministry of Agriculture, Livestock and Food Supply (MAPA) in Brazil is the beneficiary of the contribution and it has appointed the Social Mobility, Rural Producer and Cooperatives Secretary to act as the technical and institutional coordinator within the MAPA.
+            </p>
+            <br>
+            <p class="lead">
+              The Brazilian Institute of Development and Sustainability (IABS) was selected, under an IDB competitive bidding process (SPD 16-072), to provide executing services and to operationalize the administrative and logistical activities of the Project. In April 2017, the IDB and IABS signed the contract C0049-17 to officially start activities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              <img src="{% static "site_en/img/infografico_ingles.png"%}" class="img-responsive">
+            </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="text-white mb-0" style="background-color: #18BC9C;">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Components</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">
+              <h4>Component 1</h4>
+              Focuses on offering access to technical assistance with submitting technical proposals (PTECs) and implementing approved PTECs activities by facilitating farmer-technician collaborative partnerships. It also offers financial incentives in the form of cash payments to small and medium rural producers to adopt low carbon agricultural technologies that promote sustainable rural production and environmental regularization measures.
+            </p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">
+              <h4>Component 2</h4>
+              Is designed to facilitate training activities that strengthen the capabilities of those candidates from the Rural Extension Institutions (ATERs) to become project certified technicians (ATECs). This component supports training programs for rural producers by organizing meetings and field days at Demonstration Units selected by the Project.
+            </p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">
+              <h4>Component 3</h4>
+              Ensures proper project execution, monitoring and evaluation of all Programme’s activities.
+            </p>
+          </div>
+        </div>
+        <br><br>
+
+        <h2 class="text-center text-uppercase text-white">Beneficiaries</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto text-center">
+            <p class="lead">
+              Small and medium rural producers and project certified technicians (ATECs).
+            </p>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="row">
+          <div class="col-lg-6 ml-auto">    
+            <h2 class="text-center text-uppercase text-white">Local Team</h2>
+            <br>
+            <div class="col-lg-12 ml-auto">
+              <p class="lead">
+                The project execution and implementation team is composed of professionals from the IDB and IABS.  To support the execution and operationalization of administrative and logistical activities, Rural Sustentável has local teams in each participating state. The teams are composed of field supervisors and communication advisors. 
+              </p>
+            </div>
+          </div>  
+
+          <div class="col-lg-6 ml-auto">
+            <h2 class="text-center text-uppercase text-white">Field Supervisors</h2>
+            <br>
+            <div class="row">
+              <div class="col-lg-12 ml-auto">
+                <p class="lead">
+                  Field supervisors are IABS professionals responsible for supporting and supervising the field days execution and disseminating information about the Project scope within the participating municipalities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+
+        <h2 class="text-center text-uppercase text-white">Communication Local Advisors</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+            <p class="lead">
+              Communication local advisors are communication professionals from the IABS team. They are responsible for supporting the deployment, direction and registration of the project actions within the states. 
+            </p>
+          </div>
+        </div>
+        <br><br>
+
+        <h2 class="text-center text-uppercase text-white">Project Actions</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+            <p class="lead">
+              <strong>- </strong>Promote technical assistance trainings on the low carbon technologies supported by the Project.
+            </p>
+            <p class="lead">
+              <strong>- </strong>Promote training programs among rural producers by organizing discussions and field days at the Demonstration Units selected by the Project.
+            </p>
+            <p class="lead">
+              <strong>- </strong>Select and implement Demonstration Units in all the 70 participating municipalities.
+            </p>
+            <p class="lead">
+              <strong>- </strong>Facilitate rural producers in accessing traditional rural credit lines by providing technical assistance through in-person and online training and financial incentives to implement the technologies in selected Multiplying Units.
+            </p>
+            </p>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio" id="project_main">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">PROJECT MAIN OUTPUTS</h2>
+        <hr class="star-dark mb-5">
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <h3>Demonstrations Units (DUs)</h3>
+              <p class="lead">
+                Demonstration units (DUs) are areas of rural production with at least one of the low carbon technologies supported by the Project. These DUs have the purpose of showcasing the technologies and lessons learned to rural producers during the Field day events.
+              </p>
+            </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <h3>Multiplying Units (MUs)</h3>
+              <p class="lead">
+                Multiplying units are areas of rural production where at least one of the low carbon technologies supported by the Project will be implemented. Under this scheme, the Project will provide technical assistance to rural producers to plan, implement and guide the MU. The MUs with proved and measured achievements based on their Technical Proposals will receive the conditional cash payments.
+              </p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio" id="dias_de_campo">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">FIELD DAYS</h2>
+        <!-- <hr class="star-dark mb-5"> --><br>
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <p class="lead">
+                Field days are events taking place in any of the selected Demonstration Units (DUs) targeting rural producers, technicians and other key participants. It is also part of the strategy to disseminate the Project. Field days are used to:
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <p class="lead">
+                <strong>1 - </strong> Showcase successful experiences and train participants on low carbon technologies implementation within rural sites.
+              </p>
+            </div>
+            <div class="col-lg-12 ml-auto">
+              <p class="lead">
+                <strong>2 - </strong> Encourage the dissemination of sustainable practices for production and conservation.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <h4>Bahia</h4>
+              <h4>Minas Gerais</h4>
+              <h4>Paraná</h4>
+              <h4>Rio Grande do Sul</h4>
+              <h4>Mato Grosso</h4>
+              <h4>Pará</h4>
+              <h4>Rondônia</h4>
+            </div>
+          </div>
+
+          <h2 class="text-center text-uppercase text-secondary mb-0">TRAININGS</h2>
+          <!-- <hr class="star-light mb-5"> --><br>
+          <div class="row">
+            <div class="col-lg-12 ml-auto">
+              <p class="lead">
+                Trainings aim to strengthen the knowledge of ATECs and enhance the management of rural properties to increase production and income. The following in-person training sessions have been planned: a) low carbon technologies supported by the Project; b) sustainable rural land management and; c) georeferencing. In addition, there are four free on-line courses open to ATECs and the general public: 1) Introduction to the Project Rural Sustentável; 2) Rural Land Management; 3) Productive Arrangements and; 4) Diagnosis using ArcGis tool.
+              </p>
+            </div>
+          </div>
+
+          <br><br>
+      </div>
+    </section>
+
+   <!-- About Section -->
+    <section class="text-white mb-0" style="background-color: #18BC9C;" id="rural_producers">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Rural Producers</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+            <p class="lead">
+              Trainings aim to strengthen the knowledge of ATECs and enhance the management of rural properties to increase production and income. The following in-person training sessions have been planned: a) low carbon technologies supported by the Project; b) sustainable rural land management and; c) georeferencing. In addition, there are four free on-line courses open to ATECs and the general public: 1) Introduction to the Project Rural Sustentável; 2) Rural Land Management; 3) Productive Arrangements and; 4) Diagnosis using ArcGis tool.
+            </p>
+
+            <p class="lead">- Submit documentation to prove identity according to the Request for Proposal (RFP) of each Call.</p>
+            <p class="lead">- Have a valid and regularized Individual Taxpayer Registry Identification (Cadastro de Pessoas Físicas – CPF).</p>
+            <p class="lead">- Submit documentation to prove land ownership and legalization according to the Request for Proposal (RFP) of each Call.</p>
+            <p class="lead">- Have the property within the Biomes and Municipalities participating in the Project.</p>
+            <p class="lead">- Establish a Technical Cooperation Agreement with a project certified technical assistant and work together on writing a funding proposal. approved, comply with the implementation of the proposed activities.</p>
+            <p class="lead">- Be within the following classification of rural producers:</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <img src="{% static "site_en/img/typetable.png"%}" class="img-responsive">
+            <small>*The size of a fiscal module (FM) varies according to each municipality. Click the link to check the size of the FM within your municipality.</small>
+          </div>
+
+          <div class="col-lg-12">
+            <br>
+            <p class="lead">If you are a rural producer interested in the Project, please reach a Certified Technical Assistant (ATEC) in your municipality. Check the approved ATER institutions in the following link [link] and access the Project’s benefits.</p>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+
+    <section class="text-white mb-0" style="background-color: #18BC9C;" id="rural_producers">
+      <div class="container">
+        <h3 class="text-center text-uppercase text-white">Technical Assistance and Rural Extension Institution (ATER) and Technical Assistance Agent (ATEC)</h3>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+            <p class="lead">
+              The Project foresees training activities and financial incentives for the ATER institutions and their ATECs. The available benefits and resources are:
+            </p>
+
+            <p class="lead">a) Training on Low Carbon Agricultural Technologies; Georeferencing; Sustainable Rural Land Management; and About the Project “Rural Sustentável”. </p>
+            <p class="lead">b) Field days in the selected Demonstration Units.</p>
+            <p class="lead">c) Public Calls for Proposals to select Demonstration and Multiplying Units.</p>
+
+            <br><br>
+            <h3 class="text-center text-uppercase text-white">To be part of the Project, the ATER institutions must:</h3>
+            <br>
+            <p class="lead">1) Register on the Project website and attach the mandatory documents.</p>
+            <p class="lead">2) Accept the Project terms of conditions and consent.</p>
+            <p class="lead">3) Nominate the personnel that might act on behalf of the institution as an ATEC for the Project.</p>
+
+            <br><br>
+            <h3 class="text-center text-uppercase text-white">To be part of the Project, the ATER institutions must:</h3>
+            <br>
+            <p class="lead">1) Have received formal higher education in agricultural sciences.  Keep a valid professional membership issued by the corresponding official councils.</p>
+            <p class="lead">2) Complete and submit registration on the Project website and attach the mandatory documents.</p>
+            <p class="lead">3) Sign a Technical Cooperation Agreement with an eligible rural producer to work together to submit a funding proposal for the project and, if approved, guide the implementation of the proposed activities.  </p>
+            <p class="lead">4) Provide technical assistance to the rural producers and support the work conducted in the selected UDs or UMs. The ATEC must ensure that activities are implemented successfully and in accordance with the proposed plan regarding the low carbon technologies. </p>
+
+            <br><br><br>
+            <p class="lead">If you are an eligible institution and want to contribute to improving production and sustainability in the rural areas, register on our website and nominate your ATECs.</p>
+
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+
+    <section id="rural_producers">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary">APPROVED INSTITUTIONS</h2>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+
+            <h1 style="color: green">A</h1>
+            <div><p class="lead"> ACCOMIG </p>
+            <div><p class="lead"> ADEOP </p>
+            <div><p class="lead"> AGRIFLORESTAL </p>
+            <div><p class="lead"> AGRO SOCIAL ZAMBEZE </p>
+            <div><p class="lead"> AGROATINS CARAJÁS </p>
+            <div><p class="lead"> AGROCRED ENGENHARIA & CONSULTORIA </p>
+            <div><p class="lead"> AGROLÓGICA </p>
+            <div><p class="lead"> AGROPECUÁRIA SEMEAR </p>
+            <div><p class="lead"> AGROSOLLO- PLANEJAMENTO TÉCNICO AGROPECUÁRIO LTDA </p>
+            <div><p class="lead"> AGROTOP RURAL </p>
+            <div><p class="lead"> ALMEIDA ROCHA COMÉRCIO E SERVIÇOS ADMINISTRATIVOS </p>
+            <div><p class="lead"> ALVORADA DO NORTE CONSULTORIA E ASSISTÊNCIA VETERINARIA </p>
+            <div><p class="lead"> AM ASSESSORIA AMBIENTAL LTDA </p>
+            <div><p class="lead"> AMBIOVERDE </p>
+            <div><p class="lead"> ASSOCIAÇÃO CEIBA </p>
+            <div><p class="lead"> ASSOCIAÇÃO CULTURAL E AMBIENTALISTA DOS ÍNDIOS TUPINAMBÁ DE OLIVENÇA </p>
+            <div><p class="lead"> ASSOCIAÇÃO DE PEQUENOS PRODUTORES RURAIS DE AGROVILA 05 </p>
+            <div><p class="lead"> ASSOCIAÇÃO RIOGRANDENSE DE EMPREENDIMENTOS DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL </p>
+            <div><p class="lead"> ASSOCICAO DOS AGRICULTORES FAMILIARES E REMANESCENTES DE QUILOMBOLAS DA REGIAO DOS MACACOS DO MUNICI </p>
+            <div><p class="lead"> ATER ITAPEJARA </p>
+            <div><p class="lead"> ATLAS CONSULTORIA, PROJETOS E SOLUÇÕES AMBIENTAIS </p>
+
+            <h1 style="color: green">B</h1>
+            <div><p class="lead"> BCA CONSULTORIA AGROPECUÁRIA LTDA </p>
+            <div><p class="lead"> BERTUZZI SERVIÇOS DE AGRONOMIA </p>
+            <div><p class="lead"> BIORGÂNICA </p>
+
+            <h1 style="color: green">C</h1>
+            <div><p class="lead"> CALL CONSULTORIA AGROPECUARIA LTDA </p>
+            <div><p class="lead"> CALVET- CONSULTORIA E ASSESSORIA VETERINÁRIA </p>
+            <div><p class="lead"> CAPÃO ALTO CONSULTORIA RURAL LTDA. </p>
+            <div><p class="lead"> CEDRO ASSESSORIA E PLANEJAMENTO FLORESTAL </p>
+            <div><p class="lead"> CENTRO DE TECNOLOGIAS ALTERNATIVAS POPULARES </p>
+            <div><p class="lead"> CENTROESTE PLANEJAMENTO E CONSULTORIA AGRÍCOLA LTDA </p>
+            <div><p class="lead"> CEPLAC </p>
+            <div><p class="lead"> CIAAT </p>
+            <div><p class="lead"> CLUBE AMIGOS DA TERRA - CAT SORRISO </p>
+            <div><p class="lead"> COAFA </p>
+            <div><p class="lead"> CONEAGRO - CONSULTORIA E ELABORAÇÃO DE PROJETOS AGROPECUÁRIOS </p>
+            <div><p class="lead"> CONPLATEC TERRA SANTA </p>
+            <div><p class="lead"> CONSTAGRO ENGENHARIA </p>
+            <div><p class="lead"> CONSULTORIA RAÍZES </p>
+            <div><p class="lead"> CONTEXTO RURAL </p>
+            <div><p class="lead"> COOAFA </p>
+            <div><p class="lead"> COOPAFBASUL </p>
+            <div><p class="lead"> COOPALM </p>
+            <div><p class="lead"> COOPATAN </p>
+            <div><p class="lead"> COOPAX </p>
+            <div><p class="lead"> COOPERATIVA DE TRABALHO AGROAMBIENTAL DE RONDÔNIA - COOTRARON </p>
+            <div><p class="lead"> COOPERATIVA MISTA OURO VERDE LTDA </p>
+            <div><p class="lead"> COOPERBIO </p>
+            <div><p class="lead"> COOPERIGUAÇU </p>
+            <div><p class="lead"> COOPERQUER - COOPERATIVA AGROPECUÁRIA DE QUERÊNCIA </p>
+            <div><p class="lead"> COORDENADA RURAL AGRO SOCIOAMBIENTAL </p>
+            <div><p class="lead"> COOTRASBE </p>
+            <div><p class="lead"> COSTA CONSULTORIA </p>
+            <div><p class="lead"> CULTIVARE ENGENHARIA E SOLUÇÕES AGROPECUÁRIAS </p>
+
+            <h1 style="color: green">D</h1>
+            <div><p class="lead"> DEFENDER </p>
+            <div><p class="lead"> DINIZ CONSULTORIA AGRÍCOLA </p>
+
+            <h1 style="color: green">E</h1>
+            <div><p class="lead"> ECO TIME </p>
+            <div><p class="lead"> ECOPORÉ </p>
+            <div><p class="lead"> EMATER-MG </p>
+            <div><p class="lead"> EMPAER MT </p>
+            <div><p class="lead"> EMPRESA DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL DO ESTADO DO PARÁ - EMATER PARÁ </p>
+            <div><p class="lead"> ENPLATÉC CONSULTORIA E PLANEJAMENTOS </p>
+            <div><p class="lead"> ENTIDADE AUTÁRQUICA DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL DO ESTADO DE RONDÔNIA-EMATER </p>
+            <div><p class="lead"> EVOLUÇÃO - ASSESSORIA TÉCNICA AGROFLORESTAL </p>
+            <div><p class="lead"> EXTENSÃO CARAJÁS ASSESSORIA E PLANEJAMENTO AGROPECUÁRIO LTDA ME </p>
+
+            <h1 style="color: green">G</h1>
+            <div><p class="lead"> GEOVIDA CONSULTORIA AMBIENTAL LTDA - ME </p>
+            <div><p class="lead"> GIGA CONSULTORIA </p>
+
+            <h1 style="color: green">H</h1>
+            <div><p class="lead"> HEBRON FLORESTAL </p>
+
+            <h1 style="color: green">I</h1>
+            <div><p class="lead"> IBIO </p>
+            <div><p class="lead"> IBS </p>
+            <div><p class="lead"> INAES </p>
+            <div><p class="lead"> INSTITUTO BRASIL DE ESTUDOS, PESQUISAS E GESTÃO ESTRATÉGICA DE COMPETÊNCIAS </p>
+            <div><p class="lead"> INSTITUTO BRASILEIRO DO AGRONEGÓCIO - IBA </p>
+            <div><p class="lead"> INSTITUTO EMATER </p>
+            <div><p class="lead"> INSTITUTO FLORAVIDA </p>
+            <div><p class="lead"> INSTITUTO PAULINE REICHSTUL </p>
+
+            <h1 style="color: green">J</h1>
+            <div><p class="lead"> JB EMPREENDIMENTOS </p>
+            <div><p class="lead"> JEQUIAGRO CONSULTORIA AMBIENTAL </p>
+            <div><p class="lead"> JMEDEIROS CONSULTORIA </p>
+            <div><p class="lead"> JVS PROJETOS E CONSULTORIA </p>
+
+            <h1 style="color: green">L</h1>
+            <div><p class="lead"> LN ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL </p>
+
+            <h1 style="color: green">M</h1>
+            <div><p class="lead"> MANI ROCHA PROJETOS & CONSULTORIA </p>
+
+            <h1 style="color: green">N</h1>
+            <div><p class="lead"> NEO SOLUÇÕES AMBIENTAIS LTDA-ME </p>
+
+            <h1 style="color: green">O</h1>
+            <div><p class="lead"> OCT </p>
+            <div><p class="lead"> OURO VERDE ENGENHARIA </p>
+
+            <h1 style="color: green">P</h1>
+            <div><p class="lead"> PECANHA E SANTOS SOLUCOES AGROPECUARIAS LTDA - ME </p>
+            <div><p class="lead"> PLANIGUAÇU </p>
+            <div><p class="lead"> PLANTPLAN </p>
+            <div><p class="lead"> PLANTSUL </p>
+            <div><p class="lead"> PREFEITURA </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE ALTA FLORESTA </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE BRASNORTE-MT </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE BURITIS </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE MACHADINHO </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE MARAÚ </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE NOVA LONDRINA </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE PARECIS/RO </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE PRESIDENTE TANCREDO NEVES </p>
+            <div><p class="lead"> PREFEITURA MUNICIPAL DE SETUBINHA </p>
+            <div><p class="lead"> PROAGRI - EMPRESA DE DESENVOLVIMENTO DE PROJETOS AGRICOLAS LTDA - EPP </p>
+            <div><p class="lead"> PROATEC PROJETOS E ASSESSORIA TÉCNICA RURAL LTDA ME </p>
+            <div><p class="lead"> PROGEO </p>
+            <div><p class="lead"> PROTEGE AGRO. CONSUL AGRICOLA E AMBIENTAL </p>
+
+            <h1 style="color: green">R</h1>
+            <div><p class="lead"> RASTREAR PROJETOS AGROPECUÁRIOS </p>
+            <div><p class="lead"> RR PLANEJAR, CONSULTORIA E TREINAMENTOS </p>
+            <div><p class="lead"> RS CONSULTORIA AMBIENTAL </p>
+            <div><p class="lead"> RURALPLAN ASSESSORIA CONSULTORIA E PLANEJAMENTO RURAL </p>
+
+            <h1 style="color: green">S</h1>
+            <div><p class="lead"> SECRETARIA DE DESENVOLVIMENTO ECONÔMICO AGRICULTURA E ASSUNTOS FUNDIÁRIOS </p>
+            <div><p class="lead"> SECRETARIA MUNICIPAL DE AGRICULTURA </p>
+            <div><p class="lead"> SERVIÇO NACIONAL DE APRENDIZAGEM RURAL-SENAR </p>
+            <div><p class="lead"> SIA - SERVIÇO DE INTELIGÊNCIA EM AGRONEGÓCIOS </p>
+            <div><p class="lead"> SILVATOP ENGENHARIA E AGRIMENSURA LTDA. </p>
+            <div><p class="lead"> SS SOLUÇÕES </p>
+            <div><p class="lead"> SUDTEC PLANEJAMENTO E ASSISTÊNCIA TÉCNICA </p>
+
+            <h1 style="color: green">T</h1>
+            <div><p class="lead"> TERRA FÉRTIL </p>
+            <div><p class="lead"> TOPLAGRO </p>
+
+            <h1 style="color: green">V</h1>
+            <div><p class="lead"> VIAVERDE CONSULTORIA </p>
+            <div><p class="lead"> VISÃO RURAL PROJETOS E ASSESSORIA </p>
+
+            <h1 style="
+            color: green">W</h1>
+            <div><p class="lead"> W B CONSULTORIA EMPRESARIAL </p>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+
+   <!-- About Section -->
+    <section class="text-white mb-0" style="background-color: #18BC9C;" id="technologies">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">TECHNOLOGIES</h2>
+        <br>
+        <h3 class="text-uppercase text-white">Integrated Crop-Livestock-Forest Systems - ICLFS, including Agroforestry Systems.</h3>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+
+            <p class="lead">According to EMBRAPA, the Integrated Crop-Livestock-Forest (ICLF) is described as a system integrating the crop, livestock and forest components, in rotation, combination or succession, in the same area. The overarching objective of ICLF is to change the system of land use by integrating productive system components that will create synergies between crop and pasture and achieve higher levels of product quality, environmental quality and price competitiveness.</p>
+
+            <p class="lead">The agroforestry systems are production systems integrating the crop and forest components through the combination of tree species and agricultural (annual or perennial) crops. These systems are a feasible production alternative to recover altered or degraded areas. The integration of trees with pastures and/or crops allows the soil to be economically exploited all year round, favoring the diversification of products.</p>
+
+          </div>
+        </div>
+
+        <br>
+        <h3 class="text-uppercase text-white">Restoration of Degraded Lands with Pasture (RDL-P) and Restoration of Degraded Lands with Forests (RDA-F)</h3>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+
+            <p class="lead">
+              The restoration of degraded lands is a technique that seeks to reverse a site known as having a degraded condition to one with a nondegraded condition. This technology could contribute to socio-economic development and environmental protection providing higher yields and economic returns, less new cropland and deforestation, and provide societal benefits via production stability. RDL enables restoration of an area’s physical integrity, chemistry and biology (structure) while recovering the production capability (function) either of raw materials and food or ecological and ecosystem-based functions.
+            </p>
+            <p class="lead">
+              Restoration of Degraded Lands with Pasture (RDL-P) enables restoration of an area’s physical integrity, chemistry and biology (structure) while recovering the production capability (function) of either raw materials or food.
+            </p>
+            <p class="lead">
+              Restoration of Degraded Lands with Forests (RDL-F) enables restoration of an area’s physical integrity, chemistry and biology (structure) while recovering the production capability (function) either ecological or ecosystem-based, taking into consideration the legal aspects regarding the restoration of the Areas of Permanent Protection (APPs) and the Legal Reserves (LRs).
+            </p>
+
+          </div>
+        </div>
+
+        <br>
+        <h3 class="text-uppercase text-white">Planting Commercial Forests</h3>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+
+            <p class="lead">
+              The planting of tree species for commercial purposes is important, not only from a production point of view, but from an environmental conservation point of view. The planting of commercial forests reduces the pressure on native forests, supplies raw materials for both industrial and non-industrial use, and contributes to supply ecosystem and social services. This technology is not restricted to exotic species for timber but also includes a wide variety of tree species in pure forest plantations, that is, a system not integrating agricultural and pasture components.
+            </p>
+
+          </div>
+        </div>
+
+        <br>
+        <h3 class="text-uppercase text-white">Sustainable Management of Native Forests</h3>
+        <!-- <hr class="star-light mb-5"> --><br>
+        <div class="row">
+          <div class="col-lg-12 ml-auto">
+
+            <p class="lead">
+              According to the Public Forest Management Law (No 11.284/2006), sustainable forest management is referred to as the “effective exploitation of the forest to obtain economical, societal and environmental benefits by strictly following the sustainability principles and mechanisms for the intervened ecosystem. This approach must consider, accumulative or alternatively, the use of multiple timber tree species, multiple non-timber products and subproducts, in addition to other forestry goods and services.”
+            </p>
+
+            <p class="lead">The agroforestry systems are production systems integrating the crop and forest components through the combination of tree species and agricultural (annual or perennial) crops. These systems are a feasible production alternative to recover altered or degraded areas. The integration of trees with pastures and/or crops allows the soil to be economically exploited all year round, favoring the diversification of products.</p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="img-responsive" src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/Logos-parceiros.png" style="margin-bottom: 50px;">
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Rural Sustentável 2017</small>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    <script src="{% static "site_en/vendor/jquery/jquery.min.js"%}"></script>
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="{% static "site_en/vendor/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+
+    <!-- Plugin JavaScript -->
+    <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+    <script src="{% static "site_en/vendor/jquery-easing/jquery.easing.min.js"%}"></script>
+    <!-- <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script> -->
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <!-- <script src="js/jqBootstrapValidation.js"></script> -->
+    <script src="{% static "site_en/js/jqBootstrapValidation.js"%}"></script>
+    <!-- <script src="js/contact_me.js"></script> -->
+    <script src="{% static "site_en/js/contact_me.js"%}"></script>
+
+    <!-- Custom scripts for this template -->
+    <!-- <script src="js/freelancer.min.js"></script> -->
+    <script src="{% static "site_en/js/freelancer.min.js"%}"></script>
+
+    <script>
+
+    $(document).ready(function(){
+      
+        val_unid_demons = {{metageral_prs.unidade_demonstrativa}}
+        val_unid_multip = {{metageral_prs.unidade_multiplicadora}}
+        val_dia_campo   = {{metageral_prs.dia_campo}}
+        val_produtores  = {{metageral_prs.produtores_capacitados}}
+        val_atec        = {{metageral_prs.atecs_treinados}}
+
+
+        counter_ud = 0
+        setInterval(function(){
+            counter_ud = counter_ud+1
+            if ( counter_ud <= val_unid_demons ) { $('#counter_unidade_demonstativa').html(counter_ud) }
+            max_ud = counter_ud+1
+            if( max_ud >= val_unid_demons){ $('#counter_unidade_demonstativa').html(val_unid_demons) }
+        }, 10);
+
+        counter_um = 0
+        setInterval(function(){
+            counter_um = counter_um+10
+            if ( counter_um <= val_unid_multip ) { $('#counter_unidade_multiplicadora').html(counter_um) }
+            max_um = counter_um+10
+            if( max_um >= val_unid_multip){ $('#counter_unidade_multiplicadora').html(val_unid_multip) }
+        }, 10);
+
+        counter_dc = 0
+        setInterval(function(){
+            counter_dc = counter_dc+2
+            if ( counter_dc <= val_dia_campo ) { $('#counter_dia_campo').html(counter_dc) }
+            max_dc = counter_dc+2
+            if( max_dc >= val_dia_campo){ $('#counter_dia_campo').html(val_dia_campo) }
+        }, 10);
+
+        counter_prod = 0
+        setInterval(function(){
+            counter_prod = counter_prod+45
+            if ( counter_prod <= val_produtores ) { $('#counter_produtores').html(counter_prod) }
+            max_prod = counter_prod+45
+            if( max_prod >= val_produtores){ $('#counter_produtores').html(val_produtores) }
+        }, 10);
+
+        counter_atec = 0
+        setInterval(function(){
+            counter_atec = counter_atec+15
+            if ( counter_atec <= val_atec ) { $('#counter_atec').html(counter_atec) }
+            max_atec = counter_atec+15
+            if( max_atec >= val_atec){ $('#counter_atec').html(val_atec) }
+        }, 10);
+
+    });
+
+    </script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,209 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+<script>
+    $(document).ready(function(){
+        status_login = localStorage.getItem("is_logged");
+        if ( status_login == null ) {
+            window.location.href = "/gestor";
+        }
+    });
+</script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
+<style>
+.form-area {
+    padding: 50px;
+}
+.form-container {
+    background-color: #F8F8F8;
+    padding: 30px 60px;
+    border-radius: 10px;
+}
+.form-title{
+    font-size:25px;
+    color:inherit;
+    text-align:center;
+    margin:15px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.req-input{
+    width:100%;
+    float:left;
+    position:relative;
+    background:#00BCD4;
+    height:40px;
+    display:inline-block;
+    border-radius:0px;
+    margin:5px 0px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.req-input input{
+    width:99%;
+    height: 100%;
+    float:left;
+    position:relative;
+}
+.req-input select{
+    width:99%;
+    height: 100%;
+    float:left;
+    position:relative;
+    background-color: #FFF;
+}
+
+.input-texto {
+    margin: 10px 0;
+}
+.submit-row {
+    margin-top: 20px;
+}
+</style>
+
+<div class="row">
+
+     <div class="col-md-12 form-area">
+        <div class="form-container">
+            <div class="row">
+                <div class="form-title">
+                    <span>Nova notícias</span>
+                </div>
+            </div>
+            <div class="input-container">
+
+                <div class="row"> <!-- data_create -->
+                    <div class="col-md-12">
+                        <span class="req-input" >
+                            <input class="input-field" type="text" name="data_create" placeholder="Data da notícias">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row"><!-- estado -->
+                    <div class="col-md-12">
+                        <span class="req-input" >
+                            <select name="estado">
+                                <option value=''                  >Selecione o estado</option>
+                                <option value='Pará'              >Pará</option>
+                                <option value='Mato Grosso'       >Mato Grosso</option>
+                                <option value='Rondônia'          >Rondônia</option>
+                                <option value='Rio Grande do Sul' >Rio Grande do Sul</option>
+                                <option value='Bahia'             >Bahia</option>
+                                <option value='Paraná'            >Paraná</option>
+                                <option value='Minas Gerais'      >Minas Gerais</option>
+                                <option value='Brasília'          >Brasília</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row"><!-- titulo -->
+                    <div class="col-md-12">
+                        <span class="req-input">
+                            <input class="input-field" name="titulo" type="text" placeholder="Titulo da notícias">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row"><!-- chamada -->
+                    <div class="col-md-12">
+                        <span class="req-input">
+                            <input class="input-field" name="chamada" type="text" placeholder="Chamada da notícias">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row"><!-- image_link -->
+                    <div class="col-md-12">
+                        <span class="req-input">
+                            <input class="input-field" name="image_link" type="text" placeholder="Link da imagem da notícias">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row"><!-- conteudo -->
+                    <div class="col-md-12">
+                        <span class="input-texto">
+                            <textarea type="textarea" name="conteudo" rows="30" ></textarea>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row submit-row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-block btn-success" id="submitform-js">Salvar notícias</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+<div class="tokenform">
+{% csrf_token %}
+</div>
+
+
+<script>
+
+    $(document).ready(function(){
+
+
+
+        $('.row').on('mouseup', '#submitform-js', function(event) {
+            tinyMCE.init({
+                theme : "advanced",
+                mode : "textareas"
+            });
+
+            obj_ajax = {}
+
+            obj_ajax[$('.tokenform').find('input')[0].getAttribute('name')] = $('.tokenform').find('input')[0].value
+            obj_ajax[$('.form-area').find('textarea')[0].name] = tinyMCE.get('conteudo').getContent()
+            obj_ajax[$('.form-area').find('select')[0].name] = $('.form-area').find('select')[0].value
+
+            text_campos = $('.form-area').find('input')
+            for (i = 0 ; i< text_campos.length ; i++) {
+                obj_ajax[text_campos[i].name] = text_campos[i].value
+            }
+
+            if (obj_ajax.data_create != '' && obj_ajax.estado != '' && obj_ajax.titulo != '' && obj_ajax.conteudo != '') {
+                $.ajax({
+                    type: 'POST',
+                    url: '/gestor/ajax_noticias/',
+                    dataType: "json",
+                    data: obj_ajax,
+                    success: function(data){
+                        location.href="/gestor/lista_noticias/";
+                    }
+                });
+            }
+            else {
+                alert('é necessario prencher todos os campos')
+            }
+
+
+
+            event.stopPropagation();
+
+        });
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

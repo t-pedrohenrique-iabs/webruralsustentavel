@@ -1,0 +1,72 @@
+{% extends "base/base_gestor.html" %}
+
+{% block base_content %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h2>Metas gerais do PRS</h2>
+			</div>
+		</div>
+	</div>
+
+	<br><br><br>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="text-center" style="border-right: 3px solid #9D7C7E;">Unidade Demonstrativa</th>
+							<th class="text-center" style="border-right: 3px solid #9D7C7E;">Unidade Multiplicadora</th>
+							<th class="text-center" style="border-right: 3px solid #9D7C7E;">Dia de Campo</th>
+							<th class="text-center" style="border-right: 3px solid #9D7C7E;">Produtores Capacitados</th>
+							<th class="text-center">Atecs Treinados</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="danger">
+							<td class="text-center" style="border-right: 3px solid #9D7C7E;"><h4>{{ meta_prs.unidade_demonstrativa }}</h4></td>
+							<td class="text-center" style="border-right: 3px solid #9D7C7E;"><h4>{{ meta_prs.unidade_multiplicadora }}</h4></td>
+							<td class="text-center" style="border-right: 3px solid #9D7C7E;"><h4>{{ meta_prs.dia_campo }}</h4></td>
+							<td class="text-center" style="border-right: 3px solid #9D7C7E;"><h4>{{ meta_prs.produtores_capacitados }}</h4></td>
+							<td class="text-center"><h4>{{ meta_prs.atecs_treinados }}</h4></td>
+							<td>
+								<form action="/gestor/{{meta_prs.id}}/update_meta" method="GET">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-primary">Atualizar</button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+	{% if hideform %}
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-offset-4 col-md-4">
+    			<form method="POST">
+    				{% csrf_token %}
+	    			{{form_meta}}
+	    			<br>
+	    			<button type="submit" class="btn btn-success btn-block">Salvar</button>
+	    		</form>
+    		</div>
+    	</div>
+    </div>
+    {% endif %}
+
+<script>
+$(document).ready(function(){
+
+});
+</script>
+
+{% endblock %}

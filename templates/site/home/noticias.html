@@ -1,0 +1,98 @@
+<style type="text/css">
+	.outras-noticias {
+	    font-size: 32px;
+	    color: #BBC552;
+	    border-bottom: 4px solid #BBC552;
+	}
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+
+	.outras_imgs{
+	    height: 200px;
+	    width: 100%;
+	}
+</style>
+
+<div class="row">
+	<div class="col-md-12">
+		<iframe width="100%" height="640" src="https://www.youtube.com/embed/70ESkeFFz3M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+<!-- 	<div class="col-md-6">
+	<div class="col-md-6">
+		<a href="noticia/{{noticia_um.id}}/prs">
+			<img src="{{ noticia_um.img_noticia }}" alt="" class="img-responsive">
+			<div class="title-home">
+				<h3>{{ noticia_um.titulo }}</h3>
+			</div>
+		</a>
+	</div>
+	<div class="col-md-6">
+		<div class="row">
+				<a href="noticia/{{noticia_dois.id}}/prs">
+				<div class="col-md-7">
+					<img src="{{ noticia_dois.img_noticia }}" alt="" class="img-responsive">
+				</div>
+				<div class="col-md-5">
+					<div class="title-home"><h4>{{ noticia_dois.titulo }}</h4></div>
+					<div class="chamada-home">{{ noticia_dois.chamada }}</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="row" style="margin-top: 15px;">
+			<a href="noticia/{{noticia_tres.id}}/prs">
+				<div class="col-md-7">
+					<img src="{{ noticia_tres.img_noticia }}" alt="" class="img-responsive">
+				</div>
+				<div class="col-md-5">
+					<div class="title-home"><h4>{{ noticia_tres.titulo }}</h4></div>
+					<div class="chamada-home">{{ noticia_tres.chamada }}</div>
+				</div>
+			</a>
+		</div>
+	</div> -->
+
+</div>
+
+<br><br>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="outras-noticias">Notícias</div>
+	</div>
+</div>
+
+<br><br>
+
+<div class="row">
+	<div class="col-md-3">
+		<a href="noticia/{{noticia_um.id}}/prs">
+			<img src="{{ noticia_um.img_noticia }}" alt="" class="img-responsive outras_imgs">
+			<div class="title-home"><h4>{{ noticia_um.titulo }}</h4></div>
+		</a>
+	</div>
+	<div class="col-md-3">
+		<a href="noticia/{{noticia_dois.id}}/prs">
+			<img src="{{ noticia_dois.img_noticia }}" alt="" class="img-responsive outras_imgs">
+			<div class="title-home"><h4>{{ noticia_dois.titulo }}</h4></div>
+		</a>
+	</div>
+	<div class="col-md-3">
+		<a href="noticia/{{noticia_tres.id}}/prs">
+			<img src="{{ noticia_tres.img_noticia }}" alt="" class="img-responsive outras_imgs">
+			<div class="title-home"><h4>{{ noticia_tres.titulo }}</h4></div>
+		</a>
+	</div>
+	<div class="col-md-3">
+		<a href="noticia/{{noticia_quatro.id}}/prs">
+			<img src="{{ noticia_quatro.img_noticia }}" alt="" class="img-responsive outras_imgs">
+			<div class="title-home"><h4>{{ noticia_quatro.titulo }}</h4></div>
+		</a>
+	</div>
+
+</div>
+
+
+<!-- o objeto de noticias pode ir ate noticia_sete -->

@@ -1,0 +1,90 @@
+{% extends "base/base.html" %}
+
+{% block base_content_css %}
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+.parallax {
+    /* The image used */
+    background-image: url("https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/paralax_tecnologia.jpg");
+
+    /* min-height: 350px; */
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 90px;
+}
+
+.container-paralax {
+    display: inline-flex;
+    width: 100%;
+}
+
+.box-paralax {
+/*     border: 1px solid #FFFFFF;
+ */    height: 500px;
+    width: 30%;
+}
+</style>
+
+    <div class="parallax"></div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify">
+                <h2 style="color:#70AA2D; margin-top: 50px;">Sistema de integração Lavoura-Pecuária-Florestas (iLPF) incluindo Sistemas Agroflorestais (SAF)</h2>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <p style="line-height: 25px;margin-top: 30px"><strong>Sistemas da Integração Lavoura Pecuária Floresta</strong> integram atividades <strong>agrícolas, pecuárias e florestais</strong> realizadas na mesma área, em cultivo consorciado, em sucessão ou rotacionado, visando à produção sustentável, e buscando efeitos sinérgicos entre os componentes do agroecossistema, contemplando a adequação ambiental e a viabilidade econômica</p>
+                <p style="line-height: 25px;margin-top: 30px"><strong>Sistemas Agroflorestais</strong> são consórcios de culturas agrícolas com espécies arbóreas que podem ser utilizados para restaurar florestas e recuperar áreas degradadas (EMBRAPA, 2017). O plantio das espécies agrícolas e florestais deve ser realizado na mesma área. Este sistema traz tanto benefícios econômicos quanto ambientais, permitindo que o agricultor diversifique seus produtos</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify">
+                <h2 style="color:#70AA2D; margin-top: 50px;">Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F)</h2>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <p style="line-height: 25px;margin-top: 30px">A <strong>RECUPERAÇÃO DE ÁREAS DEGRADADAS - RAD</strong> é a tecnologia que tem como objetivo reverter uma área de uma condição degradada, para uma condição não degradada, promovendo ganhos de produtividade, redução de desmatamento e trazendo benefícios ambientais, econômicos e sociais. As técnicas de RAD possibilitam a recuperação da integridade física, química e biológica de uma área (estrutura) e, ao mesmo tempo, recuperam a sua capacidade produtiva (função), seja na produção de alimentos e matérias-primas ou em suas funções ecológicas e ecossistêmicas  A Recuperação de Áreas Degradadas <strong>COM PASTAGEM – RAD-P</strong> recupera a integridade física, química e  biológica de uma área degradada, e, ao mesmo tempo, recupera sua capacidade produtiva, seja na produção de alimentos e/ou matérias-primas.</p>
+                <p style="line-height: 25px;margin-top: 30px">A Recuperação de Áreas Degradadas <strong>COM FLORESTA – RAD-F</strong> tem como objetivo a recuperação do Bioma e a conservação ambiental. A RAD-F recupera a integridade física, química e biológica de uma área degradada, e, ao mesmo tempo, recupera suas funções ecológicas e ecossistêmicas. Considerando os aspectos legais relacionados à recuperação de Áreas de Preservação Permanente - APP e Reserva Legal – RL.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify">
+                <h2 style="color:#70AA2D; margin-top: 50px;">Plantio de Florestas Comerciais</h2>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <p style="line-height: 25px;margin-top: 30px">O plantio de espécies arbóreas com fins comerciais é importante não apenas do ponto de vista produtivo, mas também do ponto de vista da conservação ambiental. Os <strong>Plantios de Florestas comerciais</strong> diminuem a pressão sobre as florestas naturais, fornecem matéria-prima para diferentes usos industriais e não industriais, e contribuem para a provisão de diversos serviços ambientais e sociais. Esta tecnologia não se restringe a espécies exóticas com fins madeireiros, pelo contrário, abrange qualquer plantio de espécies arbóreas em sistema puro, isto é, que não seja sistema de integração com componentes agrícolas e/ou pastoris.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify">
+                <h2 style="color:#70AA2D; margin-top: 50px;">Manejo de Florestas Nativas</h2>
+            </div>
+            <div class="col-md-offset-1 col-md-10">
+                <p style="line-height: 25px;margin-top: 30px">O <strong>Manejo Florestal Sustentável</strong>, segundo a Lei de Gestão de Florestas Públicas (Lei Federal No 11.284/2006), é a “administração da floresta para a obtenção de benefícios econômicos, sociais e ambientais, respeitando-se os mecanismos de sustentação do ecossistema objeto do manejo e considerando-se, cumulativa ou alternativamente, a utilização de múltiplas espécies madeireiras, de múltiplos produtos e subprodutos não-madeireiros, bem como a utilização de outros bens e serviços de natureza florestal”.</p>
+            </div>
+        </div>
+
+        <div style="height: 100px;"></div>
+
+    </div>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104762470-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+{% endblock %}

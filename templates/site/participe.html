@@ -1,0 +1,367 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+    .parallax {
+        /* The image used */
+        background-image: url("https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/paralax_participe.jpg");
+
+        /* Set a specific height */
+        min-height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: -350px;
+    }
+    .nome-aba {
+        font-size: 30px;
+        width: 40%;
+        color: #FFF;
+        text-align: center;
+    }
+    .menu-float {
+        position: fixed;
+        border-radius: 0px 10px 10px 0px;
+        display: inline-flex;
+        width: 100%;
+        z-index: 999;
+    }
+    .op-float {
+        color: #FFF;
+        padding: 10px 10px;
+        background-color: #70AA2D;
+        width: 12.5%;
+        text-align: center
+    }
+    .op-float:hover {
+        background-color: #b3e47a;
+        cursor: pointer;
+        color: #08622E;
+    }
+    /*  bhoechie tab */
+    div.bhoechie-tab-container{
+        z-index: 10;
+        background-color: #ffffff;
+        padding: 0 !important;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        border:1px solid #ddd;
+        margin-top: 20px;
+        margin-left: 50px;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        background-clip: padding-box;
+        opacity: 0.97;
+        filter: alpha(opacity=97);
+        height: 1123px;
+    }
+    div.bhoechie-tab-menu{
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group{ margin-bottom: 0;}
+    div.bhoechie-tab-menu div.list-group>a{
+      margin-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a .fa {
+      color: #08622E;
+    }
+    div.bhoechie-tab-menu div.list-group>a:first-child{
+      border-top-right-radius: 0;
+      -moz-border-top-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a:last-child{
+      border-bottom-right-radius: 0;
+      -moz-border-bottom-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active,
+    div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a.active .fa{
+      background-color: #08622E;
+      background-image: #08622E;
+      color: #ffffff;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active:after{
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      margin-top: -13px;
+      border-left: 0;
+      border-bottom: 13px solid transparent;
+      border-top: 13px solid transparent;
+      border-left: 10px solid #08622E;
+    }
+    div.bhoechie-tab-content{
+      background-color: #ffffff;
+      /* border: 1px solid #eeeeee; */
+      padding-left: 20px;
+      padding-top: 10px;
+        height: 985px;
+        overflow: auto;
+    }
+    div.bhoechie-tab div.bhoechie-tab-content:not(.active){ display: none; }
+    .bhoechie-tab-content p { font-size: 16px; }
+    .banner_edital:hover {
+        background-color: #E6F5DE;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .banner_edital {
+        text-align: center;
+    }
+
+</style>
+
+
+    <div>
+    <div class="parallax">
+    </div>
+
+<!--     <button style="display: none;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="click_modal">Open Small Modal</button>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="{% static "image/home/chamada_resultado.jpg"%}" class="img-responsive">
+                </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container" style="margin-top: 20px;">
+        <!-- O PROJETO -->
+        <div class="row" id="section2">
+            <div class="col-md-12">
+                <div style="border-bottom:3px solid #70AA2D;">
+                    <div class="nome-aba" style="background-color: #70AA2D;">Participe do projeto - Editais</div>
+                </div>
+            </div>
+
+
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row" style="padding: 30px 0 30px 0;">
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/mudas_insumos"><img src="{% static "image/downloads/Edital_Programa-Mudas-e-Insumos.png"%}" class="img-responsive"></a>
+                        <div>Programa de Mudas e Insumos</div>
+                    </div>
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/edital_um_direcionada"><img src="{% static "image/downloads/chamada_um_direcionada.png"%}" class="img-responsive"></a>
+                        <div>Chamada de Unidades Multiplicadora Direcionada</div>
+                    </div>
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/chamada_um"><img src="{% static "image/downloads/01_chamada_um_encerrada.png"%}" class="img-responsive"></a>
+                        <div>Chamada de Unidades Multiplicadora</div>
+                        <div><a href="/select_resultado/"><h4><span class="label label-warning">Resultado</span></h4></a></div>
+                    </div>
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/chamada_direcionada"><img src="{% static "image/downloads/02_chamada_direcionada_encerrada.png"%}" class="img-responsive"></a>
+                        <div>Chamada Complementar Direcionada de Unidades Demonstrativas</div>
+                        <div><a href="/select_resultado/"><h4><span class="label label-warning">Resultado</span></h4></a></div>
+                    </div>
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/chamadaud"><img src="{% static "image/downloads/03_chamadaud.jpg"%}" class="img-responsive" style="filter: grayscale;-webkit-filter: grayscale(100%);"></a>
+                        <div>II Chamada de Unidades Demonstrativas</div>
+                    </div>
+                    <div class="col-md-2 banner_edital" style="padding:20px;">
+                        <a href="/chamadapiloto"><img src="{% static "image/downloads/04_chamadapiloto.jpg"%}" class="img-responsive" style="filter: grayscale;-webkit-filter: grayscale(100%);"></a>
+                        <div>Chamada Piloto de Unidades Demonstrativas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row">
+                    <div><small>Clique e faça o download do tutorial</small></div>
+                    <div class="col-md-4 text-center">
+                        <h5><a target="_blank" href="{% static "image/documentos/Tutorial_Cadastro_de_ATER_e_ATEC.pdf" %}"> Tutorial de Cadastro de ATER e ATEC</a></h5>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5><a target="_blank" href="{% static "image/documentos/Tutorial_PTEC_no_Portal_UD.pdf" %}"> Tutorial de PTEC de UD</a></h5>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5><a target="_blank" href="{% static "image/documentos/Tutorial_Cadastro_UM.pdf" %}"> Tutorial de PTEC de UM</a></h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row">
+                    <div><h4>Documentos de apoio</h4></div>
+                    <div class="col-md-12">
+                        <p>
+                            <a href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/Proposta_técnica_de_Unidades_Multiplicadoras.pdf" target="_blank">
+                            Proposta Técnica (PTec) com tutorial para o preenchimento
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-docs/Acordo+de+Coopera%C3%A7%C3%A3o+T%C3%A9cnica+Revisado+23+02+2018.pdf" target="_blank">
+                            Acordo de Cooperação Técnica entre Produtor e ATEC
+                            </a>
+                        </p>
+                        <p>
+                            <a href="http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=40346955" target="_blank">
+                            Aditivo Contratual ao Acordo de Cooperação Técnica entre Produtor e ATEC
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/Modelo_Instrumento_de_Alteracao_Contratual_ao_Acordo_de_CT_ATEC_Produtor_Instituicao.pdf" target="_blank">
+                            Aditivo Contratual ao Acordo de Cooperação Técnica entre o Produtor, o ATEC e a Instituição
+                            </a>
+                        </p>
+                        <p>
+                            <a href="http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=40346934" target="_blank">
+                            Carta de Anuência na hipótese de co-propriedade ou posse conjunta
+                            </a>
+                        </p>
+                        <p>
+                            <a href="http://www.ruralsustentavel.org/static/edital/um/MODELO_DE_REGISTRO_DE_VISITA_DE_ASSISTENCIA_TECNICA.pdf" target="_blank">
+                            Modelo de Registro de Visita de Assistência Técnica
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/docs_edital/novo_tutorial-Relatorio-Parcial-UM.pdf" target="_blank">
+                            Relatório Parcial com tutorial para preenchimento
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/docs_edital/novo_tutorial-Relatorio-Final-UM.pdf" target="_blank">
+                            Relatório Final com tutorial para preenchimento
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-docs/INSTRUMENTO+DE+RESCIS%C3%83O+23+02+2018.pdf" target="_blank">
+                            Instrumento de Rescisão
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 100px">
+                <div style="border-bottom:3px solid #70AA2D;">
+                    <div class="nome-aba" style="background-color: #70AA2D;">Cursos a Distância</div>
+                </div>
+            </div>
+            <div class="col-md-offset-2 div col-md-8">
+                <br><br>
+                <a href="http://moodle.ruralsustentavel.org/">
+                    <img src="https://s3.amazonaws.com/ruralsustentavel-site/imagens/home/Banner_e-Learning2.jpg" alt="" class="img-responsive" style="border:1px solid #000;">
+                </a>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 100px">
+                <div style="border-bottom:3px solid #70AA2D;">
+                    <div class="nome-aba" style="background-color: #70AA2D;">Como participar</div>
+                </div>
+            </div>
+            <div class="col-md-offset-1 div col-md-10">
+                <br><br>
+                <div class="row">
+                    <div class="col-md-3"><img src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/Avatar_ATECs.png" class="img-responsive" alt=""></div>
+                    <div class="col-md-9">
+                        <p style="line-height: 25px;margin-top: 50px;">Se você é uma instituição de Assistência Técnica e Extensão Rural (ATER) cadastre-se no Portal clicando <a href="http://portal.ruralsustentavel.org/instituicao/cadastro/"><strong>AQUI</strong></a>.Envie todos os documentos e siga as orientações do Portal.</p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-3"><img src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/avatar_produtores.png" class="img-responsive" alt=""></div>
+                    <div class="col-md-9">
+                        <p style="line-height: 25px;margin-top: 50px;">Se você é um <strong>Produtor(a) Rural</strong>, procure um Agente de Assistência Técnica (ATEC) em seu município que esteja habilitado no Projeto, acessando a lista de Instituições de ATERs (link para lista de ATERS) habilitadas e seja um beneficiário! </p>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-md-12">
+                        <h3>Etapas para o cadastramento:</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <p  style="line-height: 25px; margin-top: 10px;"><span style="font-size: 30px">1 </span>As instituições de Assistência Técnica e Extensão Rural (ATER) já podem realizar o cadastro inicial no Portal. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <p  style="line-height: 25px; margin-top: 10px;"><span style="font-size: 30px">2 </span>O cadastro será verificado e aprovado pelo Banco Interamericano de Desenvolvimento (BID</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <p  style="line-height: 25px; margin-top: 10px;"><span style="font-size: 30px">3 </span>Após aprovada a instituição deverá nomear os técnicos que participarão do Programa de Treinamento. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <p  style="line-height: 25px; margin-top: 10px;"><span style="font-size: 30px">4 </span>Uma vez finalizado o cadastro do profissional e aprovado na etapa de verificação do conhecimento sobre o Projeto, os técnicos passam a ser tratados como ATECs – Agentes de Assistência Técnica do RuralSustentável.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <p  style="line-height: 25px; margin-top: 10px;"><span style="font-size: 30px">5 </span>A partir desta etapa os ATECs realizarão treinamentos em tecnologias de baixo carbono, presenciais ou à distância (vídeo-aulas), e poderão elaborar, conjuntamente com os(as) produtores(as) rurais, Propostas Técnicas (PTec) para concorrer às Chamadas de Propostas para Unidades Demonstrativas (UDs) e Unidades Multiplicadoras (UMs).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+
+
+    <div style="height: 100px;"></div>
+
+<!-- end body page    -->
+</div>
+
+<script>
+
+
+    $(document).ready(function() {
+        
+        // $('#click_modal').click()
+
+        $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+            e.preventDefault();
+            $(this).siblings('a.active').removeClass("active");
+            $(this).addClass("active");
+            var index = $(this).index();
+            $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+            $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+        });
+    });
+</script>
+
+
+{% endblock %}

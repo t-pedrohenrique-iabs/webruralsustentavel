@@ -1,0 +1,859 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+    .nome-aba {
+        font-size: 30px;
+        width: 55%;
+        color: #FFF;
+        text-align: center;
+    }
+    .menu-float {
+        position: fixed;
+        border-radius: 0px 10px 10px 0px;
+        display: inline-flex;
+        width: 100%;
+        z-index: 999;
+    }
+    .op-float {
+        color: #FFF;
+        padding: 10px 10px;
+        background-color: #70AA2D;
+        width: 12.5%;
+        text-align: center
+    }
+    .op-float:hover {
+        background-color: #b3e47a;
+        cursor: pointer;
+        color: #08622E;
+    }
+    /*  bhoechie tab */
+    div.bhoechie-tab-container{
+        z-index: 10;
+        background-color: #ffffff;
+        padding: 0 !important;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        border:1px solid #ddd;
+        margin-top: 20px;
+        margin-left: 50px;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        background-clip: padding-box;
+        opacity: 0.97;
+        filter: alpha(opacity=97);
+        height: 1123px;
+    }
+    div.bhoechie-tab-menu{
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group{ margin-bottom: 0;}
+    div.bhoechie-tab-menu div.list-group>a{
+      margin-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a .fa {
+      color: #08622E;
+    }
+    div.bhoechie-tab-menu div.list-group>a:first-child{
+      border-top-right-radius: 0;
+      -moz-border-top-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a:last-child{
+      border-bottom-right-radius: 0;
+      -moz-border-bottom-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active,
+    div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a.active .fa{
+      background-color: #08622E;
+      background-image: #08622E;
+      color: #ffffff;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active:after{
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      margin-top: -13px;
+      border-left: 0;
+      border-bottom: 13px solid transparent;
+      border-top: 13px solid transparent;
+      border-left: 10px solid #08622E;
+    }
+    div.bhoechie-tab-content{
+      background-color: #ffffff;
+      /* border: 1px solid #eeeeee; */
+      padding-left: 20px;
+      padding-top: 10px;
+        height: 985px;
+        overflow: auto;
+    }
+    div.bhoechie-tab div.bhoechie-tab-content:not(.active){ display: none; }
+    .bhoechie-tab-content p { font-size: 16px; }
+    .banner_edital:hover {
+        background-color: #E6F5DE;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .banner_edital {
+        text-align: center;
+    }
+
+</style>
+
+    <div>
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="border-bottom:3px solid #70AA2D;margin-top: 30px;">
+                        <div class="nome-aba" style="background-color: #70AA2D;">Chamada de Unidades Multiplicadora</div>
+                    </div>
+                </div>
+
+                <div class="col-md-offset-1 col-md-10">
+                    <a href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/BID-Edital_Proposta-ChamadaUM.pdf" target="_blank">
+                        <h4>Baixe o edital completo em PDF <span class="glyphicon glyphicon-download-alt"></span></h4>
+                    </a>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active text-center"><h4>1. Apresentação do Projeto Rural Sustentável</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>2. O que é a Chamada de Propostas de Unidades Multiplicadoras (UM)?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>3. Quais as tecnologias de baixo carbono apoiadas pelo Projeto?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>4. Qual o público beneficiário?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>5. Quais são os benefícios?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>6. Como submeter a Proposta Técnica?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>7. Como é o processo de seleção?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>8. Quais são os critérios de seleção e avaliação?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>9. Condições de privacidade</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>10. Documentação de suporte e modelos</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>11. Cronograma da Chamada de UM</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>12. Glossário</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>13. Contato</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>14. Perguntas e Respostas</h4></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                                <div class="bhoechie-tab-content active">
+                                    <h1>1. Apresentação do Projeto Rural Sustentável</h1>
+                                    <p>O objetivo do Projeto é melhorar a gestão da terra e das florestas por agricultores(as) nos biomas Amazônia e Mata Atlântica para o desenvolvimento rural sustentável, redução da pobreza, conservação da biodiversidade e proteção do clima; e promover a implantação de um projeto de grande escala que possa, contribuir para o desenvolvimento do Plano Agricultura de Baixo Carbono (Plano ABC) através do fomento de implantação de tecnologias em propriedades rurais conforme previsto no Projeto Rural Sustentável – BR-X1028 <a href="http://www.ruralsustentavel.org/pt-br/">www.ruralsustentavel.org</a>.</p>
+                                    <p>Este Projeto tem como executor e gestor financeiro o Banco Interamericano de Desenvolvimento (BID) e é financiado pelo Fundo Internacional para o Clima (International Climate Fund - ICF) do Ministério da Agricultura, da Alimentação, da Pesca e dos Assuntos Rurais do Governo Britânico (DEFRA), tendo como beneficiário o Ministério da Agricultura, Pecuária e Abastecimento (MAPA), por meio da Secretaria de Mobilidade Social, do Produtor Rural e do Cooperativismo.</p>
+                                    <p>O IABS – Instituto Brasileiro de Desenvolvimento e Sustentabilidade foi a instituição selecionada no processo seletivo SPD 16-072 para realizar os serviços de “execução e operacionalização de atividades administrativas e logísticas do projeto Rural Sustentável”, conforme contrato No C0049-17, firmado entre o IABS e o BID. A presente Chamada de Propostas é parte das ações previstas neste contrato.</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                        <h1>2. O que é a Chamada de Propostas de Unidades Multiplicadoras (UM)?</h1>
+                                        <p>Esta Chamada apresenta as orientações para submissão de Propostas Técnicas (PTec) e os critérios de elegibilidade e avaliação das Unidades Multiplicadoras (UMs) e suas Áreas de Conservação Florestal (ACF) nos municípios participantes. O Projeto visa selecionar um total de 3.360 (três mil trezentos e sessenta) unidades de produtores(as) rurais interessados(as) na implantação das tecnologias de baixo carbono apoiadas pelo Projeto e na conservação de áreas de florestas importantes para a proteção dos biomas Amazônia e Mata Atlântica. </p>
+                                        <p>Segundo o Projeto Rural Sustentável, uma Unidade Multiplicadora (UM) é uma área de produção rural onde será implantada uma ou mais tecnologias e atividades de adequação ambiental através do estabelecimento das Áreas de Conservação Florestal (ACF). O Projeto prevê o apoio de assistência técnica aos(às) produtores(as) rurais beneficiários(as) para planejamento, implantação e acompanhamento da UM e pagamento por resultados para produtores(as) rurais que alcançarem os objetivos propostos para a Proposta Técnica. </p>
+                                        <p>As Unidades Multiplicadoras para serem consideradas elegíveis deverão:</p>
+                                        <p>a) implantar uma ou mais tecnologias de baixo carbono apoiadas pelo Projeto;_</p>
+                                        <p>b) ser implantadas em áreas degradadas, à exceção da tecnologia Manejo Sustentável de Florestas Nativas. Portanto, conforme o conceito do projeto, não poderá haver desmatamento para implantar a tecnologia de baixo carbono da UM apresentada na Proposta Técnica;</p>
+                                        <p>c) comprometer-se à adequação ambiental em Áreas de Preservação Permanente (APP) e/ou Reserva Legal (RL) com a delimitação de Áreas de Conservação Florestal (ACF) ou, no caso de ausência de ACF, comprometer-se a efetuar a Recuperação de Áreas Degradadas com Florestas (RAD-F);</p>
+                                        <p>d) quando forem apresentadas na mesma Proposta Técnica a tecnologia Manejo Sustentável de Florestas Nativas e a Área de Conservação Florestal (ACF), devem ser diferenciadas espacialmente para que não haja risco de sobreposição.</p>
+                                        <p>Entende-se por Área Degradada uma área que, após distúrbio natural ou uso humano, apresenta-se sem cobertura florestal e com baixo potencial de regeneração natural. </p>
+                                        <p>Entende-se por pastagem degradada uma área com acentuada diminuição da produtividade agrícola ideal (diminuição da capacidade de suporte ideal), podendo ou não ter perdido a capacidade de manter produtividade biológica (acumular biomassa) significativa. Para o Projeto, Área de Pastagem Degradada está enquadrada em Área Degradada. </p>
+                                        <p>Entende-se por Floresta uma área mínima de terra de 1,0 hectare, com cobertura de copa superior a 30%, contendo árvores com o potencial de atingir uma altura mínima de 5 metros no estágio de maturidade no local.</p>
+                                        <p>Entende-se como Área de Conservação Florestal – ACF, no âmbito do Projeto Rural Sustentável, um fragmento de floresta contendo espécies representativas do Bioma Amazônia ou Mata Atlântica, o qual deverá ser conduzido pelo bom manejo e conservado de fatores degradantes, de forma a garantir a qualidade de suas funções quanto à conservação do bioma, proteção do clima e da biodiversidade. A Área de Conservação Florestal pode ser descontínua, ou seja, dividida em diferentes subáreas, desde que apresente no mínimo de 1 ha para cada subárea, sendo ainda desejável que possuam corredores ecológicos interligando-as.  Estas áreas deverão estar devidamente identificadas no CAR (caso já possua) ou no croqui georreferenciado da propriedade. A ACF pode ser composta por Área de Preservação Permanente – APP e/ou Reserva Legal – RL.</p>
+                                        <p>Áreas de Preservação Permanente – APP é uma “área protegida, coberta ou não por vegetação nativa, com a função ambiental de preservar os recursos hídricos, a paisagem, a estabilidade geológica e a biodiversidade, facilitar o fluxo gênico de fauna e flora, proteger o solo e assegurar o bem-estar das populações humanas” (Lei No 12.651/2012, Art. 3o, inciso II).</p>
+                                        <p>Reserva Legal – RL refere-se a uma “área localizada no interior de uma propriedade ou posse rural [...] com a função de assegurar o uso econômico de modo sustentável dos recursos naturais do imóvel rural, auxiliar a conservação e a reabilitação dos processos ecológicos e promover a conservação da biodiversidade, bem como o abrigo e a proteção de fauna silvestre e da flora nativa” (Lei No 12.651/2012, Art. 3o, inciso III).</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>3. Quais as tecnologias de baixo carbono apoiadas pelo Projeto?</h1>
+                                    <p>As tecnologias de baixo carbono apoiadas pelo Projeto são:</p>
+                                    <p>a. Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F);</p>
+                                    <p>b. Integração Lavoura, Pecuária e Florestas (iLPF), incluindo Sistemas Agroflorestais (SAFs);</p>
+                                    <p>c. Plantio de Florestas Comerciais;</p>
+                                    <p>d. Manejo Sustentável de Florestas Nativas.</p>
+                                    <p>Segue o detalhamento das características de cada uma das tecnologias de Baixo Carbono, referência para esta Chamada de Propostas.</p>
+                                    <p><strong>a) Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F)</strong></p>
+                                    <p>Recuperar uma área degradada significa revertê-la de uma condição degradada para uma condição produtiva, independente do estado em que estava originalmente e de sua destinação futura. Assim, é possível recuperar a integridade física, química e biológica de uma área (estrutura) e, ao mesmo tempo, recuperar sua capacidade produtiva (função), seja na produção de alimentos e matérias-primas ou em suas funções ecológicas e ecossistêmicas. Para esta tecnologia, a Recuperação de Áreas Degradadas poderá ser realizada com Pastagem (RAD-P) ou com Florestas (RAD-F).</p>
+                                    <p><strong>A Recuperação de Área Degradada com Pastagem – RAD-P</strong> deverá ser descrita na Proposta Técnica em termos de: área (ha); objetivos produtivos (gado, carne, leite, outros); produção esperada; técnicas e cronograma de implantação; manejo e colheita, de acordo com as espécies escolhidas; capacidade de suporte animal; e legislação ambiental vigente. </p>
+                                    <p>Caso a Proposta Técnica não apresente ACFs, esta tecnologia, RAD-P só será elegível se estiver associada à proposição de Recuperação de Área Degradada com Floresta – RAD-F, com tamanho mínimo de 1ha.</p>
+                                    <p>Para a Recuperação de Áreas Degradadas com Pastagem (RAD-P), deve-se:</p>
+                                    <p>- implantar a tecnologia em área degradada, localizada em áreas permitidas pelo Novo Código Florestal e demais legislações vigentes, respeitando-se as Áreas de Preservação Permanente (APP) e Reserva Legal (RL);</p>
+                                    <p>- listar as principais causas da degradação;</p>
+                                    <p>- apresentar descrição das técnicas de implantação e manejo da pastagem e da(s) espécie(s) a ser(em) utilizada(s);</p>
+                                    <p>- relacionar atividades de implantação, tratos culturais e manejo com o cronograma de atividades planejado;</p>
+                                    <p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica;</p>
+                                    <p>- evitar aração ou gradagem para minimizar impactos e, preferencialmente, adotar o uso de adubação nitrogenada através de leguminosas;</p>
+                                    <p>- nos casos que incluam criação de gado, manter um número de animais menor ou igual à capacidade de lotação animal por unidade de área de pastagem, levando-se em consideração o tipo de solo, as condições da pastagem, as raças dos animais, o hábito de pastoreio, entre outros;</p>
+                                    <p>Para o Projeto Rural Sustentável a tecnologia de integração Lavoura-Pecuária (iLP) se enquadra em Recuperação de Áreas Degradadas com Pastagem (RAD-P).</p>
+                                    <p><strong>A Recuperação de Áreas Degradadas com Florestas – RAD-F,</strong> tem como objetivo principal a recuperação do bioma e a conservação ambiental de Áreas de Preservação Permanente – APP e Reserva Legal – RL, sendo que a produção comercial seria um objetivo secundário; esse é o fator que diferencia esta tecnologia de RAD-F da tecnologia de Plantio de Florestas Comerciais.</p>
+                                    <p>Para Recuperação de Áreas Degradadas com Florestas (RAD-F), deve-se:</p>
+                                    <p>- implantar a tecnologia em área degradada, considerando-se a sua localização em áreas de passivo ambiental da propriedade, podendo contribuir para a recuperação de Áreas de Preservação Permanente - APP e Reserva Legal - RL, de acordo com o Novo Código Florestal e as regulamentações de âmbito estadual e municipal;</p>
+                                    <p>- listar as principais causas da degradação da área;</p>
+                                    <p>- para a recuperação de APP, dar atenção especial para a escolha da técnica de recuperação (condução da regeneração natural, enriquecimento, nucleação, plantio em área total) e das espécies florestais que deverão ser aquelas indicadas por órgãos de pesquisa e extensão de referência e de literatura especializada, buscando-se a recomposição do respectivo bioma, associado ou não a espécies exóticas, respeitando-se a legislação vigente;</p>
+                                    <p>- descrever as técnicas de implantação e manutenção, tratos culturais e escolha da(s) espécie(s) utilizada(s);</p>
+                                    <p>- apresentar dados de produtividade esperada (se for o caso) e os indicadores simplificados de viabilidade econômica;</p>
+                                    <p>- tratando-se de recuperação de APP úmida (mata ciliar, entorno de nascentes, várzeas, entre outros), dar atenção na utilização dos insumos químicos, caso sejam aplicados, a fim de se evitar a contaminação dos recursos hídricos.</p>
+                                    <p><strong>b) Sistemas de integração Lavoura-Pecuária-Florestas – iLPF, incluindo Sistemas Agroflorestais – SAF</strong></p>
+                                    <p>Os sistemas de produção integrados visam à produção sustentável, integrando componentes agrícolas, pastoris e florestais realizados numa mesma área, em cultivo consorciado, em sucessão ou rotacionado, e também buscando-se efeitos sinérgicos entre seus componentes, contemplando a adequação ambiental e a viabilidade econômica. </p>
+                                    <p>Os tipos de sistemas de produção integrados irão variar em função do tempo, espaço e objetivos dos(as) produtores(as) rurais, e deverão seguir algumas condições específicas, conforme cada tipo:</p>
+                                    <p><strong>Sistema de integração Lavoura-Pecuária-Florestas (iLPF): </strong> este sistema também é conhecido como sistema Agrossilvipastoril e obrigatoriamente deverá conter, na mesma área, componentes agrícolas (culturas anuais ou semiperenes de porte baixo ou rasteiro), componentes pastoris (gramíneas associada à criação animal) e componente florestal (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas). Tais atividades poderão ocorrer em rotação, consorciação e/ou sucessão. Para manter a sustentabilidade do sistema, ressalta-se que o número de animais manejados na criação de grande porte deverá ser menor ou igual à capacidade de lotação animal por unidade de área de pastagem. A capacidade de lotação deverá ser determinada levando-se em consideração o tipo de solo, a condição da pastagem, o tipo de animal, o seu hábito de pastoreio, entre outros fatores.</p>
+                                    <p><strong>Sistemas Agroflorestais (SAF):</strong> obrigatoriamente deverá conter consórcio de componentes agrícolas (culturas anuais ou semiperenes de porte baixo ou rasteiro) e florestais (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas). </p>
+                                    <p><strong>Sistema Silvipastoril (SSP):</strong> obrigatoriamente deverá conter consórcio de componentes pastoris (gramíneas associada à criação animal) e florestais (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas). </p>
+                                    <p>A Proposta Técnica deverá apresentar TODAS as espécies agrícolas anuais, gramíneas e florestais utilizadas.</p>
+                                    <p>Atenção especial deverá ser dada à escolha das espécies para cada sistema, considerando-se as condições ambientais locais e a interação entre as culturas.</p>
+                                    <p>Para os sistemas de iLPF, deve-se:</p>
+                                    <p><strong>Sistema de integração Lavoura-Pecuária (iLP) ou Agropastoril: </strong> Para o Projeto Rural Sustentável, esta modalidade iLP será SEMPRE enquadrada como tecnologia de Recuperação de Áreas Degradadas com Pastagem (RAD-P), devido a ausência do componente florestal na tecnologia.</p>
+                                    <p>- implantar a tecnologia em área degradada e que não apresente cobertura florestal, ou seja, não poderá haver desmatamento para implantar a tecnologia;</p>
+                                    <p>- listar as principais causas da degradação;</p>
+                                    <p>- utilizar espécies nativas ou exóticas ao bioma, desde que seu comportamento ecológico seja conhecido através de pesquisas e práticas anteriores e, portanto, não apresente riscos de colonização indesejada ao ambiente;</p>
+                                    <p>- apresentar descrição das técnicas de implantação, tratos culturais e manejo da(s) espécie(s) a ser(em) utilizada(s);</p>
+                                    <p>- relacionar atividades de implantação e manejo com cronograma de atividades;</p>
+                                    <p>- apresentar dados de produtividade esperada e indicadores simplificados de viabilidade econômica;</p>
+                                    <p>- seguir as orientações do órgão ambiental competente para implantação e colheita (autorizações, licenças, etc.).</p>
+                                    <p><strong>c) Plantio de Florestas Comerciais</strong></p>
+                                    <p>O Plantio de Florestas Comerciais é importante não apenas do ponto de vista produtivo, mas também do ponto de vista da conservação ambiental. As florestas comerciais diminuem a pressão sobre as florestas naturais, fornecem matéria-prima para diferentes usos industriais e não industriais, e contribuem para a provisão de diversos serviços ambientais e sociais. Esta tecnologia não se restringe a espécies exóticas com fins madeireiros, pelo contrário, abrange qualquer plantio de espécies arbóreas em sistema puro, isto é, que não seja sistema de integração com componentes agrícolas e/ou pastoris. Assim, toda implantação de plantios de espécies arbóreas para fins de fruticultura, produção de sementes/grãos, resina, entre outros fins, que não utilizarem espécies anuais ou gramíneas na fase inicial de sua implantação, se enquadram nesta tecnologia. </p>
+                                    <p>Quando a implantação florestal está integrada com estes outros componentes, se enquadrará na tecnologia de iLPF, descrita acima.</p>
+                                    <p>Para o Plantio de Florestas Comerciais, deve-se:</p>
+                                    <p>- implantar a tecnologia em área degradada e que não apresente cobertura florestal, ou seja, não poderá haver desmatamento para implantar a tecnologia;</p>
+                                    <p>- listar as principais causas da degradação;</p>
+                                    <p>- utilizar espécies nativas ou exóticas ao bioma, desde que seu comportamento ecológico seja conhecido através de pesquisas e práticas anteriores e, portanto, não apresente riscos de colonização indesejada ao ambiente;</p>
+                                    <p>- listar as espécies que serão utilizadas e sua origem;</p>
+                                    <p>- apresentar descrição das técnicas de implantação, tratos culturais e manejo da(s) espécie(s) a ser(em) utilizada(s);</p>
+                                    <p>- relacionar atividades de implantação e manejo com cronograma de atividades;</p>
+                                    <p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica;</p>
+                                    <p>- seguir as orientações do órgão ambiental competente para implantação e colheita (autorizações, licenças, etc.).</p>
+                                    <p><strong>d) Manejo Sustentável de Florestas Nativas</strong></p>
+                                    <p>O Manejo Florestal Sustentável, segundo a Lei de Gestão de Florestas Públicas (Lei Federal No 11.284/2006), é a “administração da floresta para a obtenção de benefícios econômicos, sociais e ambientais, respeitando-se os mecanismos de sustentação do ecossistema objeto do manejo e considerando-se, cumulativa ou alternativamente, a utilização de múltiplas espécies madeireiras, de múltiplos produtos e subprodutos não-madeireiros, bem como a utilização de outros bens e serviços de natureza florestal”. O princípio que rege o manejo florestal é o planejamento nas etapas pré-exploratória, exploratória e pós-exploratória.</p>
+                                    <p>Para as atividades de Manejo Sustentável de Florestas Nativas, deve-se:</p>
+                                    <p>- apresentar, no caso de Manejo Florestal Madeireiro, cópia do Plano de Manejo Florestal Sustentável (PMFS) aprovado pelo órgão ambiental competente, do Plano de Operação Anual (POA), Documento de Origem Florestal (DOF), caso já esteja em fase de comercialização, e todas as certidões necessárias requeridas conforme determinação do órgão ambiental competente e o estágio de execução do PMFS;</p>
+                                    <p>- descrever ações compensatórias de reposição florestal para as propostas de manejo de produtos florestais madeireiros ou que impliquem na retirada e morte dos indivíduos manejados;</p>
+                                    <p>- apresentar, em caso de Manejo Florestal Não-Madeireiro, Plano de Manejo Simplificado, conforme legislação competente, com descrição da seleção da(s) espécie(s) manejada(s) e técnicas que serão adotadas;</p>
+                                    <p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica.</p>
+                                    <p>Para o Bioma Amazônia, poderão ser aceitas atividades com fins madeireiros, não-madeireiros e de usos múltiplos.</p>
+                                    <p>Para o Bioma Mata Atlântica, o Projeto Rural Sustentável incentiva o manejo não-madeireiro que pode abranger atividades melíferas, manejo do cacau cabruca no sub-bosque da floresta, coleta e produção de sementes de espécies florestais representativas do bioma, manejo não madeireiro da erva mate, da araucária, da piaçava, do fruto da jussara e outras espécies de ocorrência no Bioma.</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>4. Qual o público beneficiário?</h1>
+                                    <p><strong>Agentes de Assistência Técnica</strong> cadastrados no Portal do Projeto através de suas instituições e aprovados pelo Projeto, sendo identificados como ATECs. São elegíveis para atuação enquanto ATECs do Rural Sustentável técnicos(as) com formação na área de ciências agrárias, níveis técnico e superior, com respectivos registros profissionais devidamente regularizados nos conselhos competentes.</p>
+                                    <p>A participação se inicia com o cadastro no Portal das instituições de ATER, que indicam os(as) ATECs, os(as) quais devem concluir seu cadastro individual, submeter as Propostas Técnicas das UMs no Portal e realizar o acompanhamento das UMs.</p>
+                                    <p><strong>Produtores(as) Rurais</strong> que atendam aos critérios de elegibilidade do Projeto. </p>
+                                    <p>Os(as) produtores(as) rurais para participarem de uma Chamada de Propostas devem:</p>
+                                    <p>a) ter a posse legal do imóvel como proprietário(a), posseiro(a), arrendatário(a), parceiro(a), concessionário(a) do Plano Nacional de Reforma Agrária (PNRA), ou permissionário(a) de áreas públicas;</p>
+                                    <p>b) ter a anuência para participação da Chamada de Propostas, nos casos de co-propriedade e/ou detenção conjunta da posse legal do imóvel rural, tais como os casos de arrendamento de imóveis ou cuja propriedade ou sua posse legal seja de titularidade conjunta de um casal ou de herdeiros. O modelo de Carta de Anuência está disponível no item 10 desta Chamada;</p>
+                                    <p>b) celebrar um Acordo de Cooperação Técnica (ACT) com um Agente de Assistência Técnica (ATEC) devidamente cadastrado no Portal do Projeto, com o objetivo de implantar uma Unidade Multiplicadora (UM), com uma ou mais tecnologias elegíveis e definir a Área de Conservação Florestal (ACF), caso possua, submetendo através do Portal do Projeto Rural Sustentável as informações e documentos necessários no âmbito da Chamada de Propostas para sua avaliação e aprovação;</p>
+                                    <p>c) estar com o CPF em situação cadastral regularizada. </p>
+                                    <p>d)  somente serão beneficiadas com a parcela de apoio financeiro final do Pagamento por Resultados as Propostas Técnicas que apresentarem o CAR ou o registro de inscrição do CAR até submissão do Relatório Final.</p>
+                                    <p>e) cumprir com os critérios estabelecidos na tabela de classificação dos produtores rurais (Tipo Ia, Ib ou Tipo II):</p>
+                                    <p>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="border:1px solid #000;">Tipos de Produtor(a) beneficiário(a)</th>
+                                                    <th style="border:1px solid #000;">Descrição</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="border:1px solid #000;text-align: center;">Tipo Ia</td>
+                                                    <td style="border:1px solid #000;">
+                                                        <p>- Produtores(as) rurais elegíveis/beneficiários(as) do Crédito Rural;</p>
+                                                        <p>- Renda agropecuária bruta anual até R$1.760.000,00 (um milhão setecentos e sessenta mil reais);</p>
+                                                        <p>- Área da propriedade maior que 4 (quatro) até 15 (quinze) Módulos Fiscais*.</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;text-align: center;">Tipo Ib</td>
+                                                    <td style="border:1px solid #000;">
+                                                        <p>- Produtores(as) rurais elegíveis/beneficiários(as) do Crédito Rural;</p>
+                                                        <p>- Renda agropecuária bruta anual igual ou inferior a R$ 360 mil;</p>
+                                                        <p>- Área da propriedade igual ou inferior a 4 (quatro) Módulos Fiscais*.</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;text-align: center;">Tipo II</td>
+                                                    <td style="border:1px solid #000;">
+                                                        <p>- Produtores(as) rurais elegíveis/beneficiários(as) do Crédito Rural;</p>
+                                                        <p>- Renda agropecuária bruta anual igual ou inferior a R$20 mil;</p>
+                                                        <p>- Área da propriedade igual ou inferior a 4 (quatro) Módulos Fiscais*.</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                    <p>O tamanho do Módulo Fiscal (MF) varia de acordo com o município. <a href="/participe/">Acesse o link</a> para verificar o MF do seu município.</p>
+                                    <p>Para que os(as) produtores(as) rurais possam ser beneficiados, <strong>suas propriedades DEVERÃO:</strong></p>
+                                    <p>a) estar localizadas em um dos municípios beneficiários do Projeto; caso a área total da propriedade compreenda mais de um município, as áreas destinadas à implementação das tecnologias e a Área de Conservação Florestal (ACF) devem estar localizadas em um dos municípios beneficiários do Projeto;</p>
+                                    <p>b) estar em conformidade ambiental, ou ter o(a) proprietário(a) interesse em obtê-la com apoio do Projeto Rural Sustentável; </p>
+                                    <p>c) ter área total menor ou igual a 15 módulos fiscais em função do tipo de produtor;</p>
+                                    <p>d) estar localizadas em áreas que NÃO conflitem com Unidades de Conservação de Proteção Integral, Terras Indígenas, Territórios Quilombolas e Unidades de Conservação de Uso Sustentável;</p>
+                                    <p>Para que os(as) produtores(as) rurais possam ser beneficiados(as), NÃO PODERÃO:</p>
+                                    <p>e) ter sido penalizado por crimes ambientais nos últimos 5 anos;</p>
+                                    <p>f) constar na lista de cadastro de empregadores de trabalho escravo no Brasil;</p>
+                                    <p>g) fazer uso de pesticidas banidos pelas convenções internacionais nas quais o Brasil é signatário;</p>
+                                    <p>h) constar na lista de inadimplentes do BID.</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>5. Quais são os benefícios?</h1>
+                                    <p>Os benefícios para os(as) produtores(as) rurais são:</p>
+                                    <p>a) treinamentos sobre as tecnologias de baixo carbono;</p>
+                                    <p>b) apoio com assistência técnica;</p>
+                                    <p>c) apoio financeiro pelo mecanismo de pagamento por resultados, mediante aprovação da Proposta </p>
+                                    <p>Técnica, Relatório Parcial e Relatório Final de Acompanhamento da UM;</p>
+                                    <p>Os benefícios para os(as) ATECs são:</p>
+                                    <p>a) treinamentos em gestão da propriedade rural, geotecnologias e tecnologias de baixo carbono; </p>
+                                    <p>b) apoio financeiro pelo mecanismo de pagamento por resultados, mediante submissão e aprovação da Proposta Técnica, Relatório Parcial e Relatório Final de Acompanhamento da UM. </p>
+                                    <p>Neste sistema, tanto produtores(as) rurais quanto ATECs devem primeiro apresentar os resultados e, a partir de então, receberão o apoio financeiro do Projeto por pagamento por resultados alcançados (produção sustentável e conservação ambiental). Por ser um apoio financeiro, entendido como uma “premiação”, esse mecanismo não é um empréstimo e não é necessário prestar contas de seu uso, uma vez que se reconhece nos resultados apresentados o compromisso com o uso sustentável da terra e florestas.</p>
+                                    <p>A tabela abaixo apresenta a dinâmica de desembolsos dos apoios financeiros do Projeto, os resultados esperados e os valores previstos para o apoio aos(às) produtores(as) rurais e ATECs no âmbito da presente Chamada de Propostas de UM. </p>
+                                    <p>i) o apoio financeiro aos ATECs e aos(às) produtores(as) rurais ocorrerá em dois pagamentos;</p>
+                                    <p>ii) o desembolso de qualquer um dos recursos financeiros é condicionado à entrega e aprovação de resultados de implantação das tecnologias consideradas pelo Projeto e das Áreas de Conservação Florestal (ACF), através dos Relatórios Parcial e Final;</p>
+                                    <p>iii) o CAR não é exigido para a fase de aprovação da Proposta Técnica, mas a submissão do CAR ou do registro de inscrição do CAR deve ser feita até o momento de submissão do Relatório Final e condiciona o último pagamento para o(a) produtor(a) rural e ATEC.</p>
+                                    <p><strong>APOIO FINANCEIRO PARA O(A) PRODUTOR(A) RURAL: </strong></p>
+                                    <p><strong>1° Desembolso:</strong> condicionado à aprovação da Proposta Técnica e será realizado após aprovação do Relatório Parcial e submissão dos documentos comprobatórios; </p>
+                                    <p><strong>2° Desembolso:</strong>  Após aprovação do Relatório Final e submissão dos documentos comprobatórios.</p>
+                                    <p>
+                                    <table>
+                                        <tr>
+                                            <th style="border: 1px solid #000; text-align: center">Beneficiário</th>
+                                            <th style="border: 1px solid #000; text-align: center">Resultado Alcançado</th>
+                                            <th style="border: 1px solid #000; text-align: center">Apoio financeiro (Valor Total – R$)*</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #000; text-align: center;">
+                                                <p>Produtor(a) Rural</p>
+                                                <p><strong>1oDesembolso (50% valor total)</strong></p>
+                                            </td>
+                                            <td style="border: 1px solid #000; text-align: center;">Relatório Parcial aprovado, condicionado à aprovação da Proposta Técnica.</td>
+                                            <td rowspan="2" style="border: 1px solid #000; text-align: center;">
+                                                <p><strong>Tecnologias de baixo carbono com componente florestal </strong> = R$ 1.500,00 /ha</p>
+                                                <p><strong>Tecnologia RAD-P</strong> = R$ 500,00 /ha</p>
+                                                <p><strong>Área de Conservação Florestal </strong> = R$ 1.000,00 /ha (LIMITADO à 20% da área de tecnologia implantada)**</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #000; text-align: center;">
+                                                <p>Produtor(a) Rural</p>
+                                                <p><strong>2 Desembolso (50% valor total)</strong></p>
+                                            </td>
+                                            <td style="border: 1px solid #000; text-align: center;"><p>Tecnologia de Baixo Carbono implantada ou em processo de implantação e Área de Conservação Florestal delimitada (se aplicável); Relatório Final aprovado e CAR/registro de inscrição.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" style="border: 1px solid #000;text-align: center;">
+                                                <p><strong>IMPORTANTE:</strong></p>
+                                                <p>* O VALOR TOTAL DO APOIO FINANCEIRO PARA PRODUTOR(A) RURAL SERÁ PAGO EM 2 DESEMBOLSOS DE VALORES IGUAIS.*</p>
+                                                <p>**O VALOR DESTINADO AO PAGAMENTO POR ÁREA DE CONSERVAÇÃO FLORESTAL FICA LIMITADO À 20% DA ÁREA TOTAL DE TECNOLOGIA DE BAIXO CARBONO IMPLANTADA. ISSO NÃO IMPEDE QUE O PRODUTOR TENHA NA PROPRIEDADE UMA ÁREA MAIOR DE CONSERVAÇÃO FLORESTAL.**</p>
+                                                <p>***O VALOR MÍNIMO A SER PAGO POR ACF SERÁ IGUAL A R$1.000,00, MESMO QUE O 20% DA ÁREA TOTAL DE TECNOLOGIA DE BAIXO CARBONO IMPLANTADA SEJA MENOR QUE 1,0 HECTARE. ***</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" style="border: 1px solid #000; text-align: center;">
+                                                <p><strong>APOIO FINANCEIRO PARA ATEC: </strong></p>
+                                                <p><strong>1° Desembolso:</strong> condicionado à aprovação da Proposta Técnica e será realizado após aprovação do Relatório Parcial e submissão dos documentos comprobatórios; </p>
+                                                <p><strong>2° Desembolso:</strong> Após aprovação do Relatório Final e submissão dos documentos comprobatórios.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #000; text-align: center;"><strong>Beneficiário</strong></td>
+                                            <td style="border: 1px solid #000; text-align: center;"><strong>Resultado Alcançado</strong></td>
+                                            <td style="border: 1px solid #000; text-align: center;"><strong>Apoio Financeiro (R$)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #000; text-align: center;">
+                                                <p>ATEC</p>
+                                                <p><strong>1 Desembolso</strong></p>
+                                            </td>
+                                            <td style="border: 1px solid #000; text-align: center;"><p>Relatório Parcial aprovado, condicionado à aprovação da Proposta Técnica.</p></td>
+                                            <td style="border: 1px solid #000; text-align: center;"><p>R$ 3.000,00</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #000; text-align: center;">
+                                                <p>ATEC</p>
+                                                <p><strong>2 Desembolso</strong></p>
+                                            </td>
+                                            <td style="border: 1px solid #000; text-align: center;">Tecnologia de Baixo Carbono implantada ou em processo de implantação e Área de Conservação Florestal delimitada (se aplicável); Relatório Final aprovado e CAR/registro de inscrição.</td>
+                                            <td style="border: 1px solid #000; text-align: center;"><p>R$ 3.000,00</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" style="border: 1px solid #000; text-align: center;"><strong>ATENÇÃO: Cada ATEC poderá acompanhar no máximo 20 Propostas Técnicas, sejam de Unidades Demonstrativas ou Multiplicadoras simultaneamente.</strong></td>
+                                        </tr>
+                                    </table>
+                                    </p>
+                                    <p><strong>Condições para Desembolsos para o(a) produtor(a) rural e ATECs contemplados(as):</strong></p>
+                                    <p><strong>1º Desembolso</strong></p>
+                                    <p>1) Proposta Técnica aprovada incluindo Acordo de Cooperação Técnica vigente entre o(a) produtor(a) rural e o(a) ATEC, submetido junto com a Proposta Técnica;</p>
+                                    <p>2) Relatório Parcial aprovado incluindo o croqui georreferenciado da UM, com delimitação da área da tecnologia de baixo carbono e ACF (caso exista). </p>
+                                    <p><strong>2º Desembolso</strong></p>
+                                    <p>1) Relatório Parcial aprovado;</p>
+                                    <p>2) Relatório Final incluindo a apresentação do CAR ou do registro de inscrição e do plano de implantação e acompanhamento técnico após o projeto;</p>
+                                    <p>3) Aprovação do Relatório de vistoria realizada por técnicos do Banco do Brasil.</p>
+                                    <div style="border: 1px solid #000; text-align: center">
+                                        <p><strong>IMPORTANTE:</strong></p>
+                                        <p>O(A) ATEC deverá realizar pelo menos 2 visitas técnicas para acompanhar a implantação da tecnologia na UM e orientar o(a) produtor(a) rural na condução da tecnologia de baixo carbono apoiada pelo Projeto. Nestas visitas, serão feitas recomendações técnicas para condução das tecnologias e sobre a gestão sustentável da propriedade rural.  As visitas resultarão em Relatório Parcial e Final, conforme modelos disponibilizados no Portal.</p>
+                                        <p>As áreas informadas na Proposta Técnica serão verificadas através da análise do croqui georreferenciado da UM. Caso haja divergência no valor informado inicialmente e comprovado pelo croqui, as áreas consideradas de tecnologias e ACF para cálculo do apoio financeiro serão aquelas comprovadas no croqui georreferenciado, desde que cumpram com os limites mínimos e máximos estabelecidos na Chamada de Propostas. </p>
+                                        <p>O Relatório Parcial deve ser submetido em até 45 dias após a aprovação da Proposta Técnica de UM; o Relatório Final deve ser submetido até o dia 28 de fevereiro de 2018, desde que o Relatório Parcial tenha sido submetido e aprovado antes deste período.</p>
+                                        <p>Como parte do mecanismo de Pagamento por Resultado, o corpo técnico do Banco do Brasil realizará a fiscalização nas propriedades selecionadas. Esta fiscalização é parte do processo de aprovação do Relatório Final de implementação e, consequentemente, condiciona o pagamento da segunda parcela do(a) produtor(a) rural e do(a) ATEC. </p>
+                                    </div>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>6. Como submeter a Proposta Técnica?</h1>
+                                    <p>O processo se inicia com o cadastro da instituição de assistência técnica no Portal do Projeto. O(a) representante legal deve acessar o <a href="http://portal.ruralsustentavel.org/instituicao/cadastro/">link</a>, cadastrar a instituição e indicar os técnicos que participarão do Projeto. Uma vez cadastrado e aprovado, o(a) técnico(a) passa a ser habilitado(a) como Agente de Assistência Técnica (ATEC) do Projeto e pode submeter as Propostas Técnicas (PTec) pelo Portal, conforme os termos de cada Chamada de Propostas.</p>
+                                    <p>Para submeter uma Proposta Técnica (PTec), o(a) Agente de Assistência Técnica (ATEC) deverá efetuar o login no Portal do Projeto, preencher o formulário em acordo com o(a) produtor(a) rural e então submeter a Proposta Técnica e os documentos obrigatórios via Portal.</p>
+                                    <p style="text-align: center;"><strong>IMPORTANTE:</strong></p>
+                                    <p>1 – O(A) ATEC deverá assinar um Acordo de Cooperação Técnica com o(a) produtor(a) rural, que formalizará as obrigações e direitos do(a) produtor(a) beneficiário(a) com relação à realização das atividades e metas pré-estabelecidas na Proposta Técnica. Esse Acordo estabelecerá ainda os direitos e obrigações do(a) ATEC, de forma a dar segurança jurídica sobre o cumprimento dos compromissos assumidos na Proposta Técnica. O Acordo de Cooperação Técnica é parte integrante da Proposta Técnica e deverá ser enviado junto com a mesma. Para fins do projeto, o Acordo somente entrará em vigor e produzirá efeitos jurídicos, entre o(a) produtor(a) rural e o(a) ATEC, uma vez que a Proposta Técnica tenha sido aprovada no âmbito de uma Chamada de Propostas. Ressalta-se que este Acordo não possui a natureza de estabelecer uma relação comercial/trabalhista entre o(a) produtor(a) rural e o(a) ATEC, mas sim de formalizar os direitos e obrigações de cada parte para que seja possível operacionalizar na propriedade rural o mecanismo de pagamento por resultados, em virtude da implantação das atividades previstas na Proposta Técnica, para que ambos possam usufruir dos benefícios do Projeto Rural Sustentável.</p>
+                                    <p>2 – Durante o cadastramento da instituição de ATER deve-se indicar como será feito o repasse do apoio financeiro realizado pelo Projeto para viabilizar a participação de seus/suas ATECs que tiverem Proposta(s) Técnica(s) aprovada(s). Há duas opções: </p>
+                                    <p>(a) na conta bancária da instituição, que se encarregará de viabilizar a participação de seus técnicos nas atividades propostas; ou</p>
+                                    <p>(b) diretamente na conta bancária de cada técnico(a) responsável pela Proposta Técnica aprovada. Se a opção escolhida for o recebimento na conta da instituição, as informações bancárias da instituição devem ser apresentadas nesta fase de credenciamento. Caso se opte pelo desembolso diretamente na conta do(a) ATEC, as informações bancárias deste deverão ser apresentadas após aprovação da Proposta Técnica.</p>
+                                    <p>3 – O(A) ATEC será responsável em informar os dados bancários do(a) produtor(a) rural, os quais serão considerados para efetuar o desembolso do apoio financeiro ao(à) produtor(a) rural. Esta informação será encaminhada somente após aprovação da Proposta Técnica. <strong>É de responsabilidade do(a) produtor(a) rural e do(a) ATEC o envio correto das informações bancárias para o efetivo pagamento.</strong></p>
+                                    <p>4 – No caso de haver a necessidade de substituição do(a) Agente de Assistência Técnica (ATEC), e seguindo o disposto na Cláusula 8.6 do Acordo de Cooperação Técnica entre o(a) ATEC e o(a) produtor(a), o(a) ATEC poderá ser substituído(a) caso seja solicitado por escrito pelo(a) produtor(a) rural e/ou pelo(a) próprio(a) Agente de Assistência Técnica à entidade ATER, e a entidade ATER venha a emitir parecer técnico favorável sobre a aprovação da substituição requerida. Neste caso, a instituição de ATER deverá comunicar por escrito que o(a) ATEC será substituído(a), indicando em seguida os dados do(a) novo(a) Agente, o(a) qual deverá passar pelo processo de cadastro e aprovação. O Instrumento de Alteração do Acordo deverá ser preenchido e assinado pelas partes. Acesse ao lado a aba de documentação de suporte e modelos para baixar os arquivos</p>
+                                    <p>5 – No caso de haver a necessidade de substituição da instituição de ATER, a nova instituição de ATER deve estar devidamente cadastrada no Portal do Projeto, assim como seus ATECs. Será seguido o disposto na Cláusula 8.6 do Acordo de Cooperação Técnica entre o(a) ATEC e o(a) produtor(a), e o(a) Agente de Assistência Técnica poderá ser mantido, caso venha a ter seu cadastro vinculado à nova instituição, ou substituído(a) caso seja solicitado por escrito pelo(a) produtor(a) rural e/ou pelo(a) próprio(a) ATEC à entidade ATER. Neste caso a instituição de ATER anterior e a nova entidade ATER devem emitir parecer técnico favorável à aprovação da substituição requerida. A instituição de ATER anterior deverá comunicar por escrito que a instituição de ATER será substituída e a nova instituição de ATER indicada deverá também emitir sua intenção de assumir as responsabilidades junto ao Projeto Rural Sustentável. O Instrumento de Alteração do Acordo deverá ser preenchido e assinado pelas partes. Acesse ao lado a aba de documentação de suporte e modelos para baixar os arquivos</p>
+                                    <p>Todos os modelos de documentos encontram-se disponíveis no item 10 Documentação de Suporte desta Chamada de Propostas.</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <center>
+                                        <h1>7. Como é o processo de seleção? </h1>
+                                        <p>O processo de seleção de UMs será realizado por fluxo contínuo de recebimento e avaliação, por ordem de submissão no Portal. As propostas serão avaliadas e aprovadas conforme as metas do Projeto e disponibilidade orçamentária, limitadas a 480 UMs por estado, visando um equidade na distribuição das mesmas. As seguintes etapas fazem parte do processo de seleção:</p>
+                                        <p>A - Abertura da Chamada de Propostas de UMs;</p>
+                                        <p>B - Submissão de documentos de elegibilidade e Proposta Técnica – PTec no Portal;</p>
+                                        <p>C - Processo de análise documental e técnico das Propostas Técnicas submetidas;</p>
+                                        <p>D - Divulgação periódica do resultado das PTecs aprovadas no Portal do Projeto;</p>
+                                        <p>E - Divulgação final do resultado das PTecs aprovadas no Portal do Projeto.</p>
+                                        <div style="text-align: center;border:1px solid #000;">
+                                            <p style="text-align: center"><strong>IMPORTANTE</strong></p>
+                                            <p>Durante o processo de avaliação de Propostas Técnicas será realizada a análise da situação cadastral de CPF e/ou CNPJ das instituições e produtores(as) rurais que apresentarem propostas. Esta análise será eliminatória para aqueles que possuírem irregularidades.</p>
+                                            <p>As consultas sobre o processo e respectivos documentos serão atendidas durante todo o período da Chamada de Propostas. </p>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                        <h1>8. Quais são os critérios de seleção e avaliação?</h1>
+                                        <h2>8.1. Critérios de elegibilidade</h2>
+                                        <p><strong>A – Instituições de ATER e seus técnicos(as)</strong></p>
+                                        <p>O cadastramento de Instituições de ATER é um procedimento necessário para todas as instituições e seus profissionais que objetivam participar do Projeto Rural Sustentável. O cadastramento é realizado no Portal pelo representante legal da instituição, que deverá acessar o link<a href="http://portal.ruralsustentavel.org/instituicao/cadastro/">Cadastre sua Instituição</a> Cadastre sua Instituição. Admite-se o cadastramento de pessoas jurídicas das seguintes entidades:</p>
+                                        <p>a.Associação de produtores(as) rurais;</p>
+                                        <p>b.Associação de profissionais;</p>
+                                        <p>c.Cooperativa agropecuária;</p>
+                                        <p>d.Cooperativa de crédito rural;</p>
+                                        <p>e.Cooperativa de trabalho;</p>
+                                        <p>f.Empresa privada ou pública;</p>
+                                        <p>g.Empresa individual;</p>
+                                        <p>h.Organização não governamental-ONG;</p>
+                                        <p>i.Prefeitura municipal;</p>
+                                        <p>j.Sindicato rural;</p>
+                                        <p>k.Organização da sociedade civil de interesse público-OSCIP.</p>
+                                        <p>As instituições de ATER que pleitearem o cadastramento deverão atender às seguintes condições:</p>
+                                        <p>1. Ser pessoa jurídica legalmente constituída há pelo menos dois anos e/ou ter em seu quadro técnico, profissionais com experiência comprovada em ATER por pelo menos 2 anos;</p>
+                                        <p>2. Que no objeto de seu Estatuto, Contrato Social ou similar, estejam contempladas as atividades de assistência técnica; </p>
+                                        <p>3. Ter em seu quadro profissional, técnicos com formação na área de ciências agrárias, com respectivos registros profissionais devidamente regularizados nos conselhos competentes;</p>
+                                        <p>4. Não estar respondendo por processo judicial ou de conselho profissional devido à má atuação profissional, estelionato, e/ou congêneres; </p>
+                                        <p>6. Submeter-se aos mecanismos e procedimentos de acompanhamento, controle e avaliação das atividades realizadas. </p>
+                                        <p>Técnicos(as) com formação na área de ciências agrárias (nível técnico ou superior), com respectivos registros profissionais regularizados nos conselhos competentes podem ser Agentes de Assistência Técnica do Projeto, desde que sejam indicados por Instituição de ATER devidamente cadastrada no Portal.</p>
+                                        <p>Apenas as instituições de ATER que tiverem cadastros aprovados no Portal e cujos técnicos forem aprovados como ATECs terão a possibilidade de submeter Propostas Técnicas (PTec) no âmbito do Projeto Rural Sustentável. </p>
+                                        <p>Cada ATEC poderá estar responsável por até 20 (vinte) Propostas Técnicas aprovadas concomitantemente, ou seja, à medida que concluir as responsabilidades com uma Proposta Técnica com a aprovação do Relatório Final, poderá aplicar com nova Proposta Técnica para uma Chamada de Propostas aberta. Propostas em andamento ou inadequadas não contam como aprovadas. </p>
+                                        <div style="text-align: center; border: 1px solid #000;">
+                                            <p><strong>ATENÇÃO</strong></p>
+                                            <p>O BID poderá suspender o cadastramento de uma instituição ou de um técnico de ATER do Projeto Rural Sustentável nos casos em que seja identificada alguma incoerência documental, quando as atividades sob sua execução não estejam sendo realizadas de forma coerente com os compromissos assumidos ou por qualquer outro motivo que possa comprometer a boa execução do Projeto.</p>
+                                        </div>
+                                        <p><strong>B – Produtor(a) Rural</strong></p>
+                                        <p><strong>B.1. CPF</strong></p>
+                                        <p>O(A) produtor(a) rural deve ter seu CPF com situação cadastral regular. </p>
+                                        <p><strong>B.2. Renda Bruta Agrícola Anual - RBA</strong></p>
+                                        <p>A Renda Bruta Agrícola Anual representa as receitas provenientes de todas as atividades rurais exploradas pelo(a) produtor(a) rural, em um ano civil de produção normal. Entende-se por atividade rural a exploração agropecuária e extrativista vegetal e animal, bem como os serviços afins prestados pelo(a) produtor(a) rural. </p>
+                                        <p>
+                                            <ul>
+                                                <li>Tipo Ia: até R$ 1.760.000,00</li>
+                                                <li>Tipo Ib: entre R$ 20.000,00 e R$ 360.000,00</li>
+                                                <li>Tipo II: Até R$ 20.000,00</li>
+                                            </ul>
+                                        </p>
+                                        <p>A renda do produtor poderá ser comprovada mediante a apresentação de um dos documentos citados abaixo (um, no mínimo):</p>
+                                        <p>
+                                            <ul>
+                                                <li>DAP válida - Declaração de Aptidão ao PRONAF.</li>
+                                                <li>DAP válida - Declaração Anual de Produtor Rural.</li>
+                                                <li>IRPF - Imposto de Renda Pessoa Física (exercício ano anterior).</li>
+                                                <li>DECORE - Declaração Comprobatória de Percepção de Rendimentos, emitida por profissional devidamente autorizado.</li>
+                                                <li>Para os produtores do Tipo Ib e II, será aceito documento comprobatório de cálculo estimado de renda agrícola bruta anual elaborado por ATER autorizada, usado como comprovante de renda para projetos de crédito rural.</li>
+                                                <li>Para os produtores do Tipo Ib e II, será aceita a declaração de renda agrícola bruta anual emitida por sindicato da categoria ou cooperativa ao qual o produtor é vinculado, devidamente assinado pelo representante legal.</li>
+                                            </ul>
+                                        </p>
+                                        <p><strong>B.3. Tipo de produtor(a) e tamanho de propriedade rural</strong></p>
+                                        <p>Verificar tabela apresentada no item 4, letra e.</p>
+                                        <p><strong>B.4. Ausência de penalidades ambientais nos últimos 5 anos</strong></p>
+                                        <p>Declaração a ser indicada na Proposta Técnica.</p>
+                                        <p><strong>B.5. Não constar na lista de trabalho escravo no Brasil</strong></p>
+                                        <p>Declaração a ser indicada na Proposta Técnica.</p>
+                                        <p><strong>B.6. Não constar na lista de indivíduos e empresa sancionados pelo BID</strong></p>
+                                        <p>Esta informação será verificada no site do BID <a href="www.iadb.org">www.iadb.org</a></p>
+                                        <p><strong>C – PROPRIEDADE RURAL</strong></p>
+                                        <p><strong>C.1. Localização: Bioma/ Estado/ Município</strong></p>
+                                        <p><strong>BIOMA AMAZÔNIA:</strong></p>
+                                        <p>Estado do Pará: Dom Eliseu, Ipixuna, Marabá, Medicilândia, Paragominas, Rondon do Pará, Santana do Araguaia, Tailândia, Tomé-Açu, Tucumã.</p>
+                                        <p>Estado do Mato Grosso: Alta Floresta, Brasnorte, Cotriguaçu, Juara, Juína, Marcelândia, Nova Canaã do Norte, Querência, Sinop, Terra Nova do Norte. </p>
+                                        <p>Estado deRondônia: Alta Floresta D’Oeste, Ariquemes, Buritis, Cerejeiras, Governador Jorge Teixeira, Machadinho D’Oeste, Parecis, Rolim de Moura, Santa Luzia D’Oeste, Theobroma.</p>
+                                        <p><strong>BIOMA MATA ATLÂNTICA:</strong></p>
+                                        <p>Estado do Rio Grande do Sul: Passo Fundo, Erechim, Ciríaco, Lagoa Vermelha, Frederico Westphalen, Boa Vista das Missões, Vacaria, Machadinho, Barros Cassal, Agudo.</p>
+                                        <p>Estado da Bahia: Ibirapitanga, Igrapiúna, Ituberá, Nilo Peçanha, Piraí do Norte, Camamú, Maraú, Valença, Presidente Tancredo Neves, Taperoá.</p>
+                                        <p>Estado do Paraná: Bandeirantes, Primeiro de Maio, Paranavaí, Nova Londrina, Dois Vizinhos, Itapejara D’Oeste, Renascença, Realeza, Francisco Beltrão, Verê. </p>
+                                        <p>Estados de Minas Gerais: Setubinha, Malacacheta, Franciscópolis, Poté, Araçuaí, Padre Paraíso, Teófilo Otoni, Itambacuri, Novo Oriente de Minas, Capelinha. </p>
+                                        <p><strong>C.2. Tecnologia de baixo carbono a ser implantada</strong></p>
+                                        <p>As tecnologias de baixo carbono apoiadas pelo Projeto são:</p>
+                                        <p>a. Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F);</p>
+                                        <p>b. Integração Lavoura, Pecuária e Florestas (iLPF), incluindo Sistemas Agroflorestais (SAFs);</p>
+                                        <p>c. Plantio de Florestas Comerciais;</p>
+                                        <p>d. Manejo Sustentável de Florestas Nativas.</p>
+                                        <p>Os conceitos aplicados para cada tecnologia estão apresentados no item 3 anterior. </p>
+                                        <p><strong>8.2. Critérios técnicos</strong></p>
+                                        <p>A análise dos critérios técnicos inclui a avaliação das informações submetidas na Proposta Técnica, tais como:</p>
+                                        <p>
+                                            <ul>
+                                                <li>Aptidão do município para as culturas e tecnologias, bem como a contribuição com a conservação florestal apresentada;</li>
+                                                <li>Alcance das áreas mínimas determinadas por tipologia de produtor(a) e Bioma; </li>
+                                                <li>Calendário de implantação e manejo das tecnologias de baixo carbono;</li>
+                                                <li>Produtividade esperada para a cultura/ tecnologia proposta;</li>
+                                                <li>Plano de manejo e tratos culturais para implantação/ manutenção da tecnologia;</li>
+                                                <li>Viabilidade financeira da proposta (deve-se sempre anexar documentos complementares que justifiquem a execução financeira das atividades, como Projetos de Crédito aprovados pelo produtor, apoios por editais, projetos e financiamentos);</li>
+                                            </ul>
+                                        </p>
+                                        <p>Para análise da UM, considerar-se-á as condições gerais descritas a seguir e detalhadas no modelo de Proposta Técnica (PTec), disponível no item 10 deste edital.</p>
+                                        <p><strong>A. Tecnologias de Baixo Carbono será considerado:</strong></p>
+                                        <p>Recuperação de Área Degradada (RAD)</p>
+                                        <p>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Com florestas – RAD-F</td>
+                                                        <td>Plantio de espécies arbóreas e condução de regeneração natural, com objetivo principal de restauração ambiental; avaliação da descrição do arranjo das espécies e diversidade de elementos, da qualidade da intervenção e medidas tomadas para impedir fatores de degradação. Expectativa da recuperação da área degradada, aumento esperado da produtividade (se for o caso); plano de manejo e tratos culturais para implantação/ manutenção da tecnologia.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Com pastagem– RAD-P</td>
+                                                        <td>Reforma ou implantação de pastagem, para fins de pecuária; avaliação das espécies utilizadas, sistema rotacionado de manejo, capacidade de suporte animal e técnicas de preparo e manutenção (irrigação, correção de solo, adubação), práticas de conservação do solo e da água. Aumento esperado da produtividade; sistema de manejo e tratos culturais para implantação/ manutenção da tecnologia.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </p>
+                                        <p>Integração Lavoura Pecuária Floresta (iLPF/ incluindo SAF):</p>
+                                        <p>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="border:1px solid #000;">Agrossilvipastoril</td>
+                                                        <td style="border:1px solid #000;">Descrição dos componentes agrícola, pastoril e florestal; espécies utilizadas e arranjos produtivos; técnicas de preparo e manutenção (irrigação, correção de solo e adubação), práticas de conservação do solo e da água; sistema rotacionado de manejo, capacidade de suporte animal. Aumento esperado da produtividade; sistema de manejo e tratos culturais para implantação/ manutenção da tecnologia.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid #000;">Agroflorestal - SAF</td>
+                                                        <td style="border:1px solid #000;">Descrição dos componentes agrícola e florestal; espécies utilizadas para plantio ou condução da regeneração natural e arranjos produtivos; técnicas de preparo e manutenção (irrigação, correção e adubação de solos); práticas de conservação do solo e da água; aumento esperado da produtividade; sistema de manejo e tratos culturais para implantação/ manutenção da tecnologia.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border:1px solid #000;">Silvipastoril</td>
+                                                        <td style="border:1px solid #000;">Descrição dos componentes pastoril e florestal; espécies utilizadas e arranjos produtivos; capacidade de suporte animal; técnicas de preparo e manutenção (irrigação, correção e adubação de solos); práticas de conservação do solo e da água; aumento esperado da produtividade; sistema de manejo e tratos culturais para implantação/ manutenção da tecnologia.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </p>
+                                        <p>Plantio de Florestas Comerciais:</p>
+                                        <p style="border:1px solid #000;">Plantio de espécies arbóreas com fim comercial, descrevendo objetivos do plantio, arranjo das espécies, origem das sementes/ mudas. Práticas de irrigação, correção e adubação de solos; práticas de conservação do solo e da água; aumento esperado da produtividade; sistema de manejo e tratos culturais para implantação/ manutenção da tecnologia.</p>
+                                        <p>Manejo Sustentável de Florestas Nativas:</p>
+                                        <p style="border:1px solid #000;">Manejo de florestas nativas, com descrição das espécies manejadas, qualidade da intervenção, objetivos produtivos, planos de manejo, conforme determinado por lei.</p>
+                                        <p>Além da qualidade das áreas das tecnologias de baixo carbono, os limites mínimos e máximos deverão ser respeitados conforme tabela abaixo:</p>
+                                        <p>
+                                            <table>
+                                              <tr>
+                                                <th rowspan="2"><strong>BIOMA</strong></th>
+                                                <th rowspan="2"><strong>TIPO DE PRODUTOR</strong></th>
+                                                <th colspan="2"><strong>ÁREA DE TECNOLOGIA + ACF EM HECTARES (HA)</strong></th>
+                                                <th rowspan="2"><strong>Observações</strong></th>
+                                              </tr>
+                                              <tr>
+                                                <td style="border:1px solid #000;"><strong>Área mínima (ha)</strong></td>
+                                                <td style="border:1px solid #000;"><strong>Área máxima (ha)</strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="3"><strong>MATA ATLÂNTICA</strong></td>
+                                                <td style="border:1px solid #000;">Tipo Ia</td>
+                                                <td style="border:1px solid #000;">12</td>
+                                                <td style="border:1px solid #000;">24</td>
+                                                <td style="border:1px solid #000;">Máximo de 20% do total de propriedades</td>
+                                              </tr>
+                                              <tr>
+                                                <td style="border:1px solid #000;">Tipo Ib</td>
+                                                <td style="border:1px solid #000;">6</td>
+                                                <td style="border:1px solid #000;">12</td>
+                                                <td style="border:1px solid #000;"></td>
+                                              </tr>
+                                              <tr>
+                                                <td style="border:1px solid #000;">Tipo II</td>
+                                                <td style="border:1px solid #000;">3</td>
+                                                <td style="border:1px solid #000;">-</td>
+                                                <td style="border:1px solid #000;"></td>
+                                              </tr>
+                                              <tr>
+                                                <td rowspan="3"><strong>AMAZÔNIA</strong></td>
+                                                <td style="border:1px solid #000;">Tipo Ia</td>
+                                                <td style="border:1px solid #000;">18</td>
+                                                <td style="border:1px solid #000;">36</td>
+                                                <td style="border:1px solid #000;">Máximo de 20% do total de propriedades</td>
+                                              </tr>
+                                              <tr>
+                                                <td style="border:1px solid #000;">Tipo Ib</td>
+                                                <td style="border:1px solid #000;">12</td>
+                                                <td style="border:1px solid #000;">24</td>
+                                                <td style="border:1px solid #000;"></td>
+                                              </tr>
+                                              <tr>
+                                                <td style="border:1px solid #000;">Tipo II</td>
+                                                <td style="border:1px solid #000;">6</td>
+                                                <td style="border:1px solid #000;">-</td>
+                                                <td style="border:1px solid #000;"></td>
+                                              </tr>
+                                            </table>
+                                        </p>
+                                        <p>As áreas informadas na Proposta Técnica serão verificadas através da análise do croqui georreferenciado da UM. Caso haja divergência no valor informado inicialmente e comprovado pelo croqui, as áreas consideradas de tecnologias e ACF serão aquelas comprovadas no croqui georreferenciado, desde que cumpram com os limites mínimos e máximos estabelecidos na Chamada de Propostas.</p>
+                                        <p><strong>B. Áreas de Conservação Florestal – ACF:</strong></p>
+                                        <p>
+                                            <ul>
+                                                <li>Apresentação do croqui georreferenciado das áreas de ACF e validação de dados com imagens de satélite;</li>
+                                                <li>Indicação das ACF no CAR da propriedade, quando aplicável;</li>
+                                                <li>Seu estado de conservação (deve ter ao menos 30% de cobertura de dossel e altura média das árvores com no mínimo 5 metros de altura);</li>
+                                                <li>Descrição das medidas indicadas para impedir fatores de degradação e proteção dessas áreas.</li>
+                                            </ul>
+                                        </p>
+                                        <p><strong>C. Unidades Multiplicadoras - UM:</strong></p>
+                                        <p>
+                                            <ul>
+                                                <li>Toda Proposta Técnica - PTec deve apresentar pelo menos uma área de tecnologia de baixo carbono.  Ou seja, uma Proposta Técnica, não será apoiada apenas para Área de Conservação Florestal sem que haja a proposta de implantação de tecnologias de baixo carbono.</li>
+                                                <li>Propostas Técnicas - PTec sem ACF só serão consideradas quando for incluída como tecnologia de baixo carbono a Recuperação de Área Degradada com Floresta (RAD-F), em área mínima de 1,0 ha. Outras áreas de tecnologia de baixo carbono poderão ser acrescentadas nesta mesma PTec desde que este mínimo de RAD-F seja contemplado.</li>
+                                                <li>O valor do apoio financeiro previsto para ACF e tecnologia(s) por hectare só será pago mediante apresentação de croqui georreferenciado  com delimitação da ACF e da(s) tecnologia(s) a ser(em) implementada(s) e submissão dos relatórios parcial (1º desembolso) e final (2º desembolso).</li>
+                                                <li>Somente serão beneficiadas com a parcela de apoio financeiro final do Pagamento por Resultados as Propostas Técnicas que apresentarem o CAR ou o registro de inscrição do CAR até submissão do Relatório Final.</li>
+                                            </ul>
+                                        </p>
+                                        <p><strong>8.3. Critérios de desempate</strong></p>
+                                        <p><p>O BID poderá adotar critérios de desempate, sempre que:</p></p>
+                                        <p>
+                                            <ul>
+                                                <li>O número de Propostas Técnicas inscritas e consideradas elegíveis seja maior que a meta prevista por município/estado;</li>
+                                                <li>O apoio financeiro correspondente supere a disponibilidade orçamentária do Projeto para esta atividade.  </li>
+                                            </ul>
+                                        </p>
+                                        <p>Dentre os critérios que serão utilizados nestes casos, destacam-se: </p>
+                                        <p>
+                                            <ul>
+                                                <li>Tipo de tecnologia de baixo carbono a ser implantada. Serão priorizadas tecnologias com componente florestal;</li>
+                                                <li>Serão priorizadas aquelas propriedades com maior percentual de Áreas de Conservação Florestal relativo à área total da propriedade;</li>
+                                                <li>Serão priorizados os(as) produtores(as) rurais do gênero que apresente menor proporção no total de beneficiários da Chamada de Propostas, visando uma equidade de gênero.</li>
+                                            </ul>
+                                        </p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>9. Condições de privacidade </h1>
+                                    <p>Os(As) participantes serão responsáveis pelas propostas elaboradas/submetidas em termos de conteúdo e veracidade. Em todos os casos, as informações escritas nos formulários on-line serão utilizadas pelo Projeto para fins de monitoramento e avaliação de resultados, conforme os Termos e Condições de Uso e Política de Privacidade do Portal.</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>10. Documentação de suporte e modelos </h1>
+                                    <p><strong>A - Documentação requerida para cadastro de Instituição de ATER</strong></p>
+                                    <p>
+                                        <ul>
+                                            <li>Estatuto1</li>
+                                            <li>Documento que comprove o mandato do Responsável Legal da instituição*</li>
+                                            <li>Comprovante de registro e certidão de regularidade da empresa/entidade junto ao respectivo Conselho de Registro Profissional *</li>
+                                        </ul>
+                                    </p>
+                                    <p><strong>B - Documentação requerida para cadastro de Agente de Assistência Técnica (ATEC)</strong></p>
+                                    <p>
+                                        <ul>
+                                            <li>RG*</li>
+                                            <li>CPF*</li>
+                                            <li>Comprovante da habilitação profissional no respectivo conselho profissional*</li>
+                                            <li>Comprovante de quitação da última anuidade no seu respectivo Conselho de Registro Profissional*</li>
+                                        </ul>
+                                    </p>
+                                    <p><strong>C - Documentação requerida para submissão de Proposta Técnica</strong></p>
+                                    <p><strong>C.1. Produtor(a) Rural</strong></p>
+                                    <p>
+                                        <ul>
+                                            <li>RG*</li>
+                                            <li>CPF*</li>
+                                            <li>
+                                                Comprovante de renda*: <br>
+
+                                                    <div style="padding-left: 10px;">- DAP válida - Declaração de Aptidão ao PRONAF;</div>
+                                                    <div style="padding-left: 10px;">- DAP válida - Declaração Anual de Produtor Rural;</div>
+                                                    <div style="padding-left: 10px;">- IRPF - Imposto de Renda Pessoa Física (exercício ano anterior);</div>
+                                                    <div style="padding-left: 10px;">- DECORE - Declaração Comprobatória de Percepção de Rendimentos, emita por profissional devidamente autorizado;</div>
+                                                    <div style="padding-left: 10px;">- Para os produtores do Tipo Ib e II, será aceito documento comprobatório de cálculo estimado de renda agrícola bruta anual elaborado por ATER autorizada, usado como comprovante de renda para projetos de crédito rural;</div>
+                                                    <div style="padding-left: 10px;">- Para os produtores do Tipo Ib e II, será aceita a declaração de renda agrícola bruta anual emitida por sindicato da categoria ou cooperativa ao qual o produtor é vinculado, devidamente assinado pelo representante legal.</div>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                    <p><strong>C.2. Propriedade</strong></p>
+                                    <p>
+                                        <ul>
+                                            <li>Cadastro Ambiental Rural – CAR caso possua, ou registro de inscrição do CAR;</li>
+                                            <li>Documento de Propriedade ou equivalente (CCDRU-Contratos de concessão de uso real da terra, CCU-Concessão de uso, TAUS- Títulos de Autorização de Uso Sustentável, CCIR – Certificado de Cadastro de Imóvel Rural, RGI – Registro Geral de Imóveis, ITR – Imposto Territorial Rural).</li>
+                                        </ul>
+                                    </p>
+                                    <p><strong>D - Modelos</strong></p>
+                                    <p>
+                                        <ul>
+                                            <li><a target="blank_" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/Proposta_t%C3%A9cnica_de_Unidades_Multiplicadoras.pdf">Proposta Técnica (PTEC) com tutorial para o preenchimento;</a></li>
+                                            <li><a target="blank_" href="https://s3.amazonaws.com/ruralsustentavel-site/documentos/docs_edital/Acordo_Cooperacao_Tecnica_UM.pdf">Modelo de Acordo de Cooperação Técnica entre o Produtor e o ATEC</a></li>
+                                            <li><a target="blank_" href="http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=40346955">Modelo de Aditivo contratual ao Acordo de Cooperação Técnica entre o Produtor e o ATEC</a></li>
+                                            <li><a target="blank_" href="https://ruralsustentavel-cms-teste.s3.amazonaws.com/media/documentos/Modelo_Instrumento_de_Alteracao_Contratual_ao_Acordo_de_CT_ATEC_Produtor_Instituicao.pdf">Modelo de Aditivo contratual ao Acordo de Cooperação Técnica entre o Produtor, o ATEC e a Instituição</a></li>
+                                            <li><a target="blank_" href="http://idbdocs.iadb.org/wsdocs/getDocument.aspx?DOCNUM=40346934">Modelo de Carta de Anuência na hipótese de co-propriedade ou posse conjunta</a></li>
+
+                                            <li>
+                                                <a target="blank_" href="{% static "edital/um/MODELO_DE_REGISTRO_DE_VISITA_DE_ASSISTENCIA_TECNICA.pdf" %}">
+                                                    Modelo De Registro De Visita De Assistência Técnica
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="blank_" href="{% static "edital/um/tutorial-Relatorio-Parcial-UM.pdf" %}">
+                                                Relatório Parcial com tutorial para preenchimento
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="blank_" href="{% static "edital/um/tutorial-Relatorio-Final-UM.pdf" %}">
+                                                    Relatório Final com tutorial para preenchimento
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>11. Cronograma da Chamada de UM</h1>
+                                    <p><strong></strong></p>
+                                    <p>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="border:1px solid #000;">ETAPA</th>
+                                                    <th style="border:1px solid #000;">PRAZO</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Abertura da Chamada de Propostas</td>
+                                                    <td style="border:1px solid #000;"><strong>28/07/2017</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Perguntas e Respostas</td>
+                                                    <td style="border:1px solid #000;"><strong>04/08/2017</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Submissão de Propostas Técnicas</td>
+                                                    <td style="border:1px solid #000;">07/08 até 30/11/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Prazo de análise e avaliação das PTECs de UMs recebidas</td>
+                                                    <td style="border:1px solid #000;"><p><strong>Fluxo contínuo, a partir da abertura do edital até seu encerramento</strong></p><p>* As PTecs recebidas serão avaliadas continuamente conforme ordem de recebimento e disponibilidade orçamentária do Projeto.</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Publicação da lista de Unidades Multiplicadoras</td>
+                                                    <td style="border:1px solid #000;"><p><strong>Fluxo contínuo, com publicação quinzenal no Portal</strong></p><p>* As PTecs aprovadas serão notificadas no decorrer do processo.</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">Publicação Final da lista de Unidades Multiplicadoras</td>
+                                                    <td style="border:1px solid #000;">15/12/2017</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>12. Glossário</h1>
+                                    <p>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">ÁREA DEGRADADA</td>
+                                                    <td style="border:1px solid #000;">É uma área que, após distúrbio natural ou uso humano, apresenta-se sem cobertura florestal e com baixo potencial de regeneração natural.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">ÁREA DE CONSERVAÇÃO FLORESTAL (ACF)</td>
+                                                    <td style="border:1px solid #000;">Fragmento de floresta representativo do Bioma Amazônia ou Mata Atlântica que deverá ser mantido com suas características naturais para conservação do bioma, proteção do clima e da biodiversidade. A Área de Conservação Florestal pode ser descontínua, com fragmentos de área mínima igual a 1,0 ha, e deve ser mantida pelo produtor rural, responsável pela UM.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">ATEC</td>
+                                                    <td style="border:1px solid #000;">Agente de Assistência Técnica habilitado(a) pelo Projeto Rural Sustentável através do Portal do Projeto. Todo(a) ATEC somente pode participar após ser indicado(a) por uma instituição de ATER cujo cadastro foi aprovado no Portal.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">CAR</td>
+                                                    <td style="border:1px solid #000;">Cadastro Ambiental Rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">CCDRU</td>
+                                                    <td style="border:1px solid #000;">Contratos de Concessão de Direito Real de Uso</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">CCIR</td>
+                                                    <td style="border:1px solid #000;">Certificado de Cadastro de Imóvel Rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">CCU</td>
+                                                    <td style="border:1px solid #000;">Contrato de Concessão de Uso.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">FLORESTA</td>
+                                                    <td style="border:1px solid #000;">É uma área mínima de terra de 1,0 hectare, com cobertura de copa superior a 30%, contendo árvores com o potencial de atingir uma altura mínima de 5 metros no estágio de maturidade no local.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">ITR</td>
+                                                    <td style="border:1px solid #000;">Imposto Territorial Rural</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">RGI</td>
+                                                    <td style="border:1px solid #000;">Registro Geral de Imóveis</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">RENDA BRUTA AGRÍCOLA ANUAL</td>
+                                                    <td style="border:1px solid #000;">Receitas provenientes de todas as atividades rurais exploradas pelo produtor, em um ano civil de produção normal. Entende-se por atividade rural a exploração agropecuária e extrativista vegetal e animal, bem como os serviços afins prestados pelo produtor. A renda do produtor será verificada em um dos documentos citados como comprovante de renda e listados na aba 8 deste edital.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">TAUS</td>
+                                                    <td style="border:1px solid #000;">Trata-se de uma área de produção rural onde será implantada uma ou mais de uma das tecnologias e atividades de adequação ambiental apoiadas pelo Projeto. O Projeto prevê o apoio de assistência técnica aos produtores(as) rurais beneficiários para planejamento, implantação e acompanhamento da UM e pagamento por resultados para produtores(as) rurais que alcançarem os objetivos propostos para a UM.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border:1px solid #000;">UNIDADE MULTIPLICADORA (UM)</td>
+                                                    <td style="border:1px solid #000;">Trata-se de uma área de produção rural onde será implantada uma ou mais de uma das tecnologias e atividades de adequação ambiental apoiadas pelo Projeto. O Projeto prevê o apoio de assistência técnica aos produtores(as) rurais beneficiários para planejamento, implantação e acompanhamento da UM e pagamento por resultados para produtores(as) rurais que alcançarem os objetivos propostos para a UM.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                        <h1>13. Contato</h1>
+                                        <p>As dúvidas e/ou solicitações de esclarecimentos adicionais sobre esta Chamada de Proposta devem ser enviadas por e-mail para chamada.um@iabs.org.br</p>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>14. Perguntas e Respostas</h1>
+                                    <div>
+                                        <iframe src="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/docs_comunicacao/BID-Perguntas-Respostas-Edital_UM.pdf" style="height: 90%;width: 100%;"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div style="height: 100px;"></div>
+
+<script>
+  $(document).ready(function() {
+      $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+          e.preventDefault();
+          $(this).siblings('a.active').removeClass("active");
+          $(this).addClass("active");
+          var index = $(this).index();
+          $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+          $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+      });
+  });
+</script>
+
+
+{% endblock %}

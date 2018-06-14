@@ -1,0 +1,295 @@
+{% extends "base/base.html" %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+.parallax {
+    /* The image used */
+    background-image: url("https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/img/image_home/paralax_o_projeto.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nome-aba {
+    font-size: 30px;
+    width: 40%;
+    color: #FFF;
+    text-align: center;
+}
+.menu-float {
+    position: fixed;
+    border-radius: 0px 10px 10px 0px;
+    display: inline-flex;
+    width: 100%;
+    z-index: 999;
+}
+
+.op-float {
+    color: #FFF;
+    padding: 10px 10px;
+    background-color: #70AA2D;
+    width: 12.5%;
+    text-align: center
+
+}
+.op-float:hover {
+    background-color: #b3e47a;
+    cursor: pointer;
+    color: #08622E;
+}
+
+
+
+</style>
+
+
+    <div>
+    <div class="parallax">
+    </div>
+
+
+    <div class="container" style="margin-top: 20px;">
+        <!-- O PROJETO -->
+        <div class="row" id="section2">
+
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify; margin-bottom:50px;">
+                <h3 style="color:#70AA2D">Instituição de Assistência Técnica e Extensão Rural - ATER e Agentes de Assitência Técnica - ATEC</h3>
+                <p style="line-height: 25px; margin-top: 30px;">O Projeto prevê atividades de capacitação e apoio financeiro para Instituições de ATER e ATECs beneficiários. Estes podem participar do Projeto através de:</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>1. </strong> Treinamentos sobre Tecnologias de Baixo Carbono, Geoprocessamento, Gestão Sustentável da Propriedade Rural e o Projeto Rural Sustentável;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>2. </strong> Dias de Campo em Unidades Demonstrativas;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>3. </strong> Chamadas de Propostas para Unidades Demonstrativas e Multiplicadoras.</p>
+            </div>
+
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify;">
+                <h3 style="color:#000">Para participar do Projeto, a Instituições de ATER deverá: </h3>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong>Realizar o cadastro da Instituição no Portal e submeter os documentos necessários;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong>Aceitar o Termo de Anuência do Projeto;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Indicar profissionais da sua instituição que possam atuar como ATECs do Projeto.</p>
+            </div>
+
+            <div class="col-md-offset-1 col-md-10" style="text-align: justify; margin-bottom:100px;">
+                <h3 style="color:#000">Para participar do Projeto, o(a) ATEC deverá: </h3>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Ter formação na área de ciências agrárias, níveis técnico e superior, com respectivos registros profissionais devidamente regularizados nos conselhos competentes.</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Realizar o seu cadastro no Portal e submeter os documentos necessários;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Aceitar o Termo de Conclusão do cadastro;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Estabelecer um Acordo de Cooperação Técnica com um(a) produtor(a) rural para elaboração da Proposta Técnica e condução das atividades previstas, no âmbito de uma Chamada de Proposta;</p>
+                <p style="line-height: 25px;margin-top: 10px;margin-left: 50px;"><strong>- </strong> Prestar assistência técnica para produtores(as) rurais e acompanhar UDs e/ou UMs aprovadas, no âmbito de uma Chamada de Proposta visando o sucesso na implantação/ condução das tecnologias de baixo carbono.</p>
+                <p style="line-height: 25px;margin-top: 50px;"><strong>Se você é uma Instituição de ATER cadastre-se no Portal e contribua para a melhoria da produtividade e da sustentabilidade no campo. Indique seus ATECs e promova a participação dos(as) produtores(as) rurais.</strong> </p>
+            </div>
+
+
+
+
+            <div class="col-md-12">
+                <div style="border-bottom:3px solid #70AA2D;">
+                    <div class="nome-aba" style="background-color: #70AA2D;">INSTITUIÇÕES APROVADAS</div>
+                </div>
+            </div>
+            <div style="margin-top: 50px;">
+                <div class="col-md-offset-1 col-md-10" style="text-align: justify">
+                    <h2 style="color:#70AA2D">Confira todas as instituições que estão aprovadas no projeto</h2>
+                </div>
+                <div class="col-md-offset-1 col-md-10">
+
+                    <!-- INSTITUICOES APROVADAS -->
+                    <div class="row">
+                        <div class="col-md-12">
+                        <br>
+                        <h1 style="color: green">A</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ACCOMIG </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ADEOP </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGRIFLORESTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGRO SOCIAL ZAMBEZE </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROATINS CARAJÁS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROCRED ENGENHARIA & CONSULTORIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROLÓGICA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROPECUÁRIA SEMEAR </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROSOLLO- PLANEJAMENTO TÉCNICO AGROPECUÁRIO LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AGROTOP RURAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ALMEIDA ROCHA COMÉRCIO E SERVIÇOS ADMINISTRATIVOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ALVORADA DO NORTE CONSULTORIA E ASSISTÊNCIA VETERINARIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AM ASSESSORIA AMBIENTAL LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> AMBIOVERDE </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ASSOCIAÇÃO CEIBA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ASSOCIAÇÃO CULTURAL E AMBIENTALISTA DOS ÍNDIOS TUPINAMBÁ DE OLIVENÇA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ASSOCIAÇÃO DE PEQUENOS PRODUTORES RURAIS DE AGROVILA 05 </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ASSOCIAÇÃO RIOGRANDENSE DE EMPREENDIMENTOS DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ASSOCICAO DOS AGRICULTORES FAMILIARES E REMANESCENTES DE QUILOMBOLAS DA REGIAO DOS MACACOS DO MUNICI </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ATER ITAPEJARA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ATLAS CONSULTORIA, PROJETOS E SOLUÇÕES AMBIENTAIS </span>
+
+                        <h1 style="color: green">B</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> BCA CONSULTORIA AGROPECUÁRIA LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> BERTUZZI SERVIÇOS DE AGRONOMIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> BIORGÂNICA </span>
+
+                        <h1 style="color: green">C</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CALL CONSULTORIA AGROPECUARIA LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CALVET- CONSULTORIA E ASSESSORIA VETERINÁRIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CAPÃO ALTO CONSULTORIA RURAL LTDA. </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CEDRO ASSESSORIA E PLANEJAMENTO FLORESTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CENTRO DE TECNOLOGIAS ALTERNATIVAS POPULARES </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CENTROESTE PLANEJAMENTO E CONSULTORIA AGRÍCOLA LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CEPLAC </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CIAAT </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CLUBE AMIGOS DA TERRA - CAT SORRISO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COAFA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CONEAGRO - CONSULTORIA E ELABORAÇÃO DE PROJETOS AGROPECUÁRIOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CONPLATEC TERRA SANTA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CONSTAGRO ENGENHARIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CONSULTORIA RAÍZES </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CONTEXTO RURAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOAFA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPAFBASUL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPALM </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPATAN </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPAX </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPERATIVA DE TRABALHO AGROAMBIENTAL DE RONDÔNIA - COOTRARON </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPERATIVA MISTA OURO VERDE LTDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPERBIO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPERIGUAÇU </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOPERQUER - COOPERATIVA AGROPECUÁRIA DE QUERÊNCIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COORDENADA RURAL AGRO SOCIOAMBIENTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COOTRASBE </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> COSTA CONSULTORIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> CULTIVARE ENGENHARIA E SOLUÇÕES AGROPECUÁRIAS </span>
+
+                        <h1 style="color: green">D</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> DEFENDER </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> DINIZ CONSULTORIA AGRÍCOLA </span>
+
+                        <h1 style="color: green">E</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ECO TIME </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ECOPORÉ </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> EMATER-MG </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> EMPAER MT </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> EMPRESA DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL DO ESTADO DO PARÁ - EMATER PARÁ </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ENPLATÉC CONSULTORIA E PLANEJAMENTOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> ENTIDADE AUTÁRQUICA DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL DO ESTADO DE RONDÔNIA-EMATER </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> EVOLUÇÃO - ASSESSORIA TÉCNICA AGROFLORESTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> EXTENSÃO CARAJÁS ASSESSORIA E PLANEJAMENTO AGROPECUÁRIO LTDA ME </span>
+
+                        <h1 style="color: green">G</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> GEOVIDA CONSULTORIA AMBIENTAL LTDA - ME </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> GIGA CONSULTORIA </span>
+
+                        <h1 style="color: green">H</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> HEBRON FLORESTAL </span>
+
+                        <h1 style="color: green">I</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> IBIO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> IBS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INAES </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INSTITUTO BRASIL DE ESTUDOS, PESQUISAS E GESTÃO ESTRATÉGICA DE COMPETÊNCIAS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INSTITUTO BRASILEIRO DO AGRONEGÓCIO - IBA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INSTITUTO EMATER </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INSTITUTO FLORAVIDA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> INSTITUTO PAULINE REICHSTUL </span>
+
+                        <h1 style="color: green">J</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> JB EMPREENDIMENTOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> JEQUIAGRO CONSULTORIA AMBIENTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> JMEDEIROS CONSULTORIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> JVS PROJETOS E CONSULTORIA </span>
+
+                        <h1 style="color: green">L</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> LN ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL </span>
+
+                        <h1 style="color: green">M</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> MANI ROCHA PROJETOS & CONSULTORIA </span>
+
+                        <h1 style="color: green">N</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> NEO SOLUÇÕES AMBIENTAIS LTDA-ME </span>
+
+                        <h1 style="color: green">O</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> OCT </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> OURO VERDE ENGENHARIA </span>
+
+                        <h1 style="color: green">P</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PECANHA E SANTOS SOLUCOES AGROPECUARIAS LTDA - ME </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PLANIGUAÇU </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PLANTPLAN </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PLANTSUL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE ALTA FLORESTA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE BRASNORTE-MT </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE BURITIS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE MACHADINHO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE MARAÚ </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE NOVA LONDRINA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE PARECIS/RO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE PRESIDENTE TANCREDO NEVES </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PREFEITURA MUNICIPAL DE SETUBINHA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PROAGRI - EMPRESA DE DESENVOLVIMENTO DE PROJETOS AGRICOLAS LTDA - EPP </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PROATEC PROJETOS E ASSESSORIA TÉCNICA RURAL LTDA ME </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PROGEO </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> PROTEGE AGRO. CONSUL AGRICOLA E AMBIENTAL </span>
+
+                        <h1 style="color: green">R</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> RASTREAR PROJETOS AGROPECUÁRIOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> RR PLANEJAR, CONSULTORIA E TREINAMENTOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> RS CONSULTORIA AMBIENTAL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> RURALPLAN ASSESSORIA CONSULTORIA E PLANEJAMENTO RURAL </span>
+
+                        <h1 style="color: green">S</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SECRETARIA DE DESENVOLVIMENTO ECONÔMICO AGRICULTURA E ASSUNTOS FUNDIÁRIOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SECRETARIA MUNICIPAL DE AGRICULTURA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SERVIÇO NACIONAL DE APRENDIZAGEM RURAL-SENAR </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SIA - SERVIÇO DE INTELIGÊNCIA EM AGRONEGÓCIOS </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SILVATOP ENGENHARIA E AGRIMENSURA LTDA. </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SS SOLUÇÕES </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> SUDTEC PLANEJAMENTO E ASSISTÊNCIA TÉCNICA </span>
+
+                        <h1 style="color: green">T</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> TERRA FÉRTIL </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> TOPLAGRO </span>
+
+                        <h1 style="color: green">V</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> VIAVERDE CONSULTORIA </span>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> VISÃO RURAL PROJETOS E ASSESSORIA </span>
+
+                        <h1 style="color: green">W</h1>
+                        <div><span class="glyphicon glyphicon-tree-deciduous" style="color:green"></span> W B CONSULTORIA EMPRESARIAL </span>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div style="height: 100px;"></div>
+
+<!-- end body page    -->
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104762470-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+
+{% endblock %}

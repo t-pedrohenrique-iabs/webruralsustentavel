@@ -1,0 +1,309 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block base_content_css %}
+    <link rel="stylesheet" href="https://s3-sa-east-1.amazonaws.com/ruralsustentavel-cms-teste/site/css/home.css">
+{% endblock %}
+
+{% block base_content %}
+
+<style>
+    .nome-aba {
+        font-size: 30px;
+        width: 55%;
+        color: #FFF;
+        text-align: center;
+    }
+    .menu-float {
+        position: fixed;
+        border-radius: 0px 10px 10px 0px;
+        display: inline-flex;
+        width: 100%;
+        z-index: 999;
+    }
+    .op-float {
+        color: #FFF;
+        padding: 10px 10px;
+        background-color: #70AA2D;
+        width: 12.5%;
+        text-align: center
+    }
+    .op-float:hover {
+        background-color: #b3e47a;
+        cursor: pointer;
+        color: #08622E;
+    }
+    /*  bhoechie tab */
+    div.bhoechie-tab-container{
+        z-index: 10;
+        background-color: #ffffff;
+        padding: 0 !important;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        border:1px solid #ddd;
+        margin-top: 20px;
+        margin-left: 50px;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        background-clip: padding-box;
+        opacity: 0.97;
+        filter: alpha(opacity=97);
+        height: 1123px;
+    }
+    div.bhoechie-tab-menu{
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group{ margin-bottom: 0;}
+    div.bhoechie-tab-menu div.list-group>a{
+      margin-bottom: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a .fa {
+      color: #08622E;
+    }
+    div.bhoechie-tab-menu div.list-group>a:first-child{
+      border-top-right-radius: 0;
+      -moz-border-top-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a:last-child{
+      border-bottom-right-radius: 0;
+      -moz-border-bottom-right-radius: 0;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active,
+    div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+    div.bhoechie-tab-menu div.list-group>a.active .fa{
+      background-color: #08622E;
+      background-image: #08622E;
+      color: #ffffff;
+    }
+    div.bhoechie-tab-menu div.list-group>a.active:after{
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      margin-top: -13px;
+      border-left: 0;
+      border-bottom: 13px solid transparent;
+      border-top: 13px solid transparent;
+      border-left: 10px solid #08622E;
+    }
+    div.bhoechie-tab-content{
+      background-color: #ffffff;
+      /* border: 1px solid #eeeeee; */
+      padding-left: 20px;
+      padding-top: 10px;
+        height: 985px;
+        overflow: auto;
+    }
+    div.bhoechie-tab div.bhoechie-tab-content:not(.active){ display: none; }
+    .bhoechie-tab-content p { font-size: 16px; }
+    .banner_edital:hover {
+        background-color: #E6F5DE;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .banner_edital {
+        text-align: center;
+    }
+
+</style>
+
+    <div>
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="border-bottom:3px solid #70AA2D;margin-top: 30px;">
+                        <div class="nome-aba" style="background-color: #70AA2D;">Chamada de Unidades Multiplicadora Direcionada</div>
+                    </div>
+                </div>
+
+                <div class="col-md-offset-1 col-md-10">
+                    <a href="{% static "edital/um/edital_chamada_um_direcionada.pdf"%}" target="_blank">
+                        <h4>Baixe o edital completo em PDF <span class="glyphicon glyphicon-download-alt"></span></h4>
+                    </a>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-itema active text-center"><h4>1. Apresentação do Projeto Rural Sustentável</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>2. O que é a II Chamada de Propostas de Unidades Multiplicadoras (UM)?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>3. Quais as tecnologias de baixo carbono apoiadas pelo Projeto?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>4. Qual o público beneficiário?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>5. Quais são os benefícios?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>6. Como submeter a Proposta Técnica?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>7. Como é o processo de seleção?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>8. Quais são os critérios de seleção e avaliação?</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>9. Condições de privacidade</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>10. Documentação de suporte e modelos</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>11. Cronograma da Chamada de Propostas</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>12. Glossário</h4></a>
+                                    <a href="#" class="list-group-item text-center"><h4>13. Contato</h4></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                                <div class="bhoechie-tab-content active">
+                                    <h1>1. Apresentação do Projeto Rural Sustentável</h1>
+                                    <p>O objetivo do Projeto é melhorar a gestão da terra e das florestas por agricultores(as) nos biomas Amazônia e Mata Atlântica para o desenvolvimento rural sustentável, redução da pobreza, conservação da biodiversidade e proteção do clima; e promover a implantação de um projeto de grande escala que possa, contribuir para o desenvolvimento do Plano de Agricultura de Baixo Carbono (Plano ABC) através do fomento de implantação de tecnologias em propriedades rurais conforme previsto no Projeto Rural Sustentável – BR-X1028 (http://www.ruralsustentavel.org).</p>
+                                    <p>Este Projeto tem como executor e gestor financeiro o Banco Interamericano de Desenvolvimento (BID) e é financiado pelo Fundo Internacional para o Clima (International Climate Fund - ICF) do Ministério da Agricultura, da Alimentação, da Pesca e dos Assuntos Rurais do Governo Britânico (DEFRA), tendo como beneficiário o Ministério da Agricultura, Pecuária e Abastecimento (MAPA), por meio da Secretaria de Mobilidade Social, do Produtor Rural e do Cooperativismo.</p>
+                                    <p>O IABS – Instituto Brasileiro de Desenvolvimento e Sustentabilidade foi a instituição selecionada no processo seletivo SPD 16-072 para realizar os serviços de “execução e operacionalização de atividades administrativas e logísticas do projeto Rural Sustentável”, conforme contrato N o C0049-17, firmado entre o IABS e o BID. A presente Chamada de Propostas é parte das ações previstas neste contrato.</p>
+                                </div>
+
+                                <div class="bhoechie-tab-content">
+                                    <h1>2. O que é a II Chamada de Propostas de Unidades Multiplicadoras (UM)?</h1>
+                                    <p>A II Chamada de Propostas de Unidades Multiplicadoras apresenta as orientações para submissão de Propostas Técnicas (PTec) e os critérios de elegibilidade e avaliação das Unidades Multiplicadoras (UMs) e suas Áreas de Conservação Florestal (ACF) nos municípios participantes do Projeto. Esta Chamada visa selecionar novas Unidades Multiplicadoras (UMS) nos 70 municípios previstos no Projeto, com o intuito de que todos os municípios participantes do Projeto possam conter pelo menos 48 UMs, visando uma distribuição equitativa das UMs nos municípios do Projeto. Os proprietários destas UMs devem estar interessados(as) na implantação das tecnologias de baixo carbono apoiadas pelo Projeto e na conservação de áreas de florestas importantes para a proteção dos biomas Amazônia e Mata Atlântica.</p>
+                                    <p>Segundo o Projeto Rural Sustentável, uma Unidade Multiplicadora (UM) é uma área de produção rural onde será implantada uma ou mais tecnologias e atividades de adequação ambiental através do estabelecimento das Áreas de Conservação Florestal (ACF). O Projeto prevê o apoio de assistência técnica aos(às) produtores(as) rurais beneficiários(as) para planejamento, implantação e acompanhamento da UM e pagamento por resultados para produtores(as) rurais que alcançarem os objetivos propostos para a Proposta Técnica.</p>
+                                    <p>As Unidades Multiplicadoras para serem consideradas elegíveis deverão:</p>
+                                    <p>a) implantar uma ou mais tecnologias de baixo carbono apoiadas pelo Projeto;</p>
+                                    <p>b) ser implantadas em áreas degradadas, à exceção da tecnologia Manejo Sustentável de Florestas Nativas. Portanto, conforme o conceito do projeto, não poderá haver desmatamento para implantar a tecnologia de baixo carbono da UM apresentada na Proposta Técnica;</p>
+                                    <p>c) comprometer-se à adequação ambiental em Áreas de Preservação Permanente (APP) e/ou Reserva Legal (RL) com a delimitação de Áreas de Conservação Florestal (ACF) ou, no caso de ausência de ACF na propriedade, comprometer-se a efetuar a Recuperação de Áreas Degradadas com Florestas (RAD-F);</p>
+                                    <p>d) quando forem apresentadas na mesma Proposta Técnica a tecnologia Manejo Sustentável de Florestas Nativas e a Área de Conservação Florestal (ACF), devem ser diferenciadas espacialmente para que não haja risco de sobreposição.</p>
+                                    <p>Entende-se por Área Degradada uma área que, após distúrbio natural ou uso humano, apresenta-se sem cobertura florestal e com baixo potencial de regeneração natural.</p>
+                                    <p>Entende-se por pastagem degradada uma área com acentuada diminuição da produtividade agrícola ideal (diminuição da capacidade de suporte ideal), podendo ou não ter perdido a capacidade de manter produtividade biológica (acumular biomassa) significativa. Para o Projeto, Área de Pastagem Degradada está enquadrada em Área Degradada.</p>
+                                    <p>Entende-se por Floresta uma área mínima de terra de 1,0 hectare, com cobertura de copa superior a 30%, contendo árvores com o potencial de atingir uma altura mínima de 5 metros no estágio de maturidade no local.</p>
+                                    <p>Entende-se como Área de Conservação Florestal – ACF, no âmbito do Projeto Rural Sustentável, um fragmento de floresta contendo espécies representativas do Bioma Amazônia ou Mata Atlântica, o qual deverá ser conduzido pelo bom manejo e conservado de fatores degradantes, de forma a garantir a qualidade de suas funções quanto à conservação do bioma, proteção do clima e da biodiversidade. A Área de Conservação Florestal pode ser descontínua, ou seja, dividida em diferentes subáreas, desde que apresente no mínimo de 1 ha para cada subárea, sendo ainda desejável que possuam corredores ecológicos interligando-as. Estas áreas deverão estar devidamente identificadas no CAR (caso já possua) ou no croqui georreferenciado da propriedade. A ACF pode ser composta por Área de Preservação Permanente – APP e/ou Reserva Legal – RL.</p>
+                                    <p>Áreas de Preservação Permanente – APP é uma “área protegida, coberta ou não por vegetação nativa, com a função ambiental de preservar os recursos hídricos, a paisagem, a estabilidade geológica e a biodiversidade, facilitar o fluxo gênico de fauna e flora, proteger o solo e assegurar o bem-estar das populações humanas” (Lei N o 12.651/2012, Art. 3 o , inciso II).</p>
+                                    <p>Reserva Legal – RL refere-se a uma “área localizada no interior de uma propriedade ou posse rural [...] com a função de assegurar o uso econômico de modo sustentável dos recursos naturais do imóvel rural, auxiliar a conservação e a reabilitação dos processos ecológicos e promover a conservação da biodiversidade, bem como o abrigo e a proteção de fauna silvestre e da flora nativa” (Lei N o 12.651/2012, Art. 3 o , inciso III).</p>
+                                </div>
+
+                                <div class="bhoechie-tab-content">
+                                    <h1>3. Quais as tecnologias de baixo carbono apoiadas pelo Projeto?</h1>
+                                    <p>As tecnologias de baixo carbono apoiadas pelo Projeto são:</p>
+                                    <p>a. Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F);</p>
+                                    <p>b. Integração Lavoura, Pecuária e Florestas (iLPF), incluindo Sistemas Agroflorestais (SAFs);</p>
+                                    <p>c. Plantio de Florestas Comerciais;</p>
+                                    <p>d. Manejo Sustentável de Florestas Nativas.</p>
+                                    <p>Segue o detalhamento das características de cada uma das tecnologias de Baixo Carbono, referência para esta Chamada de Propostas.</p>
+                                    <p><strong>a) Recuperação de Áreas Degradadas com Pastagem (RAD-P) e Recuperação de Área Degradada com Floresta (RAD-F)</strong></p>
+                                    <p>Recuperar uma área degradada significa revertê-la de uma condição degradada para uma condição produtiva, independente do estado em que estava originalmente e de sua destinação futura. Assim, é possível recuperar a integridade física, química e biológica de uma área (estrutura) e, ao mesmo tempo, recuperar sua capacidade produtiva (função), seja na produção de alimentos e matérias-primas ou em suas funções ecológicas e ecossistêmicas. Para esta tecnologia, a Recuperação de Áreas Degradadas poderá ser realizada com Pastagem (RAD-P) ou com Florestas (RAD-F).</p>
+                                    <p>A Recuperação de Área Degradada com Pastagem –RAD-P deverá ser descrita na Proposta Técnica em termos de: área (ha); objetivos produtivos (gado, carne, leite, outros); produção esperada; técnicas e cronograma de implantação; manejo da pastagem, de acordo com as espécies escolhidas; capacidade de suporte animal; e legislação ambiental vigente.</p>
+                                    <p>Caso a Proposta Técnica não apresente ACFs, esta tecnologia, RAD-P, só será elegível se estiver associada à proposição de Recuperação de Área Degradada com Floresta – RAD-F, com tamanho mínimo de 1ha.</p>
+
+									<p>Para a Recuperação de Áreas Degradadas com Pastagem (RAD-P), deve-se:</p>
+									<p>- implantar a tecnologia em área degradada, localizada em áreas permitidas pelo Novo Código Florestal e demais legislações vigentes, respeitando-se as Áreas de Preservação Permanente (APP) e Reserva Legal (RL);</p>
+									<p>- listar as principais causas da degradação;</p>
+									<p>- apresentar descrição das técnicas de implantação e manejo da pastagem e da(s) espécie(s) a ser(em) utilizada(s);</p>
+									<p>- relacionar atividades de implantação, tratos culturais e manejo com o cronograma de atividades planejado;</p>
+									<p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica;</p>
+									<p>- evitar aração ou gradagem para minimizar impactos e, preferencialmente, adotar o uso de adubação nitrogenada através de leguminosas;</p>
+									<p>- nos casos que incluam criação de gado, manter um número de animais menor ou igual à capacidade de lotação animal por unidade de área de pastagem, levando-se em consideração o tipo de solo, as condições da pastagem, as raças dos animais, o hábito de pastoreio, entre outros;</p>
+
+									<p>Para o Projeto Rural Sustentável, a tecnologia de integração Lavoura-Pecuária (iLP) se enquadra em Recuperação de Áreas Degradadas com Pastagem (RAD-P).</p>
+
+									<p>A Recuperação de Áreas Degradadas com Florestas –RAD-F, tem como objetivo principal a recuperação do bioma e a conservação ambiental de Áreas de Preservação Permanente – APP e Reserva Legal – RL, sendo que a produção comercial seria um objetivo secundário; esse é o fator que diferencia esta tecnologia de RAD-F da tecnologia de Plantio de Florestas Comerciais.</p>
+									<p>Para Recuperação de Áreas Degradadas com Florestas (RAD-F), deve-se:</p>
+
+									<p>- implantar a tecnologia em área degradada, considerando-se a sua localização em áreas de passivo ambiental da propriedade, podendo contribuir para a recuperação de Áreas de Preservação Permanente - APP e Reserva Legal - RL, de acordo com o Novo Código Florestal e as regulamentações de âmbito estadual e municipal;</p>
+									<p>- listar as principais causas da degradação da área;</p>
+									<p>- para a recuperação de APP, dar atenção especial para a escolha da técnica de recuperação (condução da regeneração natural, enriquecimento, nucleação, plantio em área total) e das espécies florestais que deverão ser aquelas indicadas por órgãos de pesquisa e extensão de referência e de literatura especializada, buscando-se a recomposição do respectivo bioma, associado ou não a espécies exóticas, respeitando-se a legislação vigente;</p>
+									<p>- descrever as técnicas de implantação e manutenção, tratos culturais e escolha da(s) espécie(s) utilizada(s);</p>
+									<p>- apresentar dados de produtividade esperada (se for o caso) e os indicadores simplificados de viabilidade econômica;</p>
+									<p>- tratando-se de recuperação de APP úmida (mata ciliar, entorno de nascentes, várzeas, entre outros), dar atenção na utilização dos insumos químicos, caso sejam aplicados, a fim de se evitar a contaminação dos recursos hídricos.</p>
+
+									<p><strong>b) Sistemas de integração Lavoura-Pecuária-Florestas – iLPF, incluindo Sistemas Agroflorestais – SAF</strong></p>
+									<p>Os sistemas de produção integrados visam à produção sustentável, integrando componentes agrícolas, pastoris e florestais realizados numa mesma área, em cultivo consorciado, em sucessão ou rotacionado, e também buscando-se efeitos sinérgicos entre seus componentes, contemplando a adequação ambiental e a viabilidade econômica.</p>
+
+									<p>Os tipos de sistemas de produção integrados irão variar em função do tempo, espaço e objetivos dos(as) produtores(as) rurais, e deverão seguir algumas condições específicas, conforme cada tipo:</p>
+
+									<p>Sistema de integração Lavoura-Pecuária-Florestas (iLPF): este sistema também é conhecido como sistema Agrossilvipastoril e obrigatoriamente deverá conter, na mesma área, componentes agrícolas (culturas anuais ou semiperenes de baixo porte ou rasteiro), componentes pastoris (gramíneas associadas à criação animal) e componente florestal (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas). Tais atividades poderão ocorrer em rotação, consorciação e/ou sucessão. Para manter a sustentabilidade do sistema, ressalta-se que o número de animais manejados na área deverá ser menor ou igual à capacidade de lotação animal por unidade de área de pastagem. A capacidade de lotação deverá ser determinada levando-se em consideração o tipo de solo, a condição da pastagem, o tipo de animal, o seu hábito de pastoreio, entre outros fatores.</p>
+
+									<p>Sistemas Agroflorestais (SAF): obrigatoriamente deverá conter consórcio de componentes agrícolas (culturas anuais ou semiperenes de baixo porte ou rasteiro) e florestais (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas).</p>
+									<p>Sistema Silvipastoril (SSP): obrigatoriamente deverá conter consórcio de componentes pastoris (gramíneas associadas à criação animal) e florestais (espécies arbóreas, semiperenes ou perenes, frutíferas ou lenhosas).</p>
+									<p>A Proposta Técnica deverá apresentar TODAS as espécies agrícolas anuais, gramíneas e florestais utilizadas.</p>
+									<p>Atenção especial deverá ser dada à escolha das espécies para cada sistema, considerando-se as condições ambientais locais e a interação entre as culturas.</p>
+									<p>Sistema de integração Lavoura-Pecuária (iLP) ou Agropastoril: Para o Projeto Rural Sustentável, esta modalidade iLP será SEMPRE enquadrada como tecnologia de Recuperação de Áreas Degradadas com Pastagem (RAD-P), devido a ausência do componente florestal na tecnologia</p>
+
+									<p>Para os sistemas de iLPF, deve-se:</p>
+									<p>- implantar a tecnologia em área degradada e que não apresente cobertura florestal, ou seja, não poderá haver desmatamento para implantar a tecnologia;</p>
+									<p>- listar as principais causas da degradação;</p>
+									<p>- utilizar espécies nativas ou exóticas ao bioma, desde que seu comportamento ecológico seja conhecido através de pesquisas e práticas anteriores e, portanto, não apresente riscos de colonização indesejada ao ambiente;</p>
+									<p>- apresentar descrição das técnicas de implantação, tratos culturais e manejo da(s) espécie(s) a ser(em) utilizada(s);</p>
+									<p>- relacionar atividades de implantação e manejo com cronograma de atividades;</p>
+									<p>- apresentar dados de produtividade esperada e indicadores simplificados de viabilidade econômica;</p>
+									<p>- seguir as orientações do órgão ambiental competente para implantação e colheita (autorizações, licenças, etc.).</p>
+									<p><strong>c) Plantio de Florestas Comerciais</strong></p>
+
+									<p>O Plantio de Florestas Comerciais é importante não apenas do ponto de vista produtivo, mas também do ponto de vista da conservação ambiental. As florestas comerciais diminuem a pressão sobre as florestas naturais, fornecem matéria-prima para diferentes usos industriais e não industriais, e contribuem para a provisão de diversos serviços ambientais e sociais. Esta tecnologia não se restringe a espécies exóticas com fins madeireiros, pelo contrário, abrange qualquer plantio de espécies arbóreas em sistema puro, isto é, que não seja sistema de integração com componentes agrícolas e/ou pastoris. Assim, toda implantação de plantios de espécies arbóreas para fins de fruticultura, produção de sementes/grãos, resina, entre outros fins, que não utilizarem espécies anuais ou gramíneas na fase inicial de sua implantação, se enquadram nesta tecnologia.</p>
+									<p>Quando a implantação florestal está integrada com estes outros componentes, se enquadrará na tecnologia de iLPF, descrita acima.</p>
+									<p>Para o Plantio de Florestas Comerciais, deve-se:</p>
+									<p>- implantar a tecnologia em área degradada e que não apresente cobertura florestal, ou seja, não poderá haver desmatamento para implantar a tecnologia;</p>
+									<p>- listar as principais causas da degradação;</p>
+									<p>- utilizar espécies nativas ou exóticas ao bioma, desde que seu comportamento ecológico seja conhecido através de pesquisas e práticas anteriores e, portanto, não apresente riscos de colonização indesejada ao ambiente;</p>
+									<p>- listar as espécies que serão utilizadas e sua origem;</p>
+									<p>- apresentar descrição das técnicas de implantação, tratos culturais e manejo da(s) espécie(s) a ser(em) utilizada(s);</p>
+									<p>- relacionar atividades de implantação e manejo com cronograma de atividades;</p>
+									<p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica;</p>
+									<p>- seguir as orientações do órgão ambiental competente para implantação e colheita (autorizações, licenças, etc.).</p>
+
+									<p><strong>d) Manejo Sustentável de Florestas Nativas</strong></p>
+									<p>O Manejo Florestal Sustentável, segundo a Lei de Gestão de Florestas Públicas (Lei Federal N o 11.284/2006), é a “administração da floresta para a obtenção de benefícios econômicos, sociais e ambientais, respeitando-se os mecanismos de sustentação do ecossistema objeto do manejo e considerando-se, cumulativa ou alternativamente, a utilização de múltiplas espécies madeireiras, de múltiplos produtos e subprodutos não-madeireiros, bem como a utilização de outros bens e serviços de natureza florestal”. O princípio que rege o manejo florestal é o planejamento nas etapas pré-exploratória, exploratória e pós-exploratória.</p>
+
+									<p>Para as atividades de Manejo Sustentável de Florestas Nativas, deve-se:</p>
+									<p>- apresentar, no caso de Manejo Florestal Madeireiro, cópia do Plano de Manejo Florestal Sustentável (PMFS) aprovado pelo órgão ambiental competente, do Plano de Operação Anual (POA), Documento de Origem Florestal (DOF), caso já esteja em fase de comercialização, e todas as certidões necessárias requeridas conforme determinação do órgão ambiental competente e o estágio de execução do PMFS;</p>
+									<p>- descrever ações compensatórias de reposição florestal para as propostas de manejo de produtos florestais madeireiros ou que impliquem na retirada e morte dos indivíduos manejados;</p>
+									<p>- apresentar, em caso de Manejo Florestal Não-Madeireiro, Plano de Manejo Simplificado, conforme legislação competente, com descrição da seleção da(s) espécie(s) manejada(s) e técnicas que serão adotadas;</p>
+									<p>- apresentar dados de produtividade esperada e os indicadores simplificados de viabilidade econômica.</p>
+
+									<p>Uma Proposta Técnica que contenha a tecnologia de Manejo Sustentável de Florestas Nativas e Área de Conservação Florestal (ACF), deve diferenciar espacialmente estas áreas para que não haja risco de sobreposição.</p>
+									<p>Para o Bioma Amazônia, poderão ser aceitas atividades com fins madeireiros, não-madeireiros e de usos múltiplos.</p>
+									<p>Para o Bioma Mata Atlântica, o Projeto Rural Sustentável incentiva o manejo não-madeireiro que pode abranger atividades melíferas, manejo do cacau cabruca no sub-bosque da floresta, coleta e produção de sementes de espécies florestais representativas do bioma, manejo não madeireiro da erva mate, da araucária, da piaçava, do fruto da jussara e outras espécies de ocorrência no Bioma.</p>
+
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>4. Qual o público beneficiário?</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>5. Quais são os benefícios?</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>6. Como submeter a Proposta Técnica?</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>7. Como é o processo de seleção?</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>8. Quais são os critérios de seleção e avaliação?</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>9. Condições de privacidade</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>10. Documentação de suporte e modelos</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>11. Cronograma da Chamada de Propostas</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>12. Glossário</h1>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <h1>13. Contato</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div style="height: 100px;"></div>
+
+<script>
+  $(document).ready(function() {
+      $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+          e.preventDefault();
+          $(this).siblings('a.active').removeClass("active");
+          $(this).addClass("active");
+          var index = $(this).index();
+          $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+          $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+      });
+  });
+</script>
+
+
+{% endblock %}
